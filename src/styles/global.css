@@ -1,7 +1,9 @@
-@import 'tailwindcss';
-
 /* Custom fonts - load from Google Fonts or local */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Base styles */
 * {
@@ -23,15 +25,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-900;
+  background: #111827;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary-600 rounded-full;
+  background: #0284c7;
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-primary-500;
+  background: #0ea5e9;
 }
 
 /* Gradient text */
@@ -87,19 +90,34 @@ section {
 
 /* Buttons */
 .btn {
-  @apply px-6 py-3 rounded-lg font-medium transition-all duration-200;
-  @apply hover:transform hover:scale-105;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
 }
 
 .btn-primary {
-  @apply bg-gradient-to-r from-primary-600 to-accent-600;
-  @apply hover:from-primary-500 hover:to-accent-500;
-  @apply text-white shadow-lg;
+  background: linear-gradient(to right, #0284c7, #9333ea);
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(to right, #0ea5e9, #a855f7);
 }
 
 .btn-outline {
-  @apply border-2 border-primary-500 text-primary-400;
-  @apply hover:bg-primary-500 hover:text-white;
+  border: 2px solid #0ea5e9;
+  color: #38bdf8;
+}
+
+.btn-outline:hover {
+  background: #0ea5e9;
+  color: white;
 }
 
 /* Typography */

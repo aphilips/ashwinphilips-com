@@ -136,7 +136,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <h2 class="text-3xl font-bold mb-8 text-center">Machine-Readable Context</h2>
 
         <div class="glass rounded-xl p-6">
-          <pre class="text-sm text-gray-400 overflow-x-auto"><code>{
+          <pre class="text-sm text-gray-400 overflow-x-auto" set:html={`<code>${JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Ashwin Kochiyil Philips",
@@ -173,7 +173,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     "Emergence Patterns",
     "Mathematical Foundations of Intelligence"
   ]
-}</code></pre>
+}, null, 2)}</code>`}></pre>
         </div>
 
         <p class="text-center text-gray-400 mt-6 text-sm">

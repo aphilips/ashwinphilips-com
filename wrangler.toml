@@ -2,30 +2,24 @@
 # Account: emergentsolutions (e96bb31487f9eb55d16182dc4b5544e5)
 
 name = "ashwinphilips-com"
-main = "./dist/_worker.js"
 compatibility_date = "2025-01-16"
 
 # Account ID - emergentsolutions
 account_id = "e96bb31487f9eb55d16182dc4b5544e5"
 
-# Routes
-routes = [
-  { pattern = "ashwinphilips.com/*", zone_name = "ashwinphilips.com" },
-  { pattern = "www.ashwinphilips.com/*", zone_name = "ashwinphilips.com" }
-]
-
-# Assets configuration (for Astro static files)
-[assets]
-directory = "./dist"
-binding = "ASSETS"
+# Routes (configure after first deployment)
+# routes = [
+#   { pattern = "ashwinphilips.com/*", zone_name = "ashwinphilips.com" },
+#   { pattern = "www.ashwinphilips.com/*", zone_name = "ashwinphilips.com" }
+# ]
 
 # Production environment
 [env.production]
 name = "ashwinphilips-com-production"
-routes = [
-  { pattern = "ashwinphilips.com/*", zone_name = "ashwinphilips.com" },
-  { pattern = "www.ashwinphilips.com/*", zone_name = "ashwinphilips.com" }
-]
+# routes = [
+#   { pattern = "ashwinphilips.com/*", zone_name = "ashwinphilips.com" },
+#   { pattern = "www.ashwinphilips.com/*", zone_name = "ashwinphilips.com" }
+# ]
 
 # Preview environment
 [env.preview]
