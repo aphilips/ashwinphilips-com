@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Ashwin Philips - Systems Architect, AI Researcher, Music Producer"
+  description="Building emergent systems at the intersection of AI, physics, and consciousness. Founder of Emergent Solutions."
+>
+  <!-- Hero Section with Particle Background -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Three.js Particle Field -->
+    <div id="particle-field" class="absolute inset-0 three-container"></div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 container text-center">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="gradient-text mb-6 fade-in">
+          Ashwin Philips
+        </h1>
+
+        <p class="text-2xl md:text-3xl text-gray-300 mb-4 fade-in stagger-1">
+          Systems Architect • AI Researcher • Music Producer
+        </p>
+
+        <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto fade-in stagger-2">
+          Building emergent systems at the intersection of artificial intelligence,
+          physics, and consciousness.
+        </p>
+
+        <div class="flex flex-wrap gap-4 justify-center fade-in stagger-3">
+          <a href="/work" class="btn btn-primary">
+            Explore My Work
+          </a>
+          <a href="/research" class="btn btn-outline">
+            View Research
+          </a>
+          <a href="/music" class="btn btn-outline">
+            Listen to Music
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-float">
+        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Work -->
+  <section class="bg-gradient-to-b from-black to-gray-900">
+    <div class="container">
+      <h2 class="text-center gradient-text mb-16">
+        Featured Work
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- EmergentHQ -->
+        <div class="glass rounded-xl p-8 hover:glow transition-all group">
+          <div class="text-4xl mb-4">🧠</div>
+          <h3 class="text-2xl font-bold mb-4 group-hover:text-primary-400 transition-colors">
+            Emergent Solutions
+          </h3>
+          <p class="text-gray-400 mb-6">
+            Building distributed intelligence systems that scale across autonomous agents and human collaboration.
+          </p>
+          <a href="/work#emergenthq" class="text-primary-400 hover:text-primary-300 inline-flex items-center gap-2">
+            Learn more
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- AI Research -->
+        <div class="glass rounded-xl p-8 hover:glow transition-all group">
+          <div class="text-4xl mb-4">🔬</div>
+          <h3 class="text-2xl font-bold mb-4 group-hover:text-primary-400 transition-colors">
+            AI & Physics Research
+          </h3>
+          <p class="text-gray-400 mb-6">
+            Exploring consciousness emergence, quantum computing applications, and the mathematical foundations of intelligence.
+          </p>
+          <a href="/research" class="text-primary-400 hover:text-primary-300 inline-flex items-center gap-2">
+            View research
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Music Production -->
+        <div class="glass rounded-xl p-8 hover:glow transition-all group">
+          <div class="text-4xl mb-4">🎵</div>
+          <h3 class="text-2xl font-bold mb-4 group-hover:text-primary-400 transition-colors">
+            Music Production
+          </h3>
+          <p class="text-gray-400 mb-6">
+            Composing and producing at the intersection of electronic, ambient, and experimental sound design.
+          </p>
+          <a href="/music" class="text-primary-400 hover:text-primary-300 inline-flex items-center gap-2">
+            Listen now
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy Section -->
+  <section class="bg-black">
+    <div class="container">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="gradient-text mb-8">Building Intelligence That Thinks</h2>
+        <p class="text-xl text-gray-300 leading-relaxed mb-8">
+          My work sits at the convergence of artificial intelligence, theoretical physics,
+          and systems architecture. I believe the future of intelligence is <span class="text-primary-400 font-semibold">emergent</span>,
+          <span class="text-accent-400 font-semibold">distributed</span>, and
+          <span class="text-primary-400 font-semibold">conscious</span>.
+        </p>
+        <p class="text-lg text-gray-400 leading-relaxed">
+          Through Emergent Solutions and collaborative research, I'm building the infrastructure
+          for autonomous systems that can reason, adapt, and create alongside humans.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-gradient-to-b from-black to-gray-900">
+    <div class="container">
+      <div class="glass rounded-2xl p-12 text-center max-w-3xl mx-auto">
+        <h2 class="text-4xl font-bold mb-6">Let's Build Together</h2>
+        <p class="text-xl text-gray-300 mb-8">
+          Whether you're interested in collaboration, research partnerships, or just want to connect,
+          I'd love to hear from you.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a href="/contact" class="btn btn-primary">
+            Get in Touch
+          </a>
+          <a href="/projects" class="btn btn-outline">
+            View All Projects
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Initialize particle field
+  document.addEventListener('DOMContentLoaded', async () => {
+    const container = document.getElementById('particle-field');
+    if (container) {
+      const { initParticleField } = await import('../components/ParticleField.ts');
+      initParticleField(container);
+    }
+  });
+</script>

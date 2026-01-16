@@ -1,0 +1,213 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact - Ashwin Philips"
+  description="Get in touch with Ashwin Philips for collaboration, research partnerships, or general inquiries."
+>
+  <!-- Hero -->
+  <section class="pt-32 pb-20">
+    <div class="container">
+      <h1 class="gradient-text mb-6 text-center">Let's Connect</h1>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto text-center">
+        Whether you're interested in collaboration, research partnerships, or just
+        want to have an interesting conversation, I'd love to hear from you.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Options -->
+  <section class="bg-gradient-to-b from-black to-gray-900">
+    <div class="container">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+          <!-- Email -->
+          <div class="glass rounded-xl p-8 text-center hover:glow transition-all">
+            <div class="text-5xl mb-4">📧</div>
+            <h3 class="text-xl font-bold mb-4">Email</h3>
+            <a href="mailto:ashwin@emergenthq.com" class="text-primary-400 hover:text-primary-300">
+              ashwin@emergenthq.com
+            </a>
+          </div>
+
+          <!-- LinkedIn -->
+          <div class="glass rounded-xl p-8 text-center hover:glow transition-all">
+            <div class="text-5xl mb-4">💼</div>
+            <h3 class="text-xl font-bold mb-4">LinkedIn</h3>
+            <a href="https://linkedin.com/in/ashwinphilips" target="_blank" class="text-primary-400 hover:text-primary-300">
+              /in/ashwinphilips
+            </a>
+          </div>
+
+          <!-- GitHub -->
+          <div class="glass rounded-xl p-8 text-center hover:glow transition-all">
+            <div class="text-5xl mb-4">💻</div>
+            <h3 class="text-xl font-bold mb-4">GitHub</h3>
+            <a href="https://github.com/aphilips" target="_blank" class="text-primary-400 hover:text-primary-300">
+              @aphilips
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="glass rounded-2xl p-8 md:p-12">
+          <h2 class="text-2xl font-bold mb-8 text-center">Send a Message</h2>
+
+          <form
+            class="space-y-6"
+            x-data="{
+              submitting: false,
+              submitted: false,
+              async handleSubmit(e) {
+                e.preventDefault();
+                this.submitting = true;
+
+                // TODO: Implement actual form submission
+                // This would connect to a Cloudflare Worker endpoint
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                this.submitting = false;
+                this.submitted = true;
+                e.target.reset();
+              }
+            }"
+            @submit="handleSubmit"
+          >
+            <div class="grid md:grid-cols-2 gap-6">
+              <!-- Name -->
+              <div>
+                <label for="name" class="block text-sm font-medium mb-2">
+                  Name *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  class="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg focus:border-primary-500 focus:outline-none transition-colors"
+                  placeholder="Your name"
+                />
+              </div>
+
+              <!-- Email -->
+              <div>
+                <label for="email" class="block text-sm font-medium mb-2">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg focus:border-primary-500 focus:outline-none transition-colors"
+                  placeholder="your@email.com"
+                />
+              </div>
+            </div>
+
+            <!-- Subject -->
+            <div>
+              <label for="subject" class="block text-sm font-medium mb-2">
+                Subject *
+              </label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                required
+                class="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg focus:border-primary-500 focus:outline-none transition-colors"
+                placeholder="What would you like to discuss?"
+              />
+            </div>
+
+            <!-- Message -->
+            <div>
+              <label for="message" class="block text-sm font-medium mb-2">
+                Message *
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows="6"
+                class="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg focus:border-primary-500 focus:outline-none transition-colors resize-none"
+                placeholder="Tell me more..."
+              ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div>
+              <button
+                type="submit"
+                class="btn btn-primary w-full"
+                x-bind:disabled="submitting"
+              >
+                <span x-show="!submitting && !submitted">Send Message</span>
+                <span x-show="submitting">Sending...</span>
+                <span x-show="submitted" x-transition>Message Sent! ✓</span>
+              </button>
+            </div>
+
+            <!-- Success Message -->
+            <div
+              x-show="submitted"
+              x-transition
+              class="p-4 bg-green-600/20 border border-green-600/50 rounded-lg text-center text-green-400"
+            >
+              Thanks for reaching out! I'll get back to you soon.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What I'm Looking For -->
+  <section class="bg-black">
+    <div class="container">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8 text-center">Open To</h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="glass rounded-xl p-6">
+            <h3 class="text-xl font-bold mb-3 text-primary-400">Research Collaboration</h3>
+            <p class="text-gray-300">
+              Joint research projects in AI, consciousness, distributed systems,
+              or theoretical foundations of intelligence.
+            </p>
+          </div>
+
+          <div class="glass rounded-xl p-6">
+            <h3 class="text-xl font-bold mb-3 text-accent-400">Technical Partnerships</h3>
+            <p class="text-gray-300">
+              Building production systems, infrastructure projects, or platforms
+              that require deep technical expertise.
+            </p>
+          </div>
+
+          <div class="glass rounded-xl p-6">
+            <h3 class="text-xl font-bold mb-3 text-primary-400">Music Collaboration</h3>
+            <p class="text-gray-300">
+              Production work, composition projects, sound design, or
+              experimental audio collaborations.
+            </p>
+          </div>
+
+          <div class="glass rounded-xl p-6">
+            <h3 class="text-xl font-bold mb-3 text-accent-400">Speaking & Writing</h3>
+            <p class="text-gray-300">
+              Conference talks, podcast appearances, technical writing, or
+              educational content creation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Form submission would be handled by Alpine.js (already included in BaseLayout)
+  // TODO: Connect to actual Cloudflare Worker endpoint for form processing
+</script>

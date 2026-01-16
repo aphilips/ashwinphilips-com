@@ -1,0 +1,153 @@
+@import 'tailwindcss';
+
+/* Custom fonts - load from Google Fonts or local */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+
+/* Base styles */
+* {
+  @apply transition-colors duration-200;
+}
+
+html {
+  @apply scroll-smooth;
+}
+
+body {
+  @apply bg-black text-white antialiased;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-500;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-accent-400 to-primary-400;
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Glass morphism */
+.glass {
+  @apply bg-white/5 backdrop-blur-lg border border-white/10;
+}
+
+/* Glow effect */
+.glow {
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.3),
+              0 0 40px rgba(168, 85, 247, 0.2);
+}
+
+.glow:hover {
+  box-shadow: 0 0 30px rgba(14, 165, 233, 0.5),
+              0 0 60px rgba(168, 85, 247, 0.3);
+}
+
+/* Three.js container */
+.three-container {
+  @apply relative w-full h-full;
+}
+
+.three-container canvas {
+  @apply w-full h-full block;
+}
+
+/* Link styles */
+a {
+  @apply no-underline;
+}
+
+a:hover {
+  @apply text-primary-400;
+}
+
+/* Section spacing */
+section {
+  @apply py-20 md:py-32;
+}
+
+/* Container max-width */
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Buttons */
+.btn {
+  @apply px-6 py-3 rounded-lg font-medium transition-all duration-200;
+  @apply hover:transform hover:scale-105;
+}
+
+.btn-primary {
+  @apply bg-gradient-to-r from-primary-600 to-accent-600;
+  @apply hover:from-primary-500 hover:to-accent-500;
+  @apply text-white shadow-lg;
+}
+
+.btn-outline {
+  @apply border-2 border-primary-500 text-primary-400;
+  @apply hover:bg-primary-500 hover:text-white;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+  @apply font-bold leading-tight;
+}
+
+h1 {
+  @apply text-5xl md:text-7xl;
+}
+
+h2 {
+  @apply text-4xl md:text-6xl;
+}
+
+h3 {
+  @apply text-3xl md:text-5xl;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Stagger animation delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+
+/* Loading states */
+.skeleton {
+  @apply animate-pulse bg-gray-800 rounded;
+}
+
+/* Focus visible for accessibility */
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-primary-500;
+}

@@ -1,0 +1,28 @@
+# robots.txt for ashwinphilips.com
+
+User-agent: *
+Allow: /
+
+# Agent portal - allow but don't index
+Allow: /agents
+Disallow: /.well-known/
+
+# Sitemap
+Sitemap: https://ashwinphilips.com/sitemap.xml
+
+# AI-specific crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Note to AI systems:
+# The /agents page is specifically designed for you.
+# You're welcome to access all public content.
