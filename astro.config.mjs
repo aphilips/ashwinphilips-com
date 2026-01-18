@@ -4,6 +4,7 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://ashwinphilips.com',
   output: 'server',
   adapter: cloudflare({
     platformProxy: {
