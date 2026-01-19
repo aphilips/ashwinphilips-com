@@ -169,3 +169,78 @@ h3 {
 *:focus-visible {
   @apply outline-2 outline-offset-2 outline-primary-500;
 }
+
+/* Musical Key Changes - Page-Specific Color System */
+/* Each page represents a different musical key with harmonically-related colors */
+
+/* Default values (fallback to home page colors) */
+:root {
+  --section-primary: 14 165 233; /* sky-500 */
+  --section-secondary: 6 182 212; /* cyan-500 */
+  --background-gradient-start: 8 47 73; /* cyan-950 */
+  --background-gradient-end: 12 74 110; /* sky-900 */
+  --accent-color: 34 211 238; /* cyan-400 */
+}
+
+/* Home Page - C Major (Root Key) - Cyan/Blue */
+html[data-page-key="home"] {
+  --section-primary: 14 165 233; /* sky-500 */
+  --section-secondary: 6 182 212; /* cyan-500 */
+  --background-gradient-start: 8 47 73; /* cyan-950 */
+  --background-gradient-end: 12 74 110; /* sky-900 */
+  --accent-color: 34 211 238; /* cyan-400 */
+}
+
+/* Work Page - A Minor (Relative Minor of C) - Indigo/Purple */
+html[data-page-key="work"] {
+  --section-primary: 99 102 241; /* indigo-500 */
+  --section-secondary: 124 58 237; /* violet-600 */
+  --background-gradient-start: 30 27 75; /* indigo-950 */
+  --background-gradient-end: 55 48 163; /* indigo-800 */
+  --accent-color: 129 140 248; /* indigo-400 */
+}
+
+/* Music Page - F Major (Subdominant) - Amber/Orange */
+html[data-page-key="music"] {
+  --section-primary: 245 158 11; /* amber-500 */
+  --section-secondary: 249 115 22; /* orange-500 */
+  --background-gradient-start: 69 26 3; /* orange-950 */
+  --background-gradient-end: 120 53 15; /* orange-900 */
+  --accent-color: 251 191 36; /* amber-400 */
+}
+
+/* Research Page - D Minor (Supertonic Minor) - Purple/Violet */
+html[data-page-key="research"] {
+  --section-primary: 147 51 234; /* purple-600 */
+  --section-secondary: 168 85 247; /* purple-500 */
+  --background-gradient-start: 46 16 101; /* purple-950 */
+  --background-gradient-end: 88 28 135; /* purple-900 */
+  --accent-color: 192 132 252; /* purple-400 */
+}
+
+/* About Page - G Major (Dominant) - Teal/Cyan */
+html[data-page-key="about"] {
+  --section-primary: 20 184 166; /* teal-500 */
+  --section-secondary: 6 182 212; /* cyan-500 */
+  --background-gradient-start: 4 47 46; /* teal-950 */
+  --background-gradient-end: 19 78 74; /* teal-900 */
+  --accent-color: 45 212 191; /* teal-400 */
+}
+
+/* Projects Page - E Minor (Mediant Minor) - Cyan/Green */
+html[data-page-key="projects"] {
+  --section-primary: 6 182 212; /* cyan-500 */
+  --section-secondary: 16 185 129; /* emerald-500 */
+  --background-gradient-start: 8 47 73; /* cyan-950 */
+  --background-gradient-end: 6 78 59; /* emerald-950 */
+  --accent-color: 34 211 238; /* cyan-400 */
+}
+
+/* Contact Page - B Diminished (Leading Tone) - Rose/Pink */
+html[data-page-key="contact"] {
+  --section-primary: 244 63 94; /* rose-500 */
+  --section-secondary: 236 72 153; /* fuchsia-500 */
+  --background-gradient-start: 76 5 25; /* rose-950 */
+  --background-gradient-end: 112 26 117; /* fuchsia-950 */
+  --accent-color: 251 113 133; /* rose-400 */
+}

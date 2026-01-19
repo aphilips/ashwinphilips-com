@@ -8,26 +8,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Section-based color system using CSS variables
-        // These change dynamically based on data-section attribute
+        // Page-specific color system using CSS variables
+        // These change dynamically based on data-page-key attribute
         section: {
-          primary: 'var(--accent-primary)',
-          secondary: 'var(--accent-secondary)',
-          light: 'var(--accent-light)',
-          dark: 'var(--accent-dark)',
-          glow: 'var(--accent-glow)',
+          primary: 'rgb(var(--section-primary) / <alpha-value>)',
+          secondary: 'rgb(var(--section-secondary) / <alpha-value>)',
         },
         background: {
-          primary: 'var(--bg-primary)',
-          secondary: 'var(--bg-secondary)',
-          'gradient-start': 'var(--bg-gradient-start)',
-          'gradient-end': 'var(--bg-gradient-end)',
+          'gradient-start': 'rgb(var(--background-gradient-start) / <alpha-value>)',
+          'gradient-end': 'rgb(var(--background-gradient-end) / <alpha-value>)',
         },
-        text: {
-          primary: 'var(--text-primary)',
-          secondary: 'var(--text-secondary)',
-          muted: 'var(--text-muted)',
-        },
+        accent: 'rgb(var(--accent-color) / <alpha-value>)',
         // Static brand colors for elements that don't change
         brand: {
           cyan: {
