@@ -4,22 +4,12 @@
 name = "ashwinphilips-com"
 compatibility_date = "2025-01-16"
 
-# Account ID - emergentsolutions
+# Account ID - emergentHQ-net (worker deployed here due to account limits)
 account_id = "e96bb31487f9eb55d16182dc4b5544e5"
-
-# Routes (configure after first deployment)
-# routes = [
-#   { pattern = "ashwinphilips.com/*", zone_name = "ashwinphilips.com" },
-#   { pattern = "www.ashwinphilips.com/*", zone_name = "ashwinphilips.com" }
-# ]
 
 # Production environment
 [env.production]
 name = "ashwinphilips-com-production"
-# routes = [
-#   { pattern = "ashwinphilips.com/*", zone_name = "ashwinphilips.com" },
-#   { pattern = "www.ashwinphilips.com/*", zone_name = "ashwinphilips.com" }
-# ]
 
 # Preview environment
 [env.preview]

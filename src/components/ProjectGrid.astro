@@ -1,0 +1,189 @@
+---
+// Flowbite Pro Project Grid - Adapted for Portfolio
+// Based on EmergentHQ ArticleCardGrid pattern
+interface Project {
+  title: string;
+  description: string;
+  category: string;
+  icon?: string;
+  tags?: string[];
+  link?: string;
+  featured?: boolean;
+}
+
+interface Props {
+  projects: Project[];
+  columns?: 'auto' | 1 | 2 | 3;
+  sectionKey?: 'work' | 'research' | 'music' | 'projects';
+}
+
+const { projects, columns = 'auto', sectionKey = 'work' } = Astro.props;
+
+// Category color mapping - matches musical keys
+const categoryColorMap: Record<
+  string,
+  { bg: string; text: string; darkBg: string; darkText: string }
+> = {
+  systems: {
+    bg: 'bg-indigo-100',
+    text: 'text-indigo-800',
+    darkBg: 'dark:bg-indigo-900',
+    darkText: 'dark:text-indigo-200',
+  },
+  ai: {
+    bg: 'bg-purple-100',
+    text: 'text-purple-800',
+    darkBg: 'dark:bg-purple-900',
+    darkText: 'dark:text-purple-200',
+  },
+  music: {
+    bg: 'bg-amber-100',
+    text: 'text-amber-800',
+    darkBg: 'dark:bg-amber-900',
+    darkText: 'dark:text-amber-200',
+  },
+  research: {
+    bg: 'bg-purple-100',
+    text: 'text-purple-800',
+    darkBg: 'dark:bg-purple-900',
+    darkText: 'dark:text-purple-200',
+  },
+  platform: {
+    bg: 'bg-cyan-100',
+    text: 'text-cyan-800',
+    darkBg: 'dark:bg-cyan-900',
+    darkText: 'dark:text-cyan-200',
+  },
+};
+
+const getGridClass = () =>
+  columns === 'auto'
+    ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
+    : `grid grid-cols-${columns} gap-8`;
+
+const getCategoryColor = (category: string) => {
+  const slug = category.toLowerCase().replace(/\s+/g, '-');
+  return categoryColorMap[slug] || categoryColorMap['systems'];
+};
+---
+
+<section
+  data-section={sectionKey}
+  class="bg-white dark:bg-background-primary py-16 md:py-20 lg:py-24 transition-all duration-1000"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class={getGridClass()}>
+      {
+        projects.map((project) => {
+          const colors = getCategoryColor(project.category);
+          return (
+            <div class="relative group">
+              <div class="block h-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl dark:hover:shadow-2xl hover:border-gray-300 dark:hover:border-gray-600 hover:scale-105 dark:hover:scale-105">
+                {/* Category Badge */}
+                <div class="absolute top-4 left-4 z-10">
+                  <span
+                    class:list={[
+                      'inline-block px-3 py-1.5 rounded-full text-xs font-semibold',
+                      colors.bg,
+                      colors.text,
+                      colors.darkBg,
+                      colors.darkText,
+                      'shadow-sm backdrop-blur-sm',
+                    ]}
+                  >
+                    {project.category}
+                  </span>
+                </div>
+
+                {/* Featured Badge */}
+                {project.featured && (
+                  <div class="absolute top-4 right-4 z-10">
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-section-primary to-section-secondary text-white text-xs font-medium rounded-full shadow-sm">
+                      <span class="inline-block w-1.5 h-1.5 bg-section-light rounded-full animate-pulse" />
+                      Featured
+                    </div>
+                  </div>
+                )}
+
+                {/* Card Content */}
+                <div class="p-8">
+                  {/* Icon */}
+                  {project.icon && <div class="text-5xl mb-4">{project.icon}</div>}
+
+                  {/* Title */}
+                  <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-section-primary dark:group-hover:text-section-light transition-colors">
+                    {project.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                    {project.description}
+                  </p>
+
+                  {/* Tags */}
+                  {project.tags && project.tags.length > 0 && (
+                    <div class="flex flex-wrap gap-2 mb-6">
+                      {project.tags.map((tag) => (
+                        <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Link */}
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      class="inline-flex items-center gap-2 text-section-primary dark:text-section-light font-semibold hover:gap-3 transition-all group/link"
+                    >
+                      Learn More
+                      <svg
+                        class="w-5 h-5 transition-transform group-hover/link:translate-x-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
+                      </svg>
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              {/* Hover overlay gradient - uses section colors */}
+              <div class="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/0 to-black/0 group-hover:from-section-primary/5 group-hover:to-black/0 dark:group-hover:from-section-primary/10 transition-all duration-300 pointer-events-none" />
+            </div>
+          );
+        })
+      }
+    </div>
+
+    {/* Empty State */}
+    {
+      projects.length === 0 && (
+        <div class="text-center py-16">
+          <svg
+            class="w-16 h-16 text-gray-400 dark:text-gray-600 mx-auto mb-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
+            />
+          </svg>
+          <p class="text-lg text-gray-600 dark:text-gray-400">No projects to display</p>
+        </div>
+      )
+    }
+  </div>
+</section>

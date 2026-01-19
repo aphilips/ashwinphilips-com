@@ -8,32 +8,42 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Custom Ashwin brand palette
-        primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
-          950: '#082f49',
+        // Section-based color system using CSS variables
+        // These change dynamically based on data-section attribute
+        section: {
+          primary: 'var(--accent-primary)',
+          secondary: 'var(--accent-secondary)',
+          light: 'var(--accent-light)',
+          dark: 'var(--accent-dark)',
+          glow: 'var(--accent-glow)',
         },
-        accent: {
-          50: '#faf5ff',
-          100: '#f3e8ff',
-          200: '#e9d5ff',
-          300: '#d8b4fe',
-          400: '#c084fc',
-          500: '#a855f7',
-          600: '#9333ea',
-          700: '#7e22ce',
-          800: '#6b21a8',
-          900: '#581c87',
-          950: '#3b0764',
+        background: {
+          primary: 'var(--bg-primary)',
+          secondary: 'var(--bg-secondary)',
+          'gradient-start': 'var(--bg-gradient-start)',
+          'gradient-end': 'var(--bg-gradient-end)',
+        },
+        text: {
+          primary: 'var(--text-primary)',
+          secondary: 'var(--text-secondary)',
+          muted: 'var(--text-muted)',
+        },
+        // Static brand colors for elements that don't change
+        brand: {
+          cyan: {
+            400: '#22d3ee',
+            500: '#06b6d4',
+            600: '#0891b2',
+          },
+          purple: {
+            400: '#c084fc',
+            500: '#a855f7',
+            600: '#9333ea',
+          },
+          blue: {
+            500: '#3b82f6',
+            600: '#2563eb',
+          },
         },
       },
       fontFamily: {

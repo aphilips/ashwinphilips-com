@@ -1,0 +1,285 @@
+/**
+ * Musical Key Change Color System
+ *
+ * Each section represents a different "key" in music theory.
+ * Colors overlap harmonically, creating smooth modulations between sections.
+ *
+ * Key Structure:
+ * - Home: C Major (Cyan/Blue) - Technical, clear, foundational
+ * - Research: A Minor (Purple/Violet) - Deep, thoughtful, mysterious
+ * - Music: G Major (Amber/Orange) - Warm, creative, energetic
+ * - Work: D Minor (Indigo/Blue-Purple) - Professional, stable, sophisticated
+ * - About: E Minor (Teal/Cyan-Green) - Personal, grounded, authentic
+ */
+
+/* ============================================
+   SECTION KEY DEFINITIONS
+   ============================================ */
+
+/* Key 1: C Major - Home (Cyan/Blue) */
+:root[data-page-key="home"] {
+  --accent-primary: #06b6d4;        /* cyan-500 - main accent */
+  --accent-secondary: #0ea5e9;      /* sky-500 - secondary */
+  --accent-light: #67e8f9;          /* cyan-300 - highlights */
+  --accent-dark: #164e63;           /* cyan-900 - depths */
+  --accent-glow: rgba(6, 182, 212, 0.4);
+
+  --bg-primary: #0f172a;            /* slate-900 */
+  --bg-secondary: #1e293b;          /* slate-800 */
+  --bg-gradient-start: #0c4a6e;     /* sky-900 */
+  --bg-gradient-end: #164e63;       /* cyan-900 */
+
+  --text-primary: #f1f5f9;          /* slate-100 */
+  --text-secondary: #cbd5e1;        /* slate-300 */
+  --text-muted: #64748b;            /* slate-500 */
+}
+
+/* Key 2: A Minor - Research (Purple/Violet) */
+:root[data-page-key="research"] {
+  --accent-primary: #a855f7;        /* purple-500 */
+  --accent-secondary: #8b5cf6;      /* violet-500 */
+  --accent-light: #c084fc;          /* purple-400 */
+  --accent-dark: #581c87;           /* purple-900 */
+  --accent-glow: rgba(168, 85, 247, 0.4);
+
+  --bg-primary: #18181b;            /* zinc-900 */
+  --bg-secondary: #27272a;          /* zinc-800 */
+  --bg-gradient-start: #581c87;     /* purple-900 */
+  --bg-gradient-end: #3b0764;       /* purple-950 */
+
+  --text-primary: #faf5ff;          /* purple-50 */
+  --text-secondary: #e9d5ff;        /* purple-200 */
+  --text-muted: #a78bfa;            /* purple-400 */
+}
+
+/* Key 3: G Major - Music (Amber/Orange) */
+:root[data-page-key="music"] {
+  --accent-primary: #f59e0b;        /* amber-500 */
+  --accent-secondary: #f97316;      /* orange-500 */
+  --accent-light: #fbbf24;          /* amber-400 */
+  --accent-dark: #78350f;           /* amber-900 */
+  --accent-glow: rgba(245, 158, 11, 0.4);
+
+  --bg-primary: #1c1917;            /* stone-900 */
+  --bg-secondary: #292524;          /* stone-800 */
+  --bg-gradient-start: #78350f;     /* amber-900 */
+  --bg-gradient-end: #7c2d12;       /* orange-900 */
+
+  --text-primary: #fef3c7;          /* amber-100 */
+  --text-secondary: #fed7aa;        /* orange-200 */
+  --text-muted: #fdba74;            /* orange-300 */
+}
+
+/* Key 4: D Minor - Work (Indigo/Blue-Purple) */
+:root[data-page-key="work"] {
+  --accent-primary: #6366f1;        /* indigo-500 */
+  --accent-secondary: #3b82f6;      /* blue-500 */
+  --accent-light: #818cf8;          /* indigo-400 */
+  --accent-dark: #312e81;           /* indigo-900 */
+  --accent-glow: rgba(99, 102, 241, 0.4);
+
+  --bg-primary: #0f172a;            /* slate-900 */
+  --bg-secondary: #1e293b;          /* slate-800 */
+  --bg-gradient-start: #312e81;     /* indigo-900 */
+  --bg-gradient-end: #1e3a8a;       /* blue-900 */
+
+  --text-primary: #e0e7ff;          /* indigo-100 */
+  --text-secondary: #c7d2fe;        /* indigo-200 */
+  --text-muted: #a5b4fc;            /* indigo-300 */
+}
+
+/* Key 5: E Minor - About/Contact (Teal/Cyan-Green) */
+:root[data-page-key="about"],
+:root[data-page-key="contact"] {
+  --accent-primary: #14b8a6;        /* teal-500 */
+  --accent-secondary: #10b981;      /* emerald-500 */
+  --accent-light: #2dd4bf;          /* teal-400 */
+  --accent-dark: #134e4a;           /* teal-900 */
+  --accent-glow: rgba(20, 184, 166, 0.4);
+
+  --bg-primary: #0f172a;            /* slate-900 */
+  --bg-secondary: #1e293b;          /* slate-800 */
+  --bg-gradient-start: #134e4a;     /* teal-900 */
+  --bg-gradient-end: #064e3b;       /* emerald-900 */
+
+  --text-primary: #ccfbf1;          /* teal-100 */
+  --text-secondary: #99f6e4;        /* teal-200 */
+  --text-muted: #5eead4;            /* teal-300 */
+}
+
+/* ============================================
+   SMOOTH MORPHING TRANSITIONS
+   ============================================ */
+
+:root {
+  /* Smooth transitions between color keys */
+  transition:
+    --accent-primary 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    --accent-secondary 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    --accent-light 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    --accent-dark 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    --bg-gradient-start 1s cubic-bezier(0.4, 0, 0.2, 1),
+    --bg-gradient-end 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    transition: none !important;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   COMPONENT COLOR APPLICATIONS
+   ============================================ */
+
+/* Backgrounds with gradients */
+.section-bg {
+  background: linear-gradient(135deg,
+    var(--bg-gradient-start),
+    var(--bg-gradient-end)
+  );
+  transition: background 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-bg-overlay {
+  background: linear-gradient(to bottom,
+    var(--bg-primary),
+    transparent 50%,
+    var(--bg-secondary)
+  );
+}
+
+/* Text with accent colors */
+.text-accent {
+  color: var(--accent-primary);
+  transition: color 0.6s ease-in-out;
+}
+
+.text-accent-secondary {
+  color: var(--accent-secondary);
+  transition: color 0.6s ease-in-out;
+}
+
+/* Gradient text */
+.text-gradient {
+  background: linear-gradient(135deg,
+    var(--accent-light),
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Borders and dividers */
+.border-accent {
+  border-color: var(--accent-primary);
+  transition: border-color 0.6s ease-in-out;
+}
+
+.border-accent-subtle {
+  border-color: color-mix(in srgb, var(--accent-primary) 20%, transparent);
+  transition: border-color 0.6s ease-in-out;
+}
+
+/* Glow effects */
+.glow-accent {
+  box-shadow: 0 0 30px var(--accent-glow);
+  transition: box-shadow 0.6s ease-in-out;
+}
+
+.glow-accent-hover {
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.glow-accent-hover:hover {
+  box-shadow: 0 0 40px var(--accent-glow);
+}
+
+/* Glassmorphism cards */
+.glass {
+  background: color-mix(in srgb, var(--bg-secondary) 40%, transparent);
+  backdrop-filter: blur(12px);
+  border: 1px solid color-mix(in srgb, var(--accent-primary) 15%, transparent);
+  transition:
+    background 0.6s ease-in-out,
+    border-color 0.6s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+}
+
+.glass:hover {
+  background: color-mix(in srgb, var(--bg-secondary) 60%, transparent);
+  border-color: color-mix(in srgb, var(--accent-primary) 40%, transparent);
+  box-shadow: 0 0 30px var(--accent-glow);
+}
+
+/* Buttons with accent colors */
+.btn-accent {
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  transition:
+    background 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out,
+    transform 0.2s ease-in-out;
+}
+
+.btn-accent:hover {
+  background: var(--accent-light);
+  box-shadow: 0 0 20px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+.btn-accent-outline {
+  border: 2px solid var(--accent-primary);
+  color: var(--accent-primary);
+  background: transparent;
+  transition:
+    background 0.3s ease-in-out,
+    border-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+}
+
+.btn-accent-outline:hover {
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+}
+
+/* Navigation active states */
+.nav-link-active {
+  color: var(--accent-primary);
+  border-bottom: 2px solid var(--accent-primary);
+}
+
+.nav-link {
+  position: relative;
+  color: var(--text-secondary);
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-primary);
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: var(--accent-primary);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}

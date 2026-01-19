@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
+  pageKey="contact"
   title="Contact - Ashwin Philips"
   description="Get in touch with Ashwin Philips for collaboration, research partnerships, or general inquiries."
 >
@@ -10,7 +11,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="pt-32 pb-20">
     <div class="container">
       <h1 class="gradient-text mb-6 text-center">Let's Connect</h1>
-      <p class="text-xl text-gray-300 max-w-2xl mx-auto text-center">
+      <p class="text-xl text-text-secondary max-w-2xl mx-auto text-center">
         Whether you're interested in collaboration, research partnerships, or just
         want to have an interesting conversation, I'd love to hear from you.
       </p>
@@ -18,7 +19,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- Contact Options -->
-  <section class="bg-gradient-to-b from-black to-gray-900">
+  <section class="bg-gradient-to-b from-background-primary to-background-secondary">
     <div class="container">
       <div class="max-w-4xl mx-auto">
         <div class="grid md:grid-cols-3 gap-8 mb-16">
@@ -26,7 +27,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="glass rounded-xl p-8 text-center hover:glow transition-all">
             <div class="text-5xl mb-4">📧</div>
             <h3 class="text-xl font-bold mb-4">Email</h3>
-            <a href="mailto:ashwin@emergenthq.com" class="text-primary-400 hover:text-primary-300">
+            <a href="mailto:ashwin@emergenthq.com" class="text-section-primary hover:text-section-light">
               ashwin@emergenthq.com
             </a>
           </div>
@@ -35,7 +36,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="glass rounded-xl p-8 text-center hover:glow transition-all">
             <div class="text-5xl mb-4">💼</div>
             <h3 class="text-xl font-bold mb-4">LinkedIn</h3>
-            <a href="https://linkedin.com/in/ashwinphilips" target="_blank" class="text-primary-400 hover:text-primary-300">
+            <a href="https://linkedin.com/in/ashwinphilips" target="_blank" class="text-section-primary hover:text-section-light">
               /in/ashwinphilips
             </a>
           </div>
@@ -44,7 +45,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="glass rounded-xl p-8 text-center hover:glow transition-all">
             <div class="text-5xl mb-4">💻</div>
             <h3 class="text-xl font-bold mb-4">GitHub</h3>
-            <a href="https://github.com/aphilips" target="_blank" class="text-primary-400 hover:text-primary-300">
+            <a href="https://github.com/aphilips" target="_blank" class="text-section-primary hover:text-section-light">
               @aphilips
             </a>
           </div>
@@ -85,7 +86,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   id="name"
                   name="name"
                   required
-                  class="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg focus:border-primary-500 focus:outline-none transition-colors"
+                  class="w-full px-4 py-3 bg-background-primary/50 border border-gray-700 rounded-lg focus:border-section-primary focus:outline-none transition-colors"
                   placeholder="Your name"
                 />
               </div>
@@ -100,7 +101,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   id="email"
                   name="email"
                   required
-                  class="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg focus:border-primary-500 focus:outline-none transition-colors"
+                  class="w-full px-4 py-3 bg-background-primary/50 border border-gray-700 rounded-lg focus:border-section-primary focus:outline-none transition-colors"
                   placeholder="your@email.com"
                 />
               </div>
@@ -116,7 +117,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 id="subject"
                 name="subject"
                 required
-                class="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg focus:border-primary-500 focus:outline-none transition-colors"
+                class="w-full px-4 py-3 bg-background-primary/50 border border-gray-700 rounded-lg focus:border-section-primary focus:outline-none transition-colors"
                 placeholder="What would you like to discuss?"
               />
             </div>
@@ -131,7 +132,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 name="message"
                 required
                 rows="6"
-                class="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg focus:border-primary-500 focus:outline-none transition-colors resize-none"
+                class="w-full px-4 py-3 bg-background-primary/50 border border-gray-700 rounded-lg focus:border-section-primary focus:outline-none transition-colors resize-none"
                 placeholder="Tell me more..."
               ></textarea>
             </div>
@@ -164,39 +165,39 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- What I'm Looking For -->
-  <section class="bg-black">
+  <section class="bg-background-primary">
     <div class="container">
       <div class="max-w-3xl mx-auto">
         <h2 class="text-3xl font-bold mb-8 text-center">Open To</h2>
 
         <div class="grid md:grid-cols-2 gap-6">
           <div class="glass rounded-xl p-6">
-            <h3 class="text-xl font-bold mb-3 text-primary-400">Research Collaboration</h3>
-            <p class="text-gray-300">
+            <h3 class="text-xl font-bold mb-3 text-section-primary">Research Collaboration</h3>
+            <p class="text-text-secondary">
               Joint research projects in AI, consciousness, distributed systems,
               or theoretical foundations of intelligence.
             </p>
           </div>
 
           <div class="glass rounded-xl p-6">
-            <h3 class="text-xl font-bold mb-3 text-accent-400">Technical Partnerships</h3>
-            <p class="text-gray-300">
+            <h3 class="text-xl font-bold mb-3 text-section-secondary">Technical Partnerships</h3>
+            <p class="text-text-secondary">
               Building production systems, infrastructure projects, or platforms
               that require deep technical expertise.
             </p>
           </div>
 
           <div class="glass rounded-xl p-6">
-            <h3 class="text-xl font-bold mb-3 text-primary-400">Music Collaboration</h3>
-            <p class="text-gray-300">
+            <h3 class="text-xl font-bold mb-3 text-section-primary">Music Collaboration</h3>
+            <p class="text-text-secondary">
               Production work, composition projects, sound design, or
               experimental audio collaborations.
             </p>
           </div>
 
           <div class="glass rounded-xl p-6">
-            <h3 class="text-xl font-bold mb-3 text-accent-400">Speaking & Writing</h3>
-            <p class="text-gray-300">
+            <h3 class="text-xl font-bold mb-3 text-section-secondary">Speaking & Writing</h3>
+            <p class="text-text-secondary">
               Conference talks, podcast appearances, technical writing, or
               educational content creation.
             </p>

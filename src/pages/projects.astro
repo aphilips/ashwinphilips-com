@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
+  pageKey="projects"
   title="Projects - Ashwin Philips"
   description="Technical projects and systems built by Ashwin Philips. From autonomous infrastructure to AI platforms."
 >
@@ -10,7 +11,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="pt-32 pb-20">
     <div class="container">
       <h1 class="gradient-text mb-6">Projects</h1>
-      <p class="text-xl text-gray-300 max-w-3xl">
+      <p class="text-xl text-text-secondary max-w-3xl">
         A selection of technical systems and platforms I've built. Each project
         represents an exploration of distributed intelligence, autonomous systems,
         and emergent behavior.
@@ -19,7 +20,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- Featured Projects -->
-  <section class="bg-gradient-to-b from-black to-gray-900">
+  <section class="bg-gradient-to-b from-background-primary to-background-secondary">
     <div class="container">
       <div class="space-y-12">
         <!-- Fulqrum -->
@@ -27,8 +28,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="grid md:grid-cols-[2fr,1fr] gap-8">
             <div>
               <h2 class="text-3xl font-bold mb-4">Fulqrum Platform</h2>
-              <p class="text-primary-400 mb-6">AI-Powered News Aggregation & Generation</p>
-              <p class="text-gray-300 mb-6">
+              <p class="text-section-primary mb-6">AI-Powered News Aggregation & Generation</p>
+              <p class="text-text-secondary mb-6">
                 A sophisticated news platform that aggregates, analyzes, and generates content
                 using advanced AI systems. Fulqrum processes thousands of sources in real-time,
                 identifying trends and synthesizing insights.
@@ -38,24 +39,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <h4 class="font-semibold mb-2">Key Features:</h4>
                   <ul class="space-y-2 text-gray-400">
                     <li class="flex items-start gap-2">
-                      <span class="text-primary-400 mt-1">→</span>
+                      <span class="text-section-primary mt-1">→</span>
                       Real-time news aggregation from multiple sources
                     </li>
                     <li class="flex items-start gap-2">
-                      <span class="text-primary-400 mt-1">→</span>
+                      <span class="text-section-primary mt-1">→</span>
                       AI-generated summaries and analysis
                     </li>
                     <li class="flex items-start gap-2">
-                      <span class="text-primary-400 mt-1">→</span>
+                      <span class="text-section-primary mt-1">→</span>
                       Trend detection and semantic clustering
                     </li>
                   </ul>
                 </div>
               </div>
               <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-primary-600/20 text-primary-400 rounded-full text-sm">Cloudflare Workers</span>
-                <span class="px-3 py-1 bg-primary-600/20 text-primary-400 rounded-full text-sm">AI/ML</span>
-                <span class="px-3 py-1 bg-primary-600/20 text-primary-400 rounded-full text-sm">Real-time Processing</span>
+                <span class="px-3 py-1 bg-section-primary/20 text-section-primary rounded-full text-sm">Cloudflare Workers</span>
+                <span class="px-3 py-1 bg-section-primary/20 text-section-primary rounded-full text-sm">AI/ML</span>
+                <span class="px-3 py-1 bg-section-primary/20 text-section-primary rounded-full text-sm">Real-time Processing</span>
               </div>
             </div>
             <div class="flex items-center justify-center">
@@ -69,8 +70,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="grid md:grid-cols-[2fr,1fr] gap-8">
             <div>
               <h2 class="text-3xl font-bold mb-4">CF-Ops Node</h2>
-              <p class="text-primary-400 mb-6">Autonomous Cloudflare Operations Infrastructure</p>
-              <p class="text-gray-300 mb-6">
+              <p class="text-section-primary mb-6">Autonomous Cloudflare Operations Infrastructure</p>
+              <p class="text-text-secondary mb-6">
                 An autonomous system for managing Cloudflare infrastructure at scale.
                 CF-Ops handles deployment, monitoring, and optimization without human intervention.
               </p>
@@ -79,24 +80,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <h4 class="font-semibold mb-2">Capabilities:</h4>
                   <ul class="space-y-2 text-gray-400">
                     <li class="flex items-start gap-2">
-                      <span class="text-accent-400 mt-1">→</span>
+                      <span class="text-section-secondary mt-1">→</span>
                       Autonomous deployment and rollback
                     </li>
                     <li class="flex items-start gap-2">
-                      <span class="text-accent-400 mt-1">→</span>
+                      <span class="text-section-secondary mt-1">→</span>
                       Self-healing infrastructure
                     </li>
                     <li class="flex items-start gap-2">
-                      <span class="text-accent-400 mt-1">→</span>
+                      <span class="text-section-secondary mt-1">→</span>
                       Performance optimization
                     </li>
                   </ul>
                 </div>
               </div>
               <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-accent-600/20 text-accent-400 rounded-full text-sm">Rust</span>
-                <span class="px-3 py-1 bg-accent-600/20 text-accent-400 rounded-full text-sm">Cloudflare Workers</span>
-                <span class="px-3 py-1 bg-accent-600/20 text-accent-400 rounded-full text-sm">Autonomous Systems</span>
+                <span class="px-3 py-1 bg-section-secondary/20 text-section-secondary rounded-full text-sm">Rust</span>
+                <span class="px-3 py-1 bg-section-secondary/20 text-section-secondary rounded-full text-sm">Cloudflare Workers</span>
+                <span class="px-3 py-1 bg-section-secondary/20 text-section-secondary rounded-full text-sm">Autonomous Systems</span>
               </div>
             </div>
             <div class="flex items-center justify-center">
@@ -110,8 +111,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="grid md:grid-cols-[2fr,1fr] gap-8">
             <div>
               <h2 class="text-3xl font-bold mb-4">NoqNoq Hub</h2>
-              <p class="text-primary-400 mb-6">Nervous System for Distributed Intelligence</p>
-              <p class="text-gray-300 mb-6">
+              <p class="text-section-primary mb-6">Nervous System for Distributed Intelligence</p>
+              <p class="text-text-secondary mb-6">
                 Production-ready communication infrastructure for distributed AI systems.
                 NoqNoq enables agents to discover, communicate, and coordinate across
                 organizational boundaries.
@@ -121,24 +122,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <h4 class="font-semibold mb-2">Features:</h4>
                   <ul class="space-y-2 text-gray-400">
                     <li class="flex items-start gap-2">
-                      <span class="text-primary-400 mt-1">→</span>
+                      <span class="text-section-primary mt-1">→</span>
                       Service discovery and registration
                     </li>
                     <li class="flex items-start gap-2">
-                      <span class="text-primary-400 mt-1">→</span>
+                      <span class="text-section-primary mt-1">→</span>
                       Secure agent-to-agent messaging
                     </li>
                     <li class="flex items-start gap-2">
-                      <span class="text-primary-400 mt-1">→</span>
+                      <span class="text-section-primary mt-1">→</span>
                       Pattern sharing and learning
                     </li>
                   </ul>
                 </div>
               </div>
               <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-primary-600/20 text-primary-400 rounded-full text-sm">Event-Driven</span>
-                <span class="px-3 py-1 bg-primary-600/20 text-primary-400 rounded-full text-sm">Distributed Systems</span>
-                <span class="px-3 py-1 bg-primary-600/20 text-primary-400 rounded-full text-sm">Security</span>
+                <span class="px-3 py-1 bg-section-primary/20 text-section-primary rounded-full text-sm">Event-Driven</span>
+                <span class="px-3 py-1 bg-section-primary/20 text-section-primary rounded-full text-sm">Distributed Systems</span>
+                <span class="px-3 py-1 bg-section-primary/20 text-section-primary rounded-full text-sm">Security</span>
               </div>
             </div>
             <div class="flex items-center justify-center">
@@ -152,8 +153,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="grid md:grid-cols-[2fr,1fr] gap-8">
             <div>
               <h2 class="text-3xl font-bold mb-4">GeneralCog</h2>
-              <p class="text-primary-400 mb-6">Cognitive Substrate Research</p>
-              <p class="text-gray-300 mb-6">
+              <p class="text-section-primary mb-6">Cognitive Substrate Research</p>
+              <p class="text-text-secondary mb-6">
                 Research platform exploring the foundations of general intelligence.
                 GeneralCog investigates how reasoning, learning, and adaptation
                 emerge from computational substrates.
@@ -163,24 +164,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <h4 class="font-semibold mb-2">Research Focus:</h4>
                   <ul class="space-y-2 text-gray-400">
                     <li class="flex items-start gap-2">
-                      <span class="text-accent-400 mt-1">→</span>
+                      <span class="text-section-secondary mt-1">→</span>
                       Abstract reasoning mechanisms
                     </li>
                     <li class="flex items-start gap-2">
-                      <span class="text-accent-400 mt-1">→</span>
+                      <span class="text-section-secondary mt-1">→</span>
                       Meta-learning architectures
                     </li>
                     <li class="flex items-start gap-2">
-                      <span class="text-accent-400 mt-1">→</span>
+                      <span class="text-section-secondary mt-1">→</span>
                       Emergent goal formation
                     </li>
                   </ul>
                 </div>
               </div>
               <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-accent-600/20 text-accent-400 rounded-full text-sm">AGI Research</span>
-                <span class="px-3 py-1 bg-accent-600/20 text-accent-400 rounded-full text-sm">Cognitive Science</span>
-                <span class="px-3 py-1 bg-accent-600/20 text-accent-400 rounded-full text-sm">Experimental</span>
+                <span class="px-3 py-1 bg-section-secondary/20 text-section-secondary rounded-full text-sm">AGI Research</span>
+                <span class="px-3 py-1 bg-section-secondary/20 text-section-secondary rounded-full text-sm">Cognitive Science</span>
+                <span class="px-3 py-1 bg-section-secondary/20 text-section-secondary rounded-full text-sm">Experimental</span>
               </div>
             </div>
             <div class="flex items-center justify-center">
@@ -193,11 +194,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- Open Source & Collaboration -->
-  <section class="bg-black">
+  <section class="bg-background-primary">
     <div class="container">
       <div class="max-w-3xl mx-auto text-center">
         <h2 class="text-3xl font-bold mb-6">Open Collaboration</h2>
-        <p class="text-lg text-gray-300 mb-8">
+        <p class="text-lg text-text-secondary mb-8">
           Many of these projects involve open research and collaboration.
           If you're working on similar problems or interested in contributing,
           I'd love to connect.
