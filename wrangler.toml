@@ -1,17 +1,11 @@
-# Cloudflare Workers configuration for ashwinphilips.com
+# Cloudflare Pages configuration for ashwinphilips.com
 # Account: emergentsolutions (e96bb31487f9eb55d16182dc4b5544e5)
 
 name = "ashwinphilips-com"
 compatibility_date = "2025-01-16"
 
-# Account ID - emergentHQ-net (worker deployed here due to account limits)
+# Account ID - emergentHQ-net
 account_id = "e96bb31487f9eb55d16182dc4b5544e5"
 
-# Production environment
-[env.production]
-name = "ashwinphilips-com-production"
-
-# Preview environment
-[env.preview]
-name = "ashwinphilips-com-preview"
-# Preview will use workers.dev subdomain
+# Pages-specific configuration
+pages_build_output_dir = "dist"
