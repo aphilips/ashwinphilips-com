@@ -4,8 +4,5 @@
 name = "ashwinphilips-com"
 compatibility_date = "2025-01-16"
 
-# Account ID - emergentHQ-net
-account_id = "e96bb31487f9eb55d16182dc4b5544e5"
-
 # Pages-specific configuration
 pages_build_output_dir = "dist"
