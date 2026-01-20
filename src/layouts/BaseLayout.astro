@@ -169,6 +169,10 @@ const socialImage = new URL(image, Astro.site);
       document.addEventListener('astro:page-load', function() {
         initDarkModeToggle();
         initStickyNavbar();
+        // Reinitialize Flowbite components after page transition
+        if (window.initFlowbite) {
+          window.initFlowbite();
+        }
       });
     </script>
 
