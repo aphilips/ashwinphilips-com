@@ -3,15 +3,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-  pageKey="music"
   title="Music - Ashwin Philips"
-  description="Music production and composition by Ashwin Philips. Exploring electronic, ambient, and experimental sound design."
+  description="Electronic and ambient music production exploring consciousness and sonic synthesis."
+  pageKey="music"
 >
   <!-- Hero -->
   <section class="relative overflow-hidden bg-gray-900">
     <div class="absolute inset-0">
-      <img src="/images/music-bg.jpg" alt="" class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-gradient-to-b from-amber-900/90 via-gray-900/85 to-gray-900/95"></div>
+      <img src="/images/music-bg.jpg" alt="" class="w-full h-full object-cover opacity-40" />
+      <div class="absolute inset-0 bg-gradient-to-b from-amber-900/90 via-gray-900/85 to-gray-900"></div>
     </div>
     <div class="relative container pt-32 pb-20 z-10">
       <h1 class="text-5xl md:text-6xl font-extrabold mb-6 text-white">Music & Production</h1>
@@ -22,197 +22,190 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- Music Philosophy -->
-  <section class="bg-gradient-to-b from-background-primary to-background-secondary">
+  <!-- Platforms -->
+  <section class="bg-white dark:bg-gray-900">
     <div class="container">
-      <div class="max-w-3xl mx-auto text-center mb-16">
-        <h2 class="text-3xl font-bold mb-6">Music for the After-Hours Brain</h2>
-        <p class="text-lg text-text-secondary leading-relaxed mb-4">
-          As <strong class="text-section-primary">SoBeAsh</strong>, I create experimental electronic music
-          that combines deep house, trip hop, and analog modular synthesis. Each track is a sonic
-          exploration designed for late-night introspection and cognitive drift.
-        </p>
-        <p class="text-gray-400">
-          With <strong>The Lonely Hookers</strong>, I push further into atmospheric territories —
-          building immersive soundscapes that evolve and breathe with the listener.
-        </p>
-      </div>
+      <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Listen Now</h2>
 
-      <!-- Recent Tracks -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- NFT Genesis Drop -->
-        <div class="glass rounded-xl overflow-hidden hover:glow transition-all group">
-          <div class="aspect-square bg-gradient-to-br from-primary-600 to-accent-600 flex items-center justify-center relative">
-            <div class="absolute top-4 right-4 bg-section-secondary text-white text-xs px-2 py-1 rounded-full">
-              NFT
+      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <!-- Spotify -->
+        <a href="https://open.spotify.com/artist/[YOUR_ID]" target="_blank" rel="noopener" class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 transition-all text-center">
+          <div class="text-5xl mb-4">🎵</div>
+          <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Spotify</h3>
+          <p class="text-gray-500 dark:text-gray-400">Stream on Spotify</p>
+        </a>
+
+        <!-- SoundCloud -->
+        <a href="https://soundcloud.com/[YOUR_ID]" target="_blank" rel="noopener" class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 transition-all text-center">
+          <div class="text-5xl mb-4">🎧</div>
+          <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">SoundCloud</h3>
+          <p class="text-gray-500 dark:text-gray-400">Listen on SoundCloud</p>
+        </a>
+
+        <!-- Bandcamp -->
+        <a href="https://[YOUR_ID].bandcamp.com" target="_blank" rel="noopener" class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 transition-all text-center">
+          <div class="text-5xl mb-4">💿</div>
+          <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Bandcamp</h3>
+          <p class="text-gray-500 dark:text-gray-400">Support on Bandcamp</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Style & Approach -->
+  <section class="bg-gray-50 dark:bg-gray-800">
+    <div class="container">
+      <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Musical Style</h2>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Sonic Exploration -->
+        <div class="p-8 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div class="text-4xl mb-4">🌌</div>
+          <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Sonic Exploration</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Creating immersive soundscapes that explore the boundaries between ambient,
+            electronic, and experimental music. Each piece is designed to evoke specific
+            emotional and cognitive states.
+          </p>
+          <ul class="space-y-2 text-gray-500 dark:text-gray-400">
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              Ambient textures and evolving drones
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              Modular synthesis and generative systems
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              Field recordings and found sounds
+            </li>
+          </ul>
+        </div>
+
+        <!-- Technical Approach -->
+        <div class="p-8 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div class="text-4xl mb-4">🎹</div>
+          <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Technical Approach</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Combining analog and digital synthesis techniques with algorithmic
+            composition. Using code and mathematics to generate emergent musical
+            structures.
+          </p>
+          <ul class="space-y-2 text-gray-500 dark:text-gray-400">
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              Modular synthesis (hardware & software)
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              Algorithmic composition systems
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              Spatial audio and immersive mixing
+            </li>
+          </ul>
+        </div>
+
+        <!-- Consciousness & Sound -->
+        <div class="p-8 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div class="text-4xl mb-4">🧘</div>
+          <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Consciousness & Sound</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Exploring how sound and music can alter consciousness and facilitate
+            introspective experiences. Creating sonic environments for meditation,
+            focus, and creative flow states.
+          </p>
+          <ul class="space-y-2 text-gray-500 dark:text-gray-400">
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              Binaural beats and frequency entrainment
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              Meditative and contemplative soundscapes
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              Psychoacoustic experimentation
+            </li>
+          </ul>
+        </div>
+
+        <!-- Collaborative Work -->
+        <div class="p-8 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div class="text-4xl mb-4">🎼</div>
+          <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Collaborative Projects</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Working with visual artists, filmmakers, and other musicians to create
+            multisensory experiences. Music for installations, performances, and
+            multimedia projects.
+          </p>
+          <ul class="space-y-2 text-gray-500 dark:text-gray-400">
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              Audiovisual installations
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              Film and video game soundtracks
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              Live improvisation and performance
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Setup & Tools -->
+  <section class="bg-white dark:bg-gray-900">
+    <div class="container">
+      <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Studio & Tools</h2>
+
+      <div class="max-w-4xl mx-auto">
+        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Hardware</h3>
+              <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                <li>• Modular synthesizers (Eurorack)</li>
+                <li>• Analog synthesizers</li>
+                <li>• MIDI controllers and sequencers</li>
+                <li>• Field recording equipment</li>
+              </ul>
             </div>
-            <svg class="w-24 h-24 text-white/50 group-hover:text-white/70 transition-colors" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
-            </svg>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">Bed by Midnight, Sleep by Bug-bite</h3>
-            <p class="text-gray-400 text-sm mb-4">Genesis Drop • Sound.xyz</p>
-            <a href="https://www.sound.xyz/sobeash/bed-by-midnight-sleep-by-bugbite" target="_blank" class="btn btn-outline w-full">
-              Listen & Collect
-            </a>
-          </div>
-        </div>
-
-        <!-- Recent Track 1 -->
-        <div class="glass rounded-xl overflow-hidden hover:glow transition-all group">
-          <div class="aspect-square bg-gradient-to-br from-accent-600 to-primary-600 flex items-center justify-center">
-            <svg class="w-24 h-24 text-white/50 group-hover:text-white/70 transition-colors" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
-            </svg>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">Perigee Texts</h3>
-            <p class="text-gray-400 text-sm mb-4">Recent Release • Dec 2025</p>
-            <a href="https://soundcloud.com/sobeash" target="_blank" class="btn btn-outline w-full">
-              Listen Now
-            </a>
+            <div>
+              <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Software</h3>
+              <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                <li>• Ableton Live</li>
+                <li>• Max/MSP & Pure Data</li>
+                <li>• VCV Rack</li>
+                <li>• Custom audio tools (Python, SuperCollider)</li>
+              </ul>
+            </div>
           </div>
         </div>
-
-        <!-- Recent Track 2 -->
-        <div class="glass rounded-xl overflow-hidden hover:glow transition-all group">
-          <div class="aspect-square bg-gradient-to-br from-primary-600 via-accent-600 to-primary-600 flex items-center justify-center">
-            <svg class="w-24 h-24 text-white/50 group-hover:text-white/70 transition-colors" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
-            </svg>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">Static Between Stars</h3>
-            <p class="text-gray-400 text-sm mb-4">Recent Release • Dec 2025</p>
-            <a href="https://soundcloud.com/sobeash" target="_blank" class="btn btn-outline w-full">
-              Listen Now
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- SoundCloud Stats -->
-      <div class="mt-12 text-center">
-        <p class="text-gray-400 mb-4">
-          <span class="text-3xl font-bold text-section-primary">30+</span> tracks released
-          <span class="mx-4">•</span>
-          <span class="text-3xl font-bold text-section-secondary">4.3K+</span> followers
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Production Style -->
-  <section class="bg-background-primary">
-    <div class="container">
-      <h2 class="text-3xl font-bold mb-12 text-center">Production Approach</h2>
-
-      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <div class="text-center">
-          <div class="text-5xl mb-4">🎹</div>
-          <h3 class="text-xl font-bold mb-4">Electronic Synthesis</h3>
-          <p class="text-gray-400">
-            Crafting textures and atmospheres through modular synthesis
-            and digital sound design.
-          </p>
-        </div>
-
-        <div class="text-center">
-          <div class="text-5xl mb-4">🌊</div>
-          <h3 class="text-xl font-bold mb-4">Ambient Spaces</h3>
-          <p class="text-gray-400">
-            Building immersive sonic environments that evolve and breathe
-            with the listener.
-          </p>
-        </div>
-
-        <div class="text-center">
-          <div class="text-5xl mb-4">⚡</div>
-          <h3 class="text-xl font-bold mb-4">Experimental Edge</h3>
-          <p class="text-gray-400">
-            Pushing boundaries with unconventional structures and
-            generative composition.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Streaming Platforms -->
-  <section class="bg-gradient-to-b from-background-primary to-background-secondary">
-    <div class="container">
-      <div class="max-w-2xl mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-8">Listen Now</h2>
-        <p class="text-text-secondary mb-12">
-          Find my music on SoundCloud and Sound.xyz
-        </p>
-
-        <div class="flex flex-wrap justify-center gap-4 mb-12">
-          <a
-            href="https://soundcloud.com/sobeash"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="glass px-8 py-4 rounded-lg hover:glow transition-all flex items-center gap-3"
-          >
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M1.175 12.225c-.051 0-.094.046-.101.1l-.233 2.154.233 2.105c.007.058.05.098.101.098.053 0 .096-.04.103-.098l.27-2.105-.27-2.154c-.007-.057-.05-.1-.103-.1zm1.246.938c-.058 0-.103.046-.11.107l-.192 1.139.192 1.116c.007.061.052.107.11.107.055 0 .098-.046.106-.107l.233-1.116-.233-1.139c-.008-.061-.051-.107-.106-.107zm1.23-.854c-.063 0-.114.051-.123.119l-.176 1.993.176 1.925c.009.068.06.119.123.119.061 0 .111-.051.12-.119l.207-1.925-.207-1.993c-.009-.068-.059-.119-.12-.119zm1.224-.855c-.068 0-.124.056-.133.125l-.163 2.848.163 2.758c.009.069.065.125.133.125.066 0 .12-.056.13-.125l.19-2.758-.19-2.848c-.01-.069-.064-.125-.13-.125zm1.217-.773c-.073 0-.132.06-.14.132L5.8 13.657l.152 3.623c.008.072.067.132.14.132.07 0 .13-.06.139-.132l.176-3.623-.176-3.144c-.009-.072-.069-.132-.139-.132zm1.214-.935c-.078 0-.142.065-.15.143l-.144 4.079.144 3.497c.008.078.072.143.15.143.075 0 .138-.065.146-.143l.165-3.497-.165-4.079c-.008-.078-.071-.143-.146-.143zm1.21-.718c-.083 0-.151.068-.16.151l-.13 4.797.13 3.372c.009.083.077.151.16.151.081 0 .148-.068.158-.151l.152-3.372-.152-4.797c-.01-.083-.077-.151-.158-.151zm1.207-.623c-.088 0-.16.073-.168.161l-.117 5.42.117 3.248c.008.088.08.161.168.161.086 0 .157-.073.165-.161l.137-3.248-.137-5.42c-.008-.088-.079-.161-.165-.161zm1.203-.654c-.093 0-.169.077-.178.17l-.105 6.074.105 3.125c.009.093.085.17.178.17.091 0 .167-.077.176-.17l.123-3.125-.123-6.074c-.009-.093-.085-.17-.176-.17zm1.194-.705c-.098 0-.178.08-.186.177l-.093 6.779.093 3.054c.008.097.088.177.186.177.096 0 .175-.08.184-.177l.109-3.054-.109-6.779c-.009-.097-.088-.177-.184-.177zm1.19-.726c-.103 0-.187.084-.195.189l-.082 7.505.082 2.984c.008.105.092.189.195.189.101 0 .184-.084.192-.189l.096-2.984-.096-7.505c-.008-.105-.091-.189-.192-.189zm1.183-.699c-.108 0-.195.088-.203.199l-.071 8.204.071 2.915c.008.111.095.199.203.199.106 0 .192-.088.201-.199l.084-2.915-.084-8.204c-.009-.111-.095-.199-.201-.199zm1.176-.688c-.113 0-.204.093-.212.206l-.059 8.892.059 2.847c.008.113.099.206.212.206.111 0 .201-.093.21-.206l.068-2.847-.068-8.892c-.009-.113-.099-.206-.21-.206z"/>
-            </svg>
-            <span>SoundCloud <span class="text-section-primary">@sobeash</span></span>
-          </a>
-
-          <a
-            href="https://soundcloud.com/thelonelyhookers"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="glass px-8 py-4 rounded-lg hover:glow transition-all flex items-center gap-3"
-          >
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M1.175 12.225c-.051 0-.094.046-.101.1l-.233 2.154.233 2.105c.007.058.05.098.101.098.053 0 .096-.04.103-.098l.27-2.105-.27-2.154c-.007-.057-.05-.1-.103-.1zm1.246.938c-.058 0-.103.046-.11.107l-.192 1.139.192 1.116c.007.061.052.107.11.107.055 0 .098-.046.106-.107l.233-1.116-.233-1.139c-.008-.061-.051-.107-.106-.107zm1.23-.854c-.063 0-.114.051-.123.119l-.176 1.993.176 1.925c.009.068.06.119.123.119.061 0 .111-.051.12-.119l.207-1.925-.207-1.993c-.009-.068-.059-.119-.12-.119zm1.224-.855c-.068 0-.124.056-.133.125l-.163 2.848.163 2.758c.009.069.065.125.133.125.066 0 .12-.056.13-.125l.19-2.758-.19-2.848c-.01-.069-.064-.125-.13-.125zm1.217-.773c-.073 0-.132.06-.14.132L5.8 13.657l.152 3.623c.008.072.067.132.14.132.07 0 .13-.06.139-.132l.176-3.623-.176-3.144c-.009-.072-.069-.132-.139-.132zm1.214-.935c-.078 0-.142.065-.15.143l-.144 4.079.144 3.497c.008.078.072.143.15.143.075 0 .138-.065.146-.143l.165-3.497-.165-4.079c-.008-.078-.071-.143-.146-.143zm1.21-.718c-.083 0-.151.068-.16.151l-.13 4.797.13 3.372c.009.083.077.151.16.151.081 0 .148-.068.158-.151l.152-3.372-.152-4.797c-.01-.083-.077-.151-.158-.151zm1.207-.623c-.088 0-.16.073-.168.161l-.117 5.42.117 3.248c.008.088.08.161.168.161.086 0 .157-.073.165-.161l.137-3.248-.137-5.42c-.008-.088-.079-.161-.165-.161zm1.203-.654c-.093 0-.169.077-.178.17l-.105 6.074.105 3.125c.009.093.085.17.178.17.091 0 .167-.077.176-.17l.123-3.125-.123-6.074c-.009-.093-.085-.17-.176-.17zm1.194-.705c-.098 0-.178.08-.186.177l-.093 6.779.093 3.054c.008.097.088.177.186.177.096 0 .175-.08.184-.177l.109-3.054-.109-6.779c-.009-.097-.088-.177-.184-.177zm1.19-.726c-.103 0-.187.084-.195.189l-.082 7.505.082 2.984c.008.105.092.189.195.189.101 0 .184-.084.192-.189l.096-2.984-.096-7.505c-.008-.105-.091-.189-.192-.189zm1.183-.699c-.108 0-.195.088-.203.199l-.071 8.204.071 2.915c.008.111.095.199.203.199.106 0 .192-.088.201-.199l.084-2.915-.084-8.204c-.009-.111-.095-.199-.201-.199zm1.176-.688c-.113 0-.204.093-.212.206l-.059 8.892.059 2.847c.008.113.099.206.212.206.111 0 .201-.093.21-.206l.068-2.847-.068-8.892c-.009-.113-.099-.206-.21-.206z"/>
-            </svg>
-            <span>The Lonely Hookers</span>
-          </a>
-
-          <a
-            href="https://www.sound.xyz/sobeash"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="glass px-8 py-4 rounded-lg hover:glow transition-all flex items-center gap-3"
-          >
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18L19.82 8 12 11.82 4.18 8 12 4.18zM4 10.18l7 3.5v7.14l-7-3.5v-7.14zm16 0v7.14l-7 3.5v-7.14l7-3.5z"/>
-            </svg>
-            <span>Sound.xyz <span class="text-section-secondary">@sobeash</span></span>
-          </a>
-        </div>
-
-        <p class="text-gray-400 text-sm">
-          Explore electronic, ambient, and experimental compositions under sobeash and The Lonely Hookers
-        </p>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="bg-background-primary">
+  <section class="bg-gray-50 dark:bg-gray-800">
     <div class="container">
-      <div class="glass rounded-2xl p-12 text-center max-w-2xl mx-auto">
-        <h2 class="text-3xl font-bold mb-6">Collaborate on Sound</h2>
-        <p class="text-lg text-text-secondary mb-8">
-          Interested in collaboration, commissions, or licensing?
-          Let's create something together.
+      <div class="max-w-2xl mx-auto text-center p-8 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
+        <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Collaborate on Sound</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+          Interested in working together on music, sound design, or audiovisual projects?
+          Let's create something unique.
         </p>
-        <a href="/contact" class="btn btn-primary">
+        <a href="/contact" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 transition-all">
           Get in Touch
         </a>
       </div>
     </div>
   </section>
 </BaseLayout>
-
-<style>
-  /* Audio player enhancements when you add real tracks */
-  audio::-webkit-media-controls-panel {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-</style>

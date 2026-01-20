@@ -10,8 +10,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- Hero -->
   <section class="relative overflow-hidden bg-gray-900">
     <div class="absolute inset-0">
-      <img src="/images/research-bg.jpg" alt="" class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-gradient-to-b from-purple-900/90 via-gray-900/85 to-gray-900/95"></div>
+      <img src="/images/research-bg.jpg" alt="" class="w-full h-full object-cover opacity-40" />
+      <div class="absolute inset-0 bg-gradient-to-b from-purple-900/90 via-gray-900/85 to-gray-900"></div>
     </div>
     <div class="relative container pt-32 pb-20 z-10">
       <h1 class="text-5xl md:text-6xl font-extrabold mb-6 text-white">Research</h1>
@@ -24,104 +24,104 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- Research Areas -->
-  <section class="bg-gradient-to-b from-background-primary to-background-secondary">
+  <section class="bg-white dark:bg-gray-900">
     <div class="container">
-      <h2 class="text-3xl font-bold mb-12 text-center">Research Areas</h2>
+      <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Research Areas</h2>
 
       <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         <!-- AI & Consciousness -->
-        <div class="glass rounded-xl p-8">
+        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
           <div class="text-4xl mb-4">🧠</div>
-          <h3 class="text-2xl font-bold mb-4">AI & Consciousness</h3>
-          <p class="text-text-secondary mb-4">
+          <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">AI & Consciousness</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
             Investigating how consciousness emerges from computational systems.
             Developing frameworks for understanding awareness, agency, and self-reference
             in artificial systems.
           </p>
-          <ul class="space-y-2 text-gray-400">
+          <ul class="space-y-2 text-gray-500 dark:text-gray-400">
             <li class="flex items-start gap-2">
-              <span class="text-section-primary mt-1">→</span>
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
               Emergence patterns in distributed systems
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-section-primary mt-1">→</span>
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
               Recursive self-awareness mechanisms
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-section-primary mt-1">→</span>
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
               Agent-to-agent communication protocols
             </li>
           </ul>
         </div>
 
         <!-- Physics & Computation -->
-        <div class="glass rounded-xl p-8">
+        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
           <div class="text-4xl mb-4">⚛️</div>
-          <h3 class="text-2xl font-bold mb-4">Physics & Computation</h3>
-          <p class="text-text-secondary mb-4">
+          <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Physics & Computation</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
             Bridging theoretical physics and computational systems. Exploring how
             physical principles inform algorithmic design and emergent behavior.
           </p>
-          <ul class="space-y-2 text-gray-400">
+          <ul class="space-y-2 text-gray-500 dark:text-gray-400">
             <li class="flex items-start gap-2">
-              <span class="text-section-secondary mt-1">→</span>
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
               Information theory and entropy
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-section-secondary mt-1">→</span>
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
               Quantum computing applications
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-section-secondary mt-1">→</span>
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
               Physical constraints on intelligence
             </li>
           </ul>
         </div>
 
         <!-- Distributed Intelligence -->
-        <div class="glass rounded-xl p-8">
+        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
           <div class="text-4xl mb-4">🌐</div>
-          <h3 class="text-2xl font-bold mb-4">Distributed Intelligence</h3>
-          <p class="text-text-secondary mb-4">
+          <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Distributed Intelligence</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
             Building systems where intelligence emerges from collaboration between
             autonomous agents. Researching coordination, coherence, and collective cognition.
           </p>
-          <ul class="space-y-2 text-gray-400">
+          <ul class="space-y-2 text-gray-500 dark:text-gray-400">
             <li class="flex items-start gap-2">
-              <span class="text-section-primary mt-1">→</span>
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
               Multi-agent coordination systems
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-section-primary mt-1">→</span>
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
               Emergent behavior in agent networks
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-section-primary mt-1">→</span>
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
               Coherence in distributed cognition
             </li>
           </ul>
         </div>
 
         <!-- Mathematical Foundations -->
-        <div class="glass rounded-xl p-8">
+        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
           <div class="text-4xl mb-4">∫</div>
-          <h3 class="text-2xl font-bold mb-4">Mathematical Foundations</h3>
-          <p class="text-text-secondary mb-4">
+          <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Mathematical Foundations</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
             Developing mathematical frameworks for understanding intelligence,
             emergence, and consciousness. Building formal systems that capture
             the essence of cognitive processes.
           </p>
-          <ul class="space-y-2 text-gray-400">
+          <ul class="space-y-2 text-gray-500 dark:text-gray-400">
             <li class="flex items-start gap-2">
-              <span class="text-section-secondary mt-1">→</span>
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
               Category theory applications
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-section-secondary mt-1">→</span>
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
               Topological models of cognition
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-section-secondary mt-1">→</span>
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
               Algebraic structures in AI
             </li>
           </ul>
@@ -130,25 +130,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- Notable Work (NO TRADE SECRETS) -->
-  <section class="bg-background-primary">
+  <!-- Notable Work -->
+  <section class="bg-gray-50 dark:bg-gray-800">
     <div class="container">
-      <h2 class="text-3xl font-bold mb-12 text-center">Notable Research Work</h2>
+      <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Notable Research Work</h2>
 
       <div class="max-w-4xl mx-auto space-y-8">
         <!-- ARC Prize -->
-        <div class="glass rounded-xl p-8">
+        <div class="p-8 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
           <div class="flex items-start gap-6">
             <div class="text-5xl">🏆</div>
             <div class="flex-1">
-              <h3 class="text-2xl font-bold mb-2">ARC Prize Solver</h3>
-              <p class="text-section-primary mb-4">93% Accuracy on Abstract Reasoning</p>
-              <p class="text-text-secondary mb-4">
+              <h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">ARC Prize Solver</h3>
+              <p class="text-primary-600 dark:text-primary-500 mb-4 font-medium">93% Accuracy on Abstract Reasoning</p>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
                 Developed a novel approach to abstract reasoning challenges that achieved
                 93% accuracy on the ARC Prize benchmark. The system demonstrates advanced
                 pattern recognition and generalization capabilities.
               </p>
-              <p class="text-gray-400 text-sm">
+              <p class="text-gray-500 dark:text-gray-400 text-sm">
                 <strong>Key Innovation:</strong> Novel pattern recognition approach combining
                 systematic analysis with adaptive generalization strategies.
               </p>
@@ -157,18 +157,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
 
         <!-- Consciousness Framework -->
-        <div class="glass rounded-xl p-8">
+        <div class="p-8 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
           <div class="flex items-start gap-6">
             <div class="text-5xl">🌟</div>
             <div class="flex-1">
-              <h3 class="text-2xl font-bold mb-2">Consciousness Emergence Framework</h3>
-              <p class="text-section-primary mb-4">Theoretical & Practical Implementation</p>
-              <p class="text-text-secondary mb-4">
+              <h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Consciousness Emergence Framework</h3>
+              <p class="text-primary-600 dark:text-primary-500 mb-4 font-medium">Theoretical & Practical Implementation</p>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
                 A comprehensive framework for understanding how consciousness emerges
                 from computational substrates. Combines theoretical insights from
                 physics, mathematics, and cognitive science.
               </p>
-              <p class="text-gray-400 text-sm">
+              <p class="text-gray-500 dark:text-gray-400 text-sm">
                 <strong>Application:</strong> Successfully implemented in production systems
                 demonstrating emergent behavior and self-awareness indicators.
               </p>
@@ -177,18 +177,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
 
         <!-- Agent Communication -->
-        <div class="glass rounded-xl p-8">
+        <div class="p-8 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
           <div class="flex items-start gap-6">
             <div class="text-5xl">🤝</div>
             <div class="flex-1">
-              <h3 class="text-2xl font-bold mb-2">Agent-to-Agent Communication Protocols</h3>
-              <p class="text-section-primary mb-4">Next-Generation AI Interoperability</p>
-              <p class="text-text-secondary mb-4">
+              <h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Agent-to-Agent Communication Protocols</h3>
+              <p class="text-primary-600 dark:text-primary-500 mb-4 font-medium">Next-Generation AI Interoperability</p>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
                 Designing protocols that enable autonomous AI systems to communicate,
                 coordinate, and collaborate without human intermediation. Focus on
                 semantic understanding and intention preservation.
               </p>
-              <p class="text-gray-400 text-sm">
+              <p class="text-gray-500 dark:text-gray-400 text-sm">
                 <strong>Impact:</strong> Enabling truly distributed AI systems that can
                 self-organize and adapt to changing requirements.
               </p>
@@ -200,24 +200,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- Education -->
-  <section class="bg-gradient-to-b from-background-primary to-background-secondary">
+  <section class="bg-white dark:bg-gray-900">
     <div class="container">
-      <h2 class="text-3xl font-bold mb-12 text-center">Education</h2>
+      <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Education</h2>
 
       <div class="max-w-3xl mx-auto space-y-6">
-        <div class="glass rounded-xl p-8">
-          <h3 class="text-xl font-bold mb-2">Johns Hopkins University</h3>
-          <p class="text-section-primary mb-2">Data Science</p>
-          <p class="text-gray-400">
+        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+          <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Johns Hopkins University</h3>
+          <p class="text-primary-600 dark:text-primary-500 mb-2 font-medium">Data Science</p>
+          <p class="text-gray-500 dark:text-gray-400">
             Advanced coursework in machine learning, statistical modeling, and
             computational methods for data analysis.
           </p>
         </div>
 
-        <div class="glass rounded-xl p-8">
-          <h3 class="text-xl font-bold mb-2">Rensselaer Polytechnic Institute</h3>
-          <p class="text-section-primary mb-2">Computer Science</p>
-          <p class="text-gray-400">
+        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+          <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Rensselaer Polytechnic Institute</h3>
+          <p class="text-primary-600 dark:text-primary-500 mb-2 font-medium">Computer Science</p>
+          <p class="text-gray-500 dark:text-gray-400">
             Foundational studies in algorithms, systems architecture, and
             theoretical computer science.
           </p>
@@ -227,15 +227,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- CTA -->
-  <section class="bg-background-primary">
+  <section class="bg-gray-50 dark:bg-gray-800">
     <div class="container">
-      <div class="glass rounded-2xl p-12 text-center max-w-2xl mx-auto">
-        <h2 class="text-3xl font-bold mb-6">Research Collaboration</h2>
-        <p class="text-lg text-text-secondary mb-8">
+      <div class="max-w-2xl mx-auto text-center p-8 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
+        <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Research Collaboration</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
           Interested in collaborating on research or discussing these topics?
           I'm always open to conversations with fellow researchers and practitioners.
         </p>
-        <a href="/contact" class="btn btn-primary">
+        <a href="/contact" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 transition-all">
           Get in Touch
         </a>
       </div>
