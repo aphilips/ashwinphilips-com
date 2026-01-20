@@ -161,33 +161,204 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- Setup & Tools -->
+  <!-- Studio Hardware -->
   <section class="bg-white dark:bg-gray-900">
     <div class="container">
-      <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Studio & Tools</h2>
+      <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Studio Hardware</h2>
 
-      <div class="max-w-4xl mx-auto">
+      <!-- Philosophy -->
+      <div class="max-w-4xl mx-auto mb-12">
+        <div class="p-8 bg-gradient-to-br from-primary-50 to-amber-50 dark:from-gray-800 dark:to-gray-800 rounded-lg border border-primary-200 dark:border-primary-900">
+          <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Four Control Paradigms</h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            This setup reflects how consciousness itself operates through multiple simultaneous channels:
+          </p>
+          <ul class="space-y-3 text-gray-700 dark:text-gray-300 mb-4">
+            <li class="flex items-start gap-3">
+              <span class="text-primary-600 dark:text-primary-500 font-bold mt-1">1.</span>
+              <span><strong>Tactile analog control</strong> (Console 1, Mackie, Zero SL) — Physical faders and knobs for visceral connection to sound</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-primary-600 dark:text-primary-500 font-bold mt-1">2.</span>
+              <span><strong>Performance/pad-based</strong> (Push 2, Roland) — Immediate musical expression and rhythmic input</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-primary-600 dark:text-primary-500 font-bold mt-1">3.</span>
+              <span><strong>Touch/visual</strong> (iMac touchscreen + iPad) — Direct parameter manipulation and visual feedback</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-primary-600 dark:text-primary-500 font-bold mt-1">4.</span>
+              <span><strong>CV/clock control</strong> (Modular, Moogs) — Voltage-based synthesis and generative timing</span>
+            </li>
+          </ul>
+          <p class="text-gray-700 dark:text-gray-300 italic">
+            This isn't redundancy—it's mode switching. Different creative states require different interfaces.
+            Sometimes you need the haptic feedback of a physical fader. Sometimes you need the immediacy of touch.
+            Sometimes you need to route clock signals through CV. The setup reflects intentional tool choices for
+            serious production work.
+          </p>
+        </div>
+      </div>
+
+      <!-- Hardware Inventory -->
+      <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+        <!-- Audio Interfaces -->
         <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-          <div class="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Hardware</h3>
-              <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-                <li>• Modular synthesizers (Eurorack)</li>
-                <li>• Analog synthesizers</li>
-                <li>• MIDI controllers and sequencers</li>
-                <li>• Field recording equipment</li>
-              </ul>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="text-4xl">🎚️</div>
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Audio Interfaces</h3>
+          </div>
+          <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              <span><strong>Universal Audio Apollo x8</strong><br/>
+              <span class="text-sm text-gray-500 dark:text-gray-400">Rackmount Thunderbolt — Professional I/O with UAD DSP processing</span></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              <span><strong>Universal Audio Apollo Twin</strong><br/>
+              <span class="text-sm text-gray-500 dark:text-gray-400">Desktop Thunderbolt — Portable professional interface</span></span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Control Surfaces -->
+        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="text-4xl">🎛️</div>
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Control Surfaces</h3>
+          </div>
+          <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              <span><strong>Softube Console 1 Channel</strong><br/>
+              <span class="text-sm text-gray-500 dark:text-gray-400">Analog-style channel strip control</span></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              <span><strong>Softube Console 1 Fader</strong><br/>
+              <span class="text-sm text-gray-500 dark:text-gray-400">Motorized fader extension for mixing</span></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              <span><strong>Mackie Control Universal</strong><br/>
+              <span class="text-sm text-gray-500 dark:text-gray-400">DAW transport and mixing control</span></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              <span><strong>Novation Zero SL MkII</strong><br/>
+              <span class="text-sm text-gray-500 dark:text-gray-400">Assignable knobs and faders for deep parameter control</span></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              <span><strong>Ableton Push 2</strong><br/>
+              <span class="text-sm text-gray-500 dark:text-gray-400">Integrated performance and production controller</span></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              <span><strong>Touchscreen iMac</strong><br/>
+              <span class="text-sm text-gray-500 dark:text-gray-400">Direct DAW control surface with visual feedback</span></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              <span><strong>iPad</strong><br/>
+              <span class="text-sm text-gray-500 dark:text-gray-400">Parameter automation and Logic Remote integration</span></span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Synthesizers & Keyboards -->
+        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="text-4xl">🎹</div>
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Synthesizers & Keyboards</h3>
+          </div>
+          <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              <span><strong>ASM Hydrasynth Keyboard</strong><br/>
+              <span class="text-sm text-gray-500 dark:text-gray-400">Polyphonic wavetable synthesizer with Polytouch aftertouch</span></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              <span><strong>Roland Mini Keyboard with Microphone</strong><br/>
+              <span class="text-sm text-gray-500 dark:text-gray-400">Compact performance keyboard with integrated mic</span></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              <span><strong>Moog Mother-32</strong><br/>
+              <span class="text-sm text-gray-500 dark:text-gray-400">Semi-modular analog synthesizer and CV/Gate patchbay</span></span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Software & Workflow -->
+        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="text-4xl">💻</div>
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Software & Workflow</h3>
+          </div>
+          <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              <span><strong>Logic Pro X</strong><br/>
+              <span class="text-sm text-gray-500 dark:text-gray-400">Primary DAW for composition and mixing</span></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              <span><strong>Ableton Live</strong><br/>
+              <span class="text-sm text-gray-500 dark:text-gray-400">Performance and improvisation platform</span></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              <span><strong>Max/MSP & Pure Data</strong><br/>
+              <span class="text-sm text-gray-500 dark:text-gray-400">Visual programming for generative systems</span></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              <span><strong>VCV Rack</strong><br/>
+              <span class="text-sm text-gray-500 dark:text-gray-400">Virtual modular synthesis environment</span></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+              <span><strong>SuperCollider</strong><br/>
+              <span class="text-sm text-gray-500 dark:text-gray-400">Code-based synthesis and algorithmic composition</span></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Hybrid Workflow -->
+      <div class="max-w-4xl mx-auto mt-12">
+        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+          <h3 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Hybrid Analog/Digital Signal Flow</h3>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="text-center">
+              <div class="text-3xl mb-3">🎛️</div>
+              <h4 class="font-bold text-gray-900 dark:text-white mb-2">Analog Input</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-400">
+                Synthesizers → Apollo Preamps → UAD DSP
+              </p>
             </div>
-            <div>
-              <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Software</h3>
-              <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-                <li>• Ableton Live</li>
-                <li>• Max/MSP & Pure Data</li>
-                <li>• VCV Rack</li>
-                <li>• Custom audio tools (Python, SuperCollider)</li>
-              </ul>
+            <div class="text-center">
+              <div class="text-3xl mb-3">⚡</div>
+              <h4 class="font-bold text-gray-900 dark:text-white mb-2">Digital Processing</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-400">
+                DAW → Plugins → Multiple control surfaces in parallel
+              </p>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl mb-3">🔊</div>
+              <h4 class="font-bold text-gray-900 dark:text-white mb-2">CV Integration</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-400">
+                Digital clock → Mother-32 → Modular → Back to Apollo
+              </p>
             </div>
           </div>
+          <p class="text-gray-600 dark:text-gray-300 mt-6 text-center italic">
+            The signal path is intentionally designed for bidirectional flow between analog and digital domains,
+            enabling hybrid workflows that leverage the strengths of each paradigm.
+          </p>
         </div>
       </div>
     </div>
