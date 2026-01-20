@@ -8,13 +8,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="Music production and composition by Ashwin Philips. Exploring electronic, ambient, and experimental sound design."
 >
   <!-- Hero -->
-  <section class="pt-32 pb-20 relative overflow-hidden">
-    <!-- Background gradient -->
-    <div class="absolute inset-0 bg-gradient-to-b from-accent-900/20 to-black"></div>
-
-    <div class="container relative z-10">
-      <h1 class="gradient-text mb-6">Music & Production</h1>
-      <p class="text-xl text-text-secondary max-w-3xl">
+  <section class="relative overflow-hidden bg-gray-900">
+    <div class="absolute inset-0">
+      <img src="/images/music-bg.jpg" alt="" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-b from-amber-900/90 via-gray-900/85 to-gray-900/95"></div>
+    </div>
+    <div class="relative container pt-32 pb-20 z-10">
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-6 text-white">Music & Production</h1>
+      <p class="text-xl md:text-2xl font-light text-gray-300 max-w-3xl">
         Composing and producing at the intersection of electronic, ambient, and experimental
         sound design. Music as a language for expressing the inexpressible.
       </p>
