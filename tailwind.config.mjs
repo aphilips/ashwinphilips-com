@@ -8,33 +8,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Page-specific color system using CSS variables
-        // These change dynamically based on data-page-key attribute
-        section: {
-          primary: 'rgb(var(--section-primary) / <alpha-value>)',
-          secondary: 'rgb(var(--section-secondary) / <alpha-value>)',
-        },
-        background: {
-          'gradient-start': 'rgb(var(--background-gradient-start) / <alpha-value>)',
-          'gradient-end': 'rgb(var(--background-gradient-end) / <alpha-value>)',
-        },
-        accent: 'rgb(var(--accent-color) / <alpha-value>)',
-        // Static brand colors for elements that don't change
-        brand: {
-          cyan: {
-            400: '#22d3ee',
-            500: '#06b6d4',
-            600: '#0891b2',
-          },
-          purple: {
-            400: '#c084fc',
-            500: '#a855f7',
-            600: '#9333ea',
-          },
-          blue: {
-            500: '#3b82f6',
-            600: '#2563eb',
-          },
+        // Flowbite primary color system (Sky Blue)
+        primary: {
+          50: '#f0f9ff',
+          100: '#e0f2fe',
+          200: '#bae6fd',
+          300: '#7dd3fc',
+          400: '#38bdf8',
+          500: '#0ea5e9',
+          600: '#0284c7',
+          700: '#0369a1',
+          800: '#075985',
+          900: '#0c4a6e',
         },
       },
       fontFamily: {

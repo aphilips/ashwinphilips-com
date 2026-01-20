@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import '../styles/color-system.css';
+import Navbar from '../components/Navbar.astro';
 
 interface Props {
   title: string;
@@ -23,8 +23,17 @@ const socialImage = new URL(image, Astro.site);
 ---
 
 <!doctype html>
-<html lang="en" class="dark" data-page-key={pageKey} transition:animate="fade">
+<html lang="en" data-page-key={pageKey} transition:animate="fade">
   <head>
+    <!-- Dark mode initialization script (must run before page renders) -->
+    <script is:inline>
+      // Set dark mode immediately to prevent flash
+      if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -84,67 +93,87 @@ const socialImage = new URL(image, Astro.site);
       }
     </script>
 
-    <!-- Alpine.js for interactivity -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-    <!-- HTMX for dynamic content -->
-    <script src="https://unpkg.com/htmx.org@2.0.6"></script>
+    <!-- Flowbite JS -->
+    <script is:inline src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
   </head>
-  <body class="bg-gradient-to-b from-slate-900 to-slate-950 text-slate-100">
-    <!-- Navigation with morphing colors -->
-    <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-accent-subtle backdrop-blur-xl">
-      <div class="container">
-        <div class="flex items-center justify-between h-16">
-          <!-- Logo with animated gradient -->
-          <a href="/" class="text-xl font-display font-bold text-gradient hover:scale-105 transition-transform">
-            Ashwin Philips
-          </a>
+  <body>
+    <Navbar />
 
-          <!-- Desktop Navigation -->
-          <div class="hidden md:flex items-center gap-8">
-            <a href="/work" class="nav-link">Work</a>
-            <a href="/research" class="nav-link">Research</a>
-            <a href="/music" class="nav-link">Music</a>
-            <a href="/projects" class="nav-link">Projects</a>
-            <a href="/about" class="nav-link">About</a>
-            <a href="/contact" class="btn-accent px-6 py-2 rounded-lg font-semibold transition-all">Connect</a>
-          </div>
+    <!-- Flowbite initialization scripts -->
+    <script is:inline>
+      // Dark mode toggle initialization
+      function initDarkModeToggle() {
+        const themeToggleDarkIcon = document.getElementById('themeToggleDarkIcon');
+        const themeToggleLightIcon = document.getElementById('themeToggleLightIcon');
+        const themeToggleBtn = document.getElementById('themeToggle');
 
-          <!-- Mobile menu button -->
-          <button
-            class="md:hidden p-2"
-            x-data="{ open: false }"
-            @click="open = !open"
-            aria-label="Toggle menu"
-          >
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
-        </div>
+        if (!themeToggleBtn) return;
 
-        <!-- Mobile Navigation -->
-        <div
-          class="md:hidden"
-          x-data="{ open: false }"
-          x-show="open"
-          x-transition
-          @click.away="open = false"
-        >
-          <div class="py-4 space-y-4">
-            <a href="/work" class="block hover:text-primary-400">Work</a>
-            <a href="/research" class="block hover:text-primary-400">Research</a>
-            <a href="/music" class="block hover:text-primary-400">Music</a>
-            <a href="/projects" class="block hover:text-primary-400">Projects</a>
-            <a href="/about" class="block hover:text-primary-400">About</a>
-            <a href="/contact" class="btn btn-primary block text-center">Connect</a>
-          </div>
-        </div>
-      </div>
-    </nav>
+        // Set initial icon visibility based on current theme
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          themeToggleLightIcon?.classList.remove('hidden');
+        } else {
+          themeToggleDarkIcon?.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+          // Toggle icons
+          themeToggleDarkIcon?.classList.toggle('hidden');
+          themeToggleLightIcon?.classList.toggle('hidden');
+
+          // Toggle dark mode
+          if (localStorage.getItem('color-theme')) {
+            if (localStorage.getItem('color-theme') === 'light') {
+              document.documentElement.classList.add('dark');
+              localStorage.setItem('color-theme', 'dark');
+            } else {
+              document.documentElement.classList.remove('dark');
+              localStorage.setItem('color-theme', 'light');
+            }
+          } else {
+            if (document.documentElement.classList.contains('dark')) {
+              document.documentElement.classList.remove('dark');
+              localStorage.setItem('color-theme', 'light');
+            } else {
+              document.documentElement.classList.add('dark');
+              localStorage.setItem('color-theme', 'dark');
+            }
+          }
+        });
+      }
+
+      // Sticky navbar initialization
+      function initStickyNavbar() {
+        const navbar = document.getElementById('mainNavbar');
+        if (!navbar) return;
+
+        function toggleStickyNavbar() {
+          if (window.scrollY > 0) {
+            navbar.setAttribute('data-sticky', 'true');
+          } else {
+            navbar.setAttribute('data-sticky', 'false');
+          }
+        }
+
+        toggleStickyNavbar();
+        window.addEventListener('scroll', toggleStickyNavbar);
+      }
+
+      // Initialize on DOMContentLoaded
+      document.addEventListener('DOMContentLoaded', function() {
+        initDarkModeToggle();
+        initStickyNavbar();
+      });
+
+      // Re-initialize on Astro view transitions
+      document.addEventListener('astro:page-load', function() {
+        initDarkModeToggle();
+        initStickyNavbar();
+      });
+    </script>
 
     <!-- Main content -->
-    <main class="pt-16">
+    <main>
       <slot />
     </main>
 
