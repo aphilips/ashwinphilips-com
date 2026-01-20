@@ -146,6 +146,9 @@ const socialImage = new URL(image, Astro.site);
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Ashwin Kochiyil Philips",
+        "givenName": "Ashwin",
+        "additionalName": "Kochiyil",
+        "familyName": "Philips",
         "url": "https://ashwinphilips.com",
         "sameAs": [
           "https://linkedin.com/in/ashwinphilips",
@@ -179,6 +182,8 @@ const socialImage = new URL(image, Astro.site);
     <!-- Flowbite initialization scripts -->
     <script is:inline>
       // Dark mode toggle initialization
+      let themeToggleInitialized = false;
+
       function initDarkModeToggle() {
         const themeToggleDarkIcon = document.getElementById('themeToggleDarkIcon');
         const themeToggleLightIcon = document.getElementById('themeToggleLightIcon');
@@ -186,45 +191,35 @@ const socialImage = new URL(image, Astro.site);
 
         if (!themeToggleBtn) return;
 
-        // Set initial icon visibility based on current theme
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          themeToggleLightIcon?.classList.remove('hidden');
-        } else {
-          themeToggleDarkIcon?.classList.remove('hidden');
-        }
+        // Update icon visibility based on current theme
+        const isDark = document.documentElement.classList.contains('dark');
+        themeToggleDarkIcon?.classList.toggle('hidden', isDark);
+        themeToggleLightIcon?.classList.toggle('hidden', !isDark);
 
-        themeToggleBtn.addEventListener('click', function() {
-          // Use View Transitions API for smooth theme switch
-          if (!document.startViewTransition) {
-            toggleTheme();
-          } else {
-            document.startViewTransition(() => toggleTheme());
-          }
-        });
+        // Only add event listener once
+        if (!themeToggleInitialized) {
+          themeToggleInitialized = true;
 
-        function toggleTheme() {
-          // Toggle icons
-          themeToggleDarkIcon?.classList.toggle('hidden');
-          themeToggleLightIcon?.classList.toggle('hidden');
+          themeToggleBtn.addEventListener('click', function() {
+            const isDarkNow = document.documentElement.classList.contains('dark');
+            const newTheme = isDarkNow ? 'light' : 'dark';
 
-          // Toggle dark mode
-          if (localStorage.getItem('color-theme')) {
-            if (localStorage.getItem('color-theme') === 'light') {
-              document.documentElement.classList.add('dark');
-              localStorage.setItem('color-theme', 'dark');
+            // Use View Transitions API for smooth theme switch
+            const transitionFn = () => {
+              document.documentElement.classList.toggle('dark');
+              localStorage.setItem('color-theme', newTheme);
+
+              // Update icons
+              themeToggleDarkIcon?.classList.toggle('hidden');
+              themeToggleLightIcon?.classList.toggle('hidden');
+            };
+
+            if (!document.startViewTransition) {
+              transitionFn();
             } else {
-              document.documentElement.classList.remove('dark');
-              localStorage.setItem('color-theme', 'light');
+              document.startViewTransition(transitionFn);
             }
-          } else {
-            if (document.documentElement.classList.contains('dark')) {
-              document.documentElement.classList.remove('dark');
-              localStorage.setItem('color-theme', 'light');
-            } else {
-              document.documentElement.classList.add('dark');
-              localStorage.setItem('color-theme', 'dark');
-            }
-          }
+          });
         }
       }
 
@@ -318,7 +313,7 @@ const socialImage = new URL(image, Astro.site);
         </div>
 
         <div class="mt-12 pt-8 border-t border-white/10 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Emergent Solutions. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Ashwin K. Philips. All rights reserved.</p>
         </div>
       </div>
     </footer>
