@@ -1,0 +1,561 @@
+---
+// Experimental Hero with multi-layered parallax, video background, and micro-animations
+---
+
+<section id="hero" class="hero-experimental">
+  <!-- Multi-layered background system -->
+  <div class="hero-bg-layers">
+    <!-- Layer 1: Video background (slowest) -->
+    <div class="hero-layer hero-layer-video" data-speed="0.3">
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="hero-video"
+        poster="/images/hero-bg.jpg"
+      >
+        <source src="/videos/hero-bg.mp4" type="video/mp4" />
+        <source src="/videos/hero-bg.webm" type="video/webm" />
+      </video>
+      <div class="hero-video-overlay"></div>
+    </div>
+
+    <!-- Layer 2: Animated gradient overlay (medium speed) -->
+    <div class="hero-layer hero-layer-gradient" data-speed="0.5">
+      <div class="hero-gradient-animated"></div>
+    </div>
+
+    <!-- Layer 3: Particle field (fastest) -->
+    <div class="hero-layer hero-layer-particles" data-speed="0.7">
+      <canvas id="hero-particles" class="hero-particles-canvas"></canvas>
+    </div>
+
+    <!-- Ambient glow effects -->
+    <div class="hero-ambient-glow hero-glow-1"></div>
+    <div class="hero-ambient-glow hero-glow-2"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="hero-content">
+    <div class="container">
+      <div class="hero-text-wrapper">
+        <!-- Animated title with word-by-word reveal -->
+        <h1 class="hero-title">
+          <span class="hero-title-line">
+            <span class="hero-word" data-delay="0">Systems</span>
+            <span class="hero-word-separator">·</span>
+            <span class="hero-word" data-delay="100">Intelligence</span>
+            <span class="hero-word-separator">·</span>
+            <span class="hero-word" data-delay="200">Emergence</span>
+          </span>
+        </h1>
+
+        <!-- Subtitle with typewriter effect -->
+        <p class="hero-subtitle">
+          <span id="hero-typewriter"></span>
+          <span class="hero-cursor">|</span>
+        </p>
+
+        <!-- Floating cards with expertise areas -->
+        <div class="hero-expertise-cards">
+          <div class="expertise-card" data-float-delay="0">
+            <div class="expertise-icon">🧠</div>
+            <span>AI Research</span>
+          </div>
+          <div class="expertise-card" data-float-delay="200">
+            <div class="expertise-icon">⚡</div>
+            <span>Distributed Systems</span>
+          </div>
+          <div class="expertise-card" data-float-delay="400">
+            <div class="expertise-icon">🎵</div>
+            <span>Music Production</span>
+          </div>
+          <div class="expertise-card" data-float-delay="600">
+            <div class="expertise-icon">🔮</div>
+            <span>Consciousness</span>
+          </div>
+        </div>
+
+        <!-- CTA with gradient border animation -->
+        <div class="hero-cta">
+          <a href="#explore" class="hero-cta-primary">
+            <span class="hero-cta-text">Explore My Work</span>
+            <span class="hero-cta-border"></span>
+          </a>
+          <a href="/contact" class="hero-cta-secondary">
+            <span>Get in Touch</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator with animation -->
+  <div class="hero-scroll-indicator">
+    <div class="scroll-indicator-line"></div>
+    <div class="scroll-indicator-dot"></div>
+  </div>
+</section>
+
+<style>
+  .hero-experimental {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  /* Multi-layered background system */
+  .hero-bg-layers {
+    position: absolute;
+    inset: 0;
+    z-index: var(--z-bg);
+  }
+
+  .hero-layer {
+    position: absolute;
+    inset: 0;
+    will-change: transform;
+  }
+
+  .hero-layer-video {
+    z-index: 1;
+  }
+
+  .hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+  }
+
+  .hero-video-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+  }
+
+  .hero-layer-gradient {
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .hero-gradient-animated {
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-ambient);
+    animation: gradientRotate var(--duration-glacial) linear infinite;
+  }
+
+  @keyframes gradientRotate {
+    0% {
+      transform: rotate(0deg) scale(1.2);
+    }
+    100% {
+      transform: rotate(360deg) scale(1.2);
+    }
+  }
+
+  .hero-layer-particles {
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .hero-particles-canvas {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Ambient glow effects */
+  .hero-ambient-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(150px);
+    opacity: 0.3;
+    pointer-events: none;
+    animation: ambientPulse 8s ease-in-out infinite;
+  }
+
+  .hero-glow-1 {
+    top: 10%;
+    left: 20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #667eea 0%, transparent 70%);
+    animation-delay: 0s;
+  }
+
+  .hero-glow-2 {
+    bottom: 20%;
+    right: 15%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #764ba2 0%, transparent 70%);
+    animation-delay: 4s;
+  }
+
+  @keyframes ambientPulse {
+    0%, 100% {
+      opacity: 0.2;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.4;
+      transform: scale(1.1);
+    }
+  }
+
+  /* Content */
+  .hero-content {
+    position: relative;
+    z-index: var(--z-content);
+    width: 100%;
+    padding: var(--space-2xl) 0;
+  }
+
+  .hero-text-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Title with word-by-word reveal */
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: var(--space-lg);
+    color: white;
+  }
+
+  .hero-title-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(0.5rem, 2vw, 1.5rem);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: wordReveal var(--duration-slow) var(--ease-premium) forwards;
+  }
+
+  .hero-word[data-delay="0"] { animation-delay: 100ms; }
+  .hero-word[data-delay="100"] { animation-delay: 300ms; }
+  .hero-word[data-delay="200"] { animation-delay: 500ms; }
+
+  @keyframes wordReveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-word-separator {
+    opacity: 0.3;
+    font-weight: 300;
+  }
+
+  /* Subtitle with typewriter */
+  .hero-subtitle {
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    min-height: 2em;
+  }
+
+  .hero-cursor {
+    display: inline-block;
+    animation: cursorBlink 1s step-end infinite;
+  }
+
+  @keyframes cursorBlink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  /* Expertise cards */
+  .hero-expertise-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    justify-content: center;
+    margin-bottom: var(--space-xl);
+  }
+
+  .expertise-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    backdrop-filter: blur(var(--glass-blur));
+    opacity: 0;
+    transform: translateY(20px);
+    animation: cardFloat var(--duration-slow) var(--ease-premium) forwards;
+  }
+
+  .expertise-card[data-float-delay="0"] { animation-delay: 700ms; }
+  .expertise-card[data-float-delay="200"] { animation-delay: 850ms; }
+  .expertise-card[data-float-delay="400"] { animation-delay: 1000ms; }
+  .expertise-card[data-float-delay="600"] { animation-delay: 1150ms; }
+
+  @keyframes cardFloat {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .expertise-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    transition: all var(--duration-normal) var(--ease-smooth);
+  }
+
+  .expertise-icon {
+    font-size: 1.5rem;
+  }
+
+  .expertise-card span {
+    color: white;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  /* CTA buttons */
+  .hero-cta {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-cta-primary,
+  .hero-cta-secondary {
+    position: relative;
+    padding: var(--space-md) var(--space-lg);
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--duration-normal) var(--ease-smooth);
+    overflow: hidden;
+  }
+
+  .hero-cta-primary {
+    background: white;
+    color: #000;
+  }
+
+  .hero-cta-primary .hero-cta-border {
+    position: absolute;
+    inset: -2px;
+    background: var(--gradient-primary);
+    border-radius: 12px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity var(--duration-normal) var(--ease-smooth);
+  }
+
+  .hero-cta-primary:hover .hero-cta-border {
+    opacity: 1;
+  }
+
+  .hero-cta-primary:hover {
+    color: white;
+    background: transparent;
+  }
+
+  .hero-cta-secondary {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(var(--glass-blur));
+    color: white;
+  }
+
+  .hero-cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  /* Scroll indicator */
+  .hero-scroll-indicator {
+    position: absolute;
+    bottom: var(--space-xl);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: var(--z-content);
+    opacity: 0;
+    animation: scrollIndicatorFade 1s ease-in forwards 2s;
+  }
+
+  @keyframes scrollIndicatorFade {
+    to { opacity: 1; }
+  }
+
+  .scroll-indicator-line {
+    width: 2px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.3));
+    margin: 0 auto 8px;
+  }
+
+  .scroll-indicator-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+    margin: 0 auto;
+    animation: scrollDotBounce 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollDotBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(20px); }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .hero-title-line {
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .hero-word-separator {
+      display: none;
+    }
+
+    .hero-expertise-cards {
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-cta {
+      flex-direction: column;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    .hero-cta-primary,
+    .hero-cta-secondary {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  // Typewriter effect
+  const typewriterText = "Exploring consciousness through code, systems, and sound";
+  const typewriterElement = document.getElementById('hero-typewriter');
+  let charIndex = 0;
+
+  function typeWriter() {
+    if (charIndex < typewriterText.length && typewriterElement) {
+      typewriterElement.textContent += typewriterText.charAt(charIndex);
+      charIndex++;
+      setTimeout(typeWriter, 50);
+    }
+  }
+
+  // Start typewriter after initial word animations
+  setTimeout(typeWriter, 1000);
+
+  // Parallax scrolling
+  const parallaxLayers = document.querySelectorAll<HTMLElement>('.hero-layer');
+
+  function updateParallax() {
+    const scrollY = window.scrollY;
+
+    parallaxLayers.forEach((layer) => {
+      const speed = parseFloat(layer.getAttribute('data-speed') || '0');
+      const yPos = -(scrollY * speed);
+      layer.style.transform = `translate3d(0, ${yPos}px, 0)`;
+    });
+  }
+
+  // Throttled scroll handler for performance
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateParallax();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // Particle system (simple version)
+  const canvas = document.getElementById('hero-particles') as HTMLCanvasElement;
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles: Array<{x: number, y: number, vx: number, vy: number, size: number}> = [];
+    const particleCount = Math.min(50, Math.floor(canvas.width / 20));
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        size: Math.random() * 2 + 1
+      });
+    }
+
+    function animateParticles() {
+      if (!ctx) return;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+        ctx.fill();
+      });
+
+      requestAnimationFrame(animateParticles);
+    }
+
+    animateParticles();
+
+    // Resize handler
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  }
+
+  // Smooth scroll to explore section
+  document.querySelector('.hero-cta-primary')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector('#explore')?.scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+</script>

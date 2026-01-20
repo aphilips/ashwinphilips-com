@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroExperimental from '../components/HeroExperimental.astro';
 ---
 
 <BaseLayout
@@ -7,40 +8,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="Systems architect, AI researcher, and music producer exploring consciousness, distributed systems, and creative synthesis."
   pageKey="home"
 >
-  <!-- Hero Section -->
-  <section class="relative overflow-hidden bg-gray-900">
-    <div class="absolute inset-0">
-      <img src="/images/hero-bg.jpg" alt="" class="w-full h-full object-cover opacity-40" />
-      <div class="absolute inset-0 bg-gradient-to-b from-gray-900/90 via-gray-900/85 to-gray-900"></div>
-    </div>
-
-    <div class="relative z-10">
-      <div class="container pt-32 pb-20">
-        <div class="max-w-4xl">
-          <h1 class="mb-6 text-5xl font-extrabold leading-tight text-white md:text-6xl lg:text-7xl">
-            Building Emergent Intelligence
-          </h1>
-          <p class="mb-8 text-xl text-gray-300 md:text-2xl font-light lg:mb-10">
-            Systems architect, AI researcher, and music producer exploring consciousness, distributed systems, and creative synthesis.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a href="/work" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 transition-all">
-              View My Work
-              <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-              </svg>
-            </a>
-            <a href="/contact" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 border border-gray-200 dark:border-gray-700 transition-all">
-              Get in Touch
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Experimental Hero -->
+  <HeroExperimental />
 
   <!-- Features Grid -->
-  <section class="bg-white dark:bg-gray-900">
+  <section id="explore" class="bg-white dark:bg-gray-900">
     <div class="container">
       <h2 class="mb-12 text-3xl font-bold text-center text-gray-900 dark:text-white md:text-4xl">
         What I Do

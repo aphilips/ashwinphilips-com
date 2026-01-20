@@ -23,7 +23,7 @@ const socialImage = new URL(image, Astro.site);
 ---
 
 <!doctype html>
-<html lang="en" data-page-key={pageKey} transition:animate="fade">
+<html lang="en" data-page-key={pageKey}>
   <head>
     <!-- Dark mode initialization script (must run before page renders) -->
     <script is:inline>
@@ -33,7 +33,84 @@ const socialImage = new URL(image, Astro.site);
       } else {
         document.documentElement.classList.remove('dark');
       }
+
+      // View Transitions API support
+      if (!document.startViewTransition) {
+        // Polyfill for browsers without View Transitions API
+        document.startViewTransition = (callback) => {
+          callback();
+        };
+      }
     </script>
+
+    <!-- CSS Custom Properties System -->
+    <style is:inline>
+      :root {
+        /* Spacing System (fluid with clamp) */
+        --space-xs: clamp(0.5rem, 1vw, 0.75rem);
+        --space-sm: clamp(0.75rem, 1.5vw, 1rem);
+        --space-md: clamp(1rem, 2vw, 1.5rem);
+        --space-lg: clamp(1.5rem, 3vw, 2.5rem);
+        --space-xl: clamp(2rem, 4vw, 4rem);
+        --space-2xl: clamp(3rem, 6vw, 6rem);
+
+        /* Animation Timing (sophisticated easing) */
+        --ease-smooth: cubic-bezier(0.4, 0.0, 0.2, 1);
+        --ease-premium: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        --duration-fast: 200ms;
+        --duration-normal: 400ms;
+        --duration-slow: 800ms;
+        --duration-glacial: 1200ms;
+
+        /* Gradient System */
+        --gradient-rotation: 0deg;
+        --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --gradient-ambient: radial-gradient(circle at 50% 50%, rgba(102, 126, 234, 0.1), transparent 70%);
+
+        /* Z-Index System */
+        --z-bg: -1;
+        --z-base: 0;
+        --z-content: 10;
+        --z-nav: 40;
+        --z-modal: 50;
+
+        /* Glass Effect */
+        --glass-bg: rgba(255, 255, 255, 0.05);
+        --glass-border: rgba(255, 255, 255, 0.1);
+        --glass-blur: 12px;
+      }
+
+      /* View Transitions */
+      @view-transition {
+        navigation: auto;
+      }
+
+      ::view-transition-old(root),
+      ::view-transition-new(root) {
+        animation-duration: 400ms;
+        animation-timing-function: var(--ease-premium);
+      }
+
+      /* Scroll-driven animation support detection */
+      @supports (animation-timeline: view()) {
+        .scroll-animate {
+          animation-timeline: view();
+          animation-range: entry 0% cover 50%;
+        }
+      }
+
+      /* Reduced motion preferences */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -117,6 +194,15 @@ const socialImage = new URL(image, Astro.site);
         }
 
         themeToggleBtn.addEventListener('click', function() {
+          // Use View Transitions API for smooth theme switch
+          if (!document.startViewTransition) {
+            toggleTheme();
+          } else {
+            document.startViewTransition(() => toggleTheme());
+          }
+        });
+
+        function toggleTheme() {
           // Toggle icons
           themeToggleDarkIcon?.classList.toggle('hidden');
           themeToggleLightIcon?.classList.toggle('hidden');
@@ -139,7 +225,7 @@ const socialImage = new URL(image, Astro.site);
               localStorage.setItem('color-theme', 'dark');
             }
           }
-        });
+        }
       }
 
       // Sticky navbar initialization
