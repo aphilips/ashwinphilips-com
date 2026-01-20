@@ -25,7 +25,108 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- Featured Projects -->
   <section class="bg-white dark:bg-gray-900">
     <div class="container">
+      <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white">Featured Projects</h2>
       <div class="max-w-5xl mx-auto space-y-12">
+
+        <!-- qDB -->
+        <div id="qdb" class="scroll-mt-20">
+          <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+            <div class="flex items-start gap-6">
+              <div class="text-5xl">🗜️</div>
+              <div class="flex-1">
+                <div class="flex items-center gap-3 mb-3">
+                  <h2 class="text-3xl font-bold text-gray-900 dark:text-white">qDB</h2>
+                  <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300 uppercase">Production</span>
+                </div>
+                <p class="text-xl text-primary-600 dark:text-primary-500 mb-4 font-medium">
+                  Algorithmic compression achieving 95%+ data reduction
+                </p>
+                <p class="text-gray-600 dark:text-gray-300 mb-6">
+                  Novel approach to data compression and retrieval. Provides users with truth discovery
+                  and emergence pattern recognition through compressed semantic indexing. Enables
+                  pattern-based retrieval without decompression.
+                </p>
+
+                <h3 class="text-lg font-bold mb-3 text-gray-900 dark:text-white">Performance Metrics</h3>
+                <ul class="space-y-2 mb-6">
+                  <li class="flex items-start gap-2 text-gray-600 dark:text-gray-300">
+                    <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+                    <strong class="text-gray-900 dark:text-white">&lt; 100ms</strong> query latency at scale
+                  </li>
+                  <li class="flex items-start gap-2 text-gray-600 dark:text-gray-300">
+                    <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+                    <strong class="text-gray-900 dark:text-white">2PB dataset → 100TB</strong> compressed (95%+ reduction)
+                  </li>
+                  <li class="flex items-start gap-2 text-gray-600 dark:text-gray-300">
+                    <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+                    Pattern-based retrieval without decompression overhead
+                  </li>
+                  <li class="flex items-start gap-2 text-gray-600 dark:text-gray-300">
+                    <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+                    Truth discovery and emergence pattern recognition
+                  </li>
+                </ul>
+
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded dark:bg-gray-700 dark:text-gray-300">Compression</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded dark:bg-gray-700 dark:text-gray-300">Algorithms</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded dark:bg-gray-700 dark:text-gray-300">Pattern Recognition</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded dark:bg-gray-700 dark:text-gray-300">Semantic Indexing</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DACW Engine -->
+        <div id="dacw" class="scroll-mt-20">
+          <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+            <div class="flex items-start gap-6">
+              <div class="text-5xl">⚡</div>
+              <div class="flex-1">
+                <div class="flex items-center gap-3 mb-3">
+                  <h2 class="text-3xl font-bold text-gray-900 dark:text-white">DACW Engine</h2>
+                  <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300 uppercase">Production</span>
+                </div>
+                <p class="text-xl text-primary-600 dark:text-primary-500 mb-4 font-medium">
+                  Distributed computation engine for real-time state management
+                </p>
+                <p class="text-gray-600 dark:text-gray-300 mb-6">
+                  High-performance distributed state management system designed for ultra-low latency
+                  at scale. Handles real-time coordination across distributed edge infrastructure
+                  with exceptional reliability.
+                </p>
+
+                <h3 class="text-lg font-bold mb-3 text-gray-900 dark:text-white">Performance Metrics</h3>
+                <ul class="space-y-2 mb-6">
+                  <li class="flex items-start gap-2 text-gray-600 dark:text-gray-300">
+                    <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+                    <strong class="text-gray-900 dark:text-white">&lt; 50ms</strong> latency for state operations
+                  </li>
+                  <li class="flex items-start gap-2 text-gray-600 dark:text-gray-300">
+                    <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+                    <strong class="text-gray-900 dark:text-white">1M+ operations/second</strong> sustained throughput
+                  </li>
+                  <li class="flex items-start gap-2 text-gray-600 dark:text-gray-300">
+                    <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+                    <strong class="text-gray-900 dark:text-white">99.99% uptime</strong> in production
+                  </li>
+                  <li class="flex items-start gap-2 text-gray-600 dark:text-gray-300">
+                    <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
+                    Global edge deployment with consistent performance
+                  </li>
+                </ul>
+
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded dark:bg-gray-700 dark:text-gray-300">Distributed Systems</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded dark:bg-gray-700 dark:text-gray-300">Performance</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded dark:bg-gray-700 dark:text-gray-300">Edge Computing</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded dark:bg-gray-700 dark:text-gray-300">State Management</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <!-- Fulqrum -->
         <div id="fulqrum" class="scroll-mt-20">
@@ -222,6 +323,241 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded dark:bg-gray-700 dark:text-gray-300">Category Theory</span>
                   <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded dark:bg-gray-700 dark:text-gray-300">Python</span>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Infrastructure & Tools -->
+  <section class="bg-gray-50 dark:bg-gray-800">
+    <div class="container">
+      <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white">Infrastructure & Tools</h2>
+      <div class="max-w-5xl mx-auto grid gap-6 md:grid-cols-2">
+
+        <!-- EDAT -->
+        <div class="p-6 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">📊</div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">EDAT</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                Emergent Data Analytics Toolkit - Analytics framework for pattern emergence detection
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Analytics</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Data Science</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Emergence</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ERK -->
+        <div class="p-6 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">🔀</div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">ERK</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                Event Routing Kernel - High-performance event routing for distributed systems
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Event-Driven</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Routing</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Performance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MajrFlare -->
+        <div class="p-6 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">🔍</div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">MajrFlare</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                Detection and analysis system for significant pattern shifts
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Pattern Recognition</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Analytics</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GUCP -->
+        <div class="p-6 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">📡</div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">GUCP</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                General Universal Communication Protocol - Communication protocol for cross-system agent coordination
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Protocols</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Distributed Systems</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Communication</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- noqnoq-switch -->
+        <div class="p-6 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">🔄</div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">noqnoq-switch</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                Intelligent routing for nervous system architecture
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">NoqNoq</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Routing</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Intelligence</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seqret -->
+        <div class="p-6 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">🔒</div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Seqret</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                Secure Query Execution Runtime - Secure distributed query execution environment
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Security</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Query Processing</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Distributed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GUTS -->
+        <div class="p-6 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">🔐</div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">GUTS</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                General Unified Transaction System - Transaction coordination across distributed services
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Transactions</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Distributed</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Consistency</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- UNIFERSE -->
+        <div class="p-6 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">🤖</div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">UNIFERSE</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                Universal Inference & Reasoning System Engine - Inference engine for distributed reasoning tasks
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">AI</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Reasoning</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Inference</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Implementations -->
+  <section class="bg-white dark:bg-gray-900">
+    <div class="container">
+      <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white">Research Implementations</h2>
+      <div class="max-w-5xl mx-auto grid gap-6 md:grid-cols-2">
+
+        <!-- Emergent Analytiqa -->
+        <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">🧪</div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Emergent Analytiqa</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                Analytics platform for emergent pattern discovery
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Analytics</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Patterns</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Emergence</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phrobozz -->
+        <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">🎯</div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Phrobozz</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                Pattern Recognition & Optimization - Pattern recognition with optimization feedback loops
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">ML</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Optimization</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Patterns</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NodeNotes -->
+        <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">📝</div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">NodeNotes</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                Distributed note-taking with semantic linking
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Productivity</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Distributed</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Knowledge</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ImbossibleAudio -->
+        <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">🎵</div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">ImbossibleAudio</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                Spatial audio processing and synthesis
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Audio</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">DSP</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded dark:bg-gray-800 dark:text-gray-300">Spatial</span>
               </div>
             </div>
           </div>
