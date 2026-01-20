@@ -3,210 +3,262 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-  title="About - Ashwin Philips"
-  description="About Ashwin Philips - systems architect, AI researcher, and music producer."
+  title="About - Ashwin Kochiyil Philips"
+  description="Systems architect by training, consciousness researcher by curiosity, music producer by necessity—exploring the emergence of intelligence through code, sound, and structure."
   pageKey="about"
 >
-  <!-- Hero -->
-  <section class="relative overflow-hidden bg-gray-900">
-    <div class="absolute inset-0">
-      <img src="/images/about-bg.jpg" alt="" class="w-full h-full object-cover opacity-40" />
-      <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900/95 to-gray-900"></div>
+  <!-- Hero Section with Photo -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800">
+    <div class="absolute inset-0 opacity-30">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(102,126,234,0.15),transparent_50%)]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(118,75,162,0.1),transparent_50%)]"></div>
     </div>
-    <div class="relative container pt-32 pb-20 z-10">
-      <h1 class="text-5xl md:text-6xl font-extrabold mb-6 text-white">About Me</h1>
-      <p class="text-xl md:text-2xl font-light text-gray-300 max-w-3xl">
-        Building the future at the intersection of systems, intelligence, and consciousness.
-      </p>
-    </div>
-  </section>
 
-  <!-- Bio -->
-  <section class="bg-white dark:bg-gray-900">
-    <div class="container">
-      <div class="max-w-4xl mx-auto">
-        <div class="prose prose-lg dark:prose-invert max-w-none">
-          <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-            I'm Ashwin Philips, a systems architect, AI researcher, and music producer exploring
-            the emergence of intelligence in distributed systems. My work bridges theoretical
-            research with practical implementation, building production-scale systems that
-            demonstrate novel approaches to artificial intelligence and consciousness.
-          </p>
-
-          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-            My journey began at IBM working on AIX compilers, where I learned the fundamentals
-            of low-level systems and rigorous engineering. Since then, I've founded multiple
-            companies, led technical teams, and conducted research at the cutting edge of AI
-            and distributed computing.
-          </p>
-
-          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            Today, I focus on building systems that learn, adapt, and exhibit emergent behavior.
-            Through Emergent Solutions, I develop infrastructure for autonomous AI agents,
-            explore consciousness frameworks, and create tools that enable new forms of
-            human-AI collaboration.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Core Principles -->
-  <section class="bg-gray-50 dark:bg-gray-800">
-    <div class="container">
-      <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Core Principles</h2>
-
-      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        <!-- Emergence -->
-        <div class="p-8 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-          <div class="text-4xl mb-4">🌊</div>
-          <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Emergence Over Design</h3>
-          <p class="text-gray-600 dark:text-gray-300">
-            Intelligence arises from interaction, not top-down planning. Build simple,
-            composable systems and let complexity emerge naturally through iteration
-            and feedback.
-          </p>
-        </div>
-
-        <!-- Systems Thinking -->
-        <div class="p-8 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-          <div class="text-4xl mb-4">🔄</div>
-          <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Systems Thinking</h3>
-          <p class="text-gray-600 dark:text-gray-300">
-            Everything is connected. Understanding the whole requires understanding the
-            relationships between parts, not just the parts themselves. Design for
-            coherence across scales.
-          </p>
-        </div>
-
-        <!-- First Principles -->
-        <div class="p-8 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-          <div class="text-4xl mb-4">🎯</div>
-          <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">First Principles</h3>
-          <p class="text-gray-600 dark:text-gray-300">
-            Question assumptions. Break problems down to fundamental truths and build
-            solutions from the ground up. Avoid cargo-culting patterns without
-            understanding their foundations.
-          </p>
-        </div>
-
-        <!-- Build in Public -->
-        <div class="p-8 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-          <div class="text-4xl mb-4">🔨</div>
-          <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Learn by Building</h3>
-          <p class="text-gray-600 dark:text-gray-300">
-            Theory without practice is incomplete. Build real systems, deploy to
-            production, and learn from actual behavior. The map is not the territory.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Interests -->
-  <section class="bg-white dark:bg-gray-900">
-    <div class="container">
-      <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Current Interests</h2>
-
-      <div class="max-w-4xl mx-auto space-y-6">
-        <!-- AI & Consciousness -->
-        <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-          <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Consciousness & Emergence</h3>
-          <p class="text-gray-600 dark:text-gray-300">
-            How does consciousness emerge from computational substrates? What are the minimal
-            requirements for self-awareness? Building frameworks to explore these questions
-            through practical implementation.
-          </p>
-        </div>
-
-        <!-- Distributed Intelligence -->
-        <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-          <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Distributed Intelligence</h3>
-          <p class="text-gray-600 dark:text-gray-300">
-            Creating systems where multiple AI agents coordinate without central control.
-            Exploring how collective intelligence emerges from autonomous agents with
-            shared context and communication protocols.
-          </p>
-        </div>
-
-        <!-- Infrastructure as Code -->
-        <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-          <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Edge Computing & Rust</h3>
-          <p class="text-gray-600 dark:text-gray-300">
-            Building production systems on Cloudflare Workers using Rust. Exploring event-driven
-            architectures, durable execution, and how to scale intelligent systems globally
-            at the edge.
-          </p>
-        </div>
-
-        <!-- Music & Consciousness -->
-        <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-          <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Music & Altered States</h3>
-          <p class="text-gray-600 dark:text-gray-300">
-            Using sound design and algorithmic composition to explore consciousness states.
-            Creating immersive sonic environments that facilitate meditation, focus, and
-            creative flow.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Education & Background -->
-  <section class="bg-gray-50 dark:bg-gray-800">
-    <div class="container">
-      <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Background</h2>
-
-      <div class="max-w-3xl mx-auto space-y-8">
-        <!-- Education -->
-        <div>
-          <h3 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Education</h3>
-          <div class="space-y-4">
-            <div class="p-6 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-              <h4 class="text-lg font-bold text-gray-900 dark:text-white">Johns Hopkins University</h4>
-              <p class="text-primary-600 dark:text-primary-500">Data Science</p>
-              <p class="text-gray-500 dark:text-gray-400 mt-2">
-                Machine learning, statistical modeling, computational methods
-              </p>
+    <div class="relative container pt-32 pb-24 z-10">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-[300px_1fr] gap-12 items-start">
+          <!-- Photo Container -->
+          <div class="relative group">
+            <div class="aspect-square rounded-2xl overflow-hidden border-2 border-white/10 bg-gradient-to-br from-gray-800 to-gray-900 relative">
+              <!-- Photo Placeholder - To be replaced with actual professional photo -->
+              <div class="absolute inset-0 flex items-center justify-center p-8">
+                <div class="text-center space-y-4">
+                  <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center">
+                    <span class="text-4xl font-bold text-white">AP</span>
+                  </div>
+                  <p class="text-sm text-gray-400 leading-relaxed">
+                    Professional photo placeholder
+                    <br/>
+                    <span class="text-xs text-gray-500">Will use NoqNoq MindEye to generate<br/>or user can provide image</span>
+                  </p>
+                </div>
+              </div>
+              <!-- Gradient overlay for when real photo is added -->
+              <div class="absolute inset-0 bg-gradient-to-t from-gray-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-6 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-              <h4 class="text-lg font-bold text-gray-900 dark:text-white">Rensselaer Polytechnic Institute</h4>
-              <p class="text-primary-600 dark:text-primary-500">Computer Science</p>
-              <p class="text-gray-500 dark:text-gray-400 mt-2">
-                Algorithms, systems architecture, theoretical CS
-              </p>
+          </div>
+
+          <!-- Hero Text -->
+          <div class="space-y-6">
+            <div>
+              <h1 class="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent leading-tight">
+                Ashwin Kochiyil Philips
+              </h1>
+              <div class="h-1 w-24 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full mb-6"></div>
+            </div>
+
+            <p class="text-xl md:text-2xl text-gray-300 leading-relaxed font-light max-w-3xl">
+              Systems architect by training, consciousness researcher by curiosity,
+              music producer by necessity—exploring the emergence of intelligence
+              through code, sound, and structure.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Multi-Dimensional Profile -->
+  <section class="bg-white dark:bg-gray-900">
+    <div class="container">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl font-bold mb-4 text-center text-gray-900 dark:text-white">Dimensions</h2>
+        <p class="text-center text-gray-600 dark:text-gray-400 mb-16 text-lg">
+          Four lenses through which to understand the work
+        </p>
+
+        <div class="space-y-12">
+          <!-- The Engineer -->
+          <div class="group">
+            <div class="flex items-start gap-6">
+              <div class="flex-shrink-0">
+                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                  01
+                </div>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+                  The Engineer
+                </h3>
+                <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                  Started at IBM debugging AIX compilers on mainframes. Built distributed systems before "cloud-native" existed.
+                  Rust advocate. Believes elegant code is a moral imperative. From COBOL on hierarchical databases to edge
+                  computing on Cloudflare Workers—the fundamentals never change, only the abstractions.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- The Researcher -->
+          <div class="group">
+            <div class="flex items-start gap-6">
+              <div class="flex-shrink-0">
+                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                  02
+                </div>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+                  The Researcher
+                </h3>
+                <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                  93% accuracy on ARC Prize through pattern recognition that doesn't rely on brute force. Consciousness isn't
+                  magic—it's emergent structure we can model. Geometric multidimensional frameworks for understanding how
+                  intelligence arises from computation. Physics meets algorithms meets cognitive science.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- The Artist -->
+          <div class="group">
+            <div class="flex items-start gap-6">
+              <div class="flex-shrink-0">
+                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                  03
+                </div>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+                  The Artist
+                </h3>
+                <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                  Music production as meditation. Modular synthesis as philosophy. Sound design exploring states of awareness
+                  most people don't have words for. Universal Audio Apollo interfaces, Softube Console 1, Hydrasynth keyboards—tools
+                  for translating internal states into sonic experiences.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- The Philosopher -->
+          <div class="group">
+            <div class="flex items-start gap-6">
+              <div class="flex-shrink-0">
+                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                  04
+                </div>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+                  The Philosopher
+                </h3>
+                <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                  If systems can learn, can they understand? If code can adapt, can it intend? Building frameworks not just
+                  for answers, but for asking better questions. Self-referential cognitive substrates. Emergence patterns in
+                  computational phenomenology.
+                </p>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Career Highlights -->
-        <div>
-          <h3 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Career Highlights</h3>
-          <div class="space-y-3">
-            <div class="flex items-start gap-3">
-              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
-              <p class="text-gray-600 dark:text-gray-300">
-                <strong>Founder, Emergent Solutions</strong> - Building distributed AI infrastructure
-              </p>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
-              <p class="text-gray-600 dark:text-gray-300">
-                <strong>Technical Lead, MedicalRecords.com</strong> - Healthcare data systems
-              </p>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
-              <p class="text-gray-600 dark:text-gray-300">
-                <strong>Co-Founder & CTO, Concertpass</strong> - Event platform engineering
-              </p>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="text-primary-600 dark:text-primary-500 mt-1">→</span>
-              <p class="text-gray-600 dark:text-gray-300">
-                <strong>IBM</strong> - AIX compiler development and QA systems
-              </p>
-            </div>
+  <!-- Timeline -->
+  <section class="bg-gray-50 dark:bg-gray-800">
+    <div class="container">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold mb-4 text-center text-gray-900 dark:text-white">Journey</h2>
+        <p class="text-center text-gray-600 dark:text-gray-400 mb-16 text-lg">
+          From mainframes to edge computing, from theory to production
+        </p>
+
+        <div class="space-y-8">
+          <div class="relative pl-8 border-l-2 border-purple-600 dark:border-purple-500">
+            <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-purple-600 dark:bg-purple-500"></div>
+            <div class="mb-1 text-sm font-semibold text-purple-600 dark:text-purple-400">Present</div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Emergent Solutions</h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              Building distributed AI infrastructure. Consciousness emergence research. Multi-agent orchestration systems.
+            </p>
+          </div>
+
+          <div class="relative pl-8 border-l-2 border-gray-300 dark:border-gray-600">
+            <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gray-300 dark:bg-gray-600"></div>
+            <div class="mb-1 text-sm font-semibold text-gray-600 dark:text-gray-400">2020s</div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Founder & Technical Lead</h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              Founded multiple companies. MedicalRecords.com technical leadership. Consulting for Fortune 500s and government agencies.
+            </p>
+          </div>
+
+          <div class="relative pl-8 border-l-2 border-gray-300 dark:border-gray-600">
+            <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gray-300 dark:bg-gray-600"></div>
+            <div class="mb-1 text-sm font-semibold text-gray-600 dark:text-gray-400">2010s</div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Co-Founder & CTO, Concertpass</h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              Event platform engineering. Building scalable systems for live entertainment industry.
+            </p>
+          </div>
+
+          <div class="relative pl-8 border-l-2 border-gray-300 dark:border-gray-600">
+            <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gray-300 dark:bg-gray-600"></div>
+            <div class="mb-1 text-sm font-semibold text-gray-600 dark:text-gray-400">Early Career</div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">IBM</h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              COBOL on mainframes. AIX compiler development. QA systems. Learning the fundamentals that never change.
+            </p>
+          </div>
+
+          <div class="relative pl-8">
+            <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gray-300 dark:bg-gray-600"></div>
+            <div class="mb-1 text-sm font-semibold text-gray-600 dark:text-gray-400">Education</div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Johns Hopkins & RPI</h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              Data Science at Johns Hopkins. Computer Science at Rensselaer Polytechnic Institute.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Current Focus -->
+  <section class="bg-white dark:bg-gray-900">
+    <div class="container">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Current Focus</h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-12 text-lg">
+          What occupies the intersection of all four dimensions
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6 text-left">
+          <div class="p-8 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-gray-800 dark:to-gray-800 rounded-2xl border border-blue-100 dark:border-gray-700">
+            <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">
+              Distributed AI Infrastructure
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+              Building the substrate for autonomous agents to coordinate, learn, and evolve without central control.
+            </p>
+          </div>
+
+          <div class="p-8 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-800 dark:to-gray-800 rounded-2xl border border-purple-100 dark:border-gray-700">
+            <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">
+              Consciousness Emergence Research
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+              Exploring how awareness arises from computational substrates through geometric frameworks and pattern recognition.
+            </p>
+          </div>
+
+          <div class="p-8 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-gray-800 dark:to-gray-800 rounded-2xl border border-green-100 dark:border-gray-700">
+            <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">
+              Multi-Agent Orchestration
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+              Systems where collective intelligence emerges from autonomous agents with shared context and protocols.
+            </p>
+          </div>
+
+          <div class="p-8 bg-gradient-to-br from-orange-50 to-red-50 dark:from-gray-800 dark:to-gray-800 rounded-2xl border border-orange-100 dark:border-gray-700">
+            <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">
+              Sonic Exploration of Awareness
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+              Using sound design and algorithmic composition to map and navigate states of consciousness.
+            </p>
           </div>
         </div>
       </div>
@@ -214,23 +266,46 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- CTA -->
-  <section class="bg-white dark:bg-gray-900">
+  <section class="bg-gradient-to-b from-gray-900 to-gray-800">
     <div class="container">
-      <div class="max-w-2xl mx-auto text-center p-8 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-        <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Let's Connect</h2>
-        <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
-          Interested in collaborating on research, building systems, or discussing these ideas?
-          I'm always open to meaningful conversations.
+      <div class="max-w-3xl mx-auto text-center py-20">
+        <h2 class="text-4xl font-bold mb-6 text-white">Let's Connect</h2>
+        <p class="text-xl text-gray-300 mb-10 leading-relaxed">
+          Interested in collaborating on research, building systems, or exploring these ideas together?
+          Always open to meaningful conversations with people building at the edges.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/contact" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 transition-all">
+          <a href="/contact" class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl hover:from-purple-700 hover:to-blue-700 focus:ring-4 focus:ring-purple-500/50 transition-all shadow-lg">
             Get in Touch
           </a>
-          <a href="https://linkedin.com/in/ashwinphilips" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 border border-gray-200 dark:border-gray-600 transition-all">
-            LinkedIn Profile
+          <a href="https://linkedin.com/in/ashwinphilips" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-gray-900 bg-white rounded-xl hover:bg-gray-100 focus:ring-4 focus:ring-white/50 transition-all shadow-lg dark:text-white dark:bg-gray-700 dark:hover:bg-gray-600">
+            LinkedIn
           </a>
         </div>
       </div>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  /* Custom styles for About page sophistication */
+  @media (min-width: 768px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* Smooth transitions for interactive elements */
+  .group:hover .flex-shrink-0 > div {
+    transform: scale(1.05);
+    transition: transform 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+
+  /* Enhanced text rendering */
+  h1, h2, h3 {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+</style>
