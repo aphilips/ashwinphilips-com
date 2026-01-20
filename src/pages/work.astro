@@ -22,150 +22,352 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- Timeline -->
+  <!-- Career Overview -->
   <section class="bg-white dark:bg-gray-900">
     <div class="container">
       <div class="max-w-4xl mx-auto">
         <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Career Timeline</h2>
 
-        <div class="space-y-8">
-          <!-- MedicalRecords.com -->
-          <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-            <div class="flex items-start gap-6">
-              <div class="text-4xl">🏥</div>
-              <div class="flex-1">
-                <div class="flex items-center gap-4 mb-2">
-                  <h3 class="text-2xl font-bold text-gray-900 dark:text-white">MedicalRecords.com</h3>
-                  <span class="text-sm text-gray-500 dark:text-gray-400">2014 - Present</span>
+        <!-- Current Roles -->
+        <div class="mb-16">
+          <h3 class="text-2xl font-semibold mb-6 text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-3">Current Roles</h3>
+          <div class="space-y-6">
+            <!-- MedicalRecords.com -->
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+              <div class="flex items-start gap-6">
+                <div class="text-4xl">🏥</div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-4 mb-2">
+                    <h4 class="text-2xl font-bold text-gray-900 dark:text-white">MedicalRecords.com</h4>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">2014 - Present</span>
+                  </div>
+                  <p class="text-primary-600 dark:text-primary-500 mb-4 font-medium">Technical Lead</p>
+                  <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    Leading technical architecture and engineering for healthcare data infrastructure.
+                    Building secure, scalable systems for medical record management and patient data access.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Healthcare Tech</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Data Security</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">System Architecture</span>
+                  </div>
                 </div>
-                <p class="text-primary-600 dark:text-primary-500 mb-4 font-medium">Technical Lead</p>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">
-                  Leading technical architecture and engineering for healthcare data infrastructure.
-                  Building secure, scalable systems for medical record management and patient data access.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Healthcare Tech</span>
-                  <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Data Security</span>
-                  <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">System Architecture</span>
+              </div>
+            </div>
+
+            <!-- Emergent Solutions -->
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+              <div class="flex items-start gap-6">
+                <div class="text-4xl">🚀</div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-4 mb-2">
+                    <h4 class="text-2xl font-bold text-gray-900 dark:text-white">Emergent Solutions</h4>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">Founded 2015</span>
+                  </div>
+                  <p class="text-primary-600 dark:text-primary-500 mb-4 font-medium">Founder & President</p>
+                  <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    Building distributed intelligence systems and autonomous infrastructure.
+                    Leading research into consciousness emergence, distributed computing,
+                    and AI-human collaboration. Exploring how intelligence arises from distributed systems.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Cloudflare Workers</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Distributed Systems</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">AI Research</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Emergent Solutions -->
-          <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-            <div class="flex items-start gap-6">
-              <div class="text-4xl">🚀</div>
-              <div class="flex-1">
-                <div class="flex items-center gap-4 mb-2">
-                  <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Emergent Solutions</h3>
-                  <span class="text-sm text-gray-500 dark:text-gray-400">Founded 2015</span>
+        <!-- Founded Companies -->
+        <div class="mb-16">
+          <h3 class="text-2xl font-semibold mb-6 text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-3">Founded Companies</h3>
+          <div class="space-y-6">
+            <!-- SoBe Tech Guru -->
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+              <div class="flex items-start gap-6">
+                <div class="text-4xl">💾</div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-4 mb-2">
+                    <h4 class="text-2xl font-bold text-gray-900 dark:text-white">SoBe Tech Guru</h4>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">2013 - 2015</span>
+                  </div>
+                  <p class="text-primary-600 dark:text-primary-500 mb-4 font-medium">Founder</p>
+                  <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    Data recovery and IT services for enterprise clients and consumers in Miami Beach.
+                    Specialized in critical data restoration, system recovery, and technical consulting.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Data Recovery</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Enterprise IT</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Technical Consulting</span>
+                  </div>
                 </div>
-                <p class="text-primary-600 dark:text-primary-500 mb-4 font-medium">Founder & President</p>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">
-                  Building distributed intelligence systems and autonomous infrastructure.
-                  Leading research into consciousness emergence, distributed computing,
-                  and AI-human collaboration. Exploring how intelligence arises from distributed systems.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Cloudflare Workers</span>
-                  <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Distributed Systems</span>
-                  <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">AI Research</span>
+              </div>
+            </div>
+
+            <!-- Concertpass -->
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+              <div class="flex items-start gap-6">
+                <div class="text-4xl">🎫</div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-4 mb-2">
+                    <h4 class="text-2xl font-bold text-gray-900 dark:text-white">Concertpass</h4>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">2007 - 2010</span>
+                  </div>
+                  <p class="text-primary-600 dark:text-primary-500 mb-4 font-medium">Co-Founder & CTO</p>
+                  <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    Built technical infrastructure for concert discovery and ticketing platform.
+                    Led engineering team and architected scalable systems for event aggregation.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Platform Engineering</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">API Design</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Scalability</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ImagiLab -->
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+              <div class="flex items-start gap-6">
+                <div class="text-4xl">🎨</div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-4 mb-2">
+                    <h4 class="text-2xl font-bold text-gray-900 dark:text-white">ImagiLab</h4>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">Early 2000s</span>
+                  </div>
+                  <p class="text-primary-600 dark:text-primary-500 mb-4 font-medium">Founder</p>
+                  <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    Creative technology venture exploring digital media, interactive experiences,
+                    and early web applications. Focused on bridging technology and creative expression.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Digital Media</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Web Development</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Interactive Design</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Crypto/NFTs & Web3 -->
-          <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-            <div class="flex items-start gap-6">
-              <div class="text-4xl">⛓️</div>
-              <div class="flex-1">
-                <div class="flex items-center gap-4 mb-2">
-                  <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Blockchain & Web3</h3>
-                  <span class="text-sm text-gray-500 dark:text-gray-400">2020 - 2023</span>
-                </div>
-                <p class="text-primary-600 dark:text-primary-500 mb-4 font-medium">Technical Architect & Advisor</p>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">
-                  Explored decentralized systems, smart contract architecture, and NFT infrastructure.
-                  Investigated cryptographic primitives, consensus mechanisms, and distributed ledger technologies.
-                  Built systems for token economics, digital asset management, and decentralized applications.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Smart Contracts</span>
-                  <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">NFT Infrastructure</span>
-                  <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Cryptography</span>
-                  <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Web3</span>
+        <!-- Consulting Engagements -->
+        <div class="mb-16">
+          <h3 class="text-2xl font-semibold mb-6 text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-3">Select Consulting Engagements</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 italic">Representative clients from enterprise consulting work spanning multiple industries and technical domains.</p>
+          <div class="space-y-6">
+            <!-- Blockchain & Web3 -->
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+              <div class="flex items-start gap-6">
+                <div class="text-4xl">⛓️</div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-4 mb-2">
+                    <h4 class="text-2xl font-bold text-gray-900 dark:text-white">Blockchain & Web3 Clients</h4>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">2020 - 2023</span>
+                  </div>
+                  <p class="text-primary-600 dark:text-primary-500 mb-4 font-medium">Technical Architect & Advisor</p>
+                  <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    Explored decentralized systems, smart contract architecture, and NFT infrastructure.
+                    Investigated cryptographic primitives, consensus mechanisms, and distributed ledger technologies.
+                    Built systems for token economics, digital asset management, and decentralized applications.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Smart Contracts</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">NFT Infrastructure</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Cryptography</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Web3</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- SoBe Tech Guru -->
-          <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-            <div class="flex items-start gap-6">
-              <div class="text-4xl">💾</div>
-              <div class="flex-1">
-                <div class="flex items-center gap-4 mb-2">
-                  <h3 class="text-2xl font-bold text-gray-900 dark:text-white">SoBe Tech Guru</h3>
-                  <span class="text-sm text-gray-500 dark:text-gray-400">2013 - 2015</span>
-                </div>
-                <p class="text-primary-600 dark:text-primary-500 mb-4 font-medium">Founder</p>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">
-                  Data recovery and IT services for enterprise clients and consumers in Miami Beach.
-                  Specialized in critical data restoration, system recovery, and technical consulting.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Data Recovery</span>
-                  <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Enterprise IT</span>
-                  <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Technical Consulting</span>
+            <!-- IBM -->
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+              <div class="flex items-start gap-6">
+                <div class="text-4xl">🏢</div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-4 mb-2">
+                    <h4 class="text-2xl font-bold text-gray-900 dark:text-white">IBM</h4>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">Contract Consulting</span>
+                  </div>
+                  <p class="text-primary-600 dark:text-primary-500 mb-4 font-medium">AIX Compiler Development & QA Systems</p>
+                  <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    Designed and developed automated testing procedures for AIX compilers.
+                    Led QA systems team for mission-critical compiler infrastructure. Deep work
+                    on low-level systems that shaped approach to debugging and architecture.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Compiler Design</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">QA Automation</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Team Leadership</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- Concertpass -->
-          <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-            <div class="flex items-start gap-6">
-              <div class="text-4xl">🎫</div>
-              <div class="flex-1">
-                <div class="flex items-center gap-4 mb-2">
-                  <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Concertpass</h3>
-                  <span class="text-sm text-gray-500 dark:text-gray-400">2007 - 2010</span>
-                </div>
-                <p class="text-primary-600 dark:text-primary-500 mb-4 font-medium">Co-Founder & CTO</p>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">
-                  Built technical infrastructure for concert discovery and ticketing platform.
-                  Led engineering team and architected scalable systems for event aggregation.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Platform Engineering</span>
-                  <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">API Design</span>
-                  <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Scalability</span>
+            <!-- Bell Labs -->
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+              <div class="flex items-start gap-6">
+                <div class="text-4xl">🔬</div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-4 mb-2">
+                    <h4 class="text-2xl font-bold text-gray-900 dark:text-white">Bell Labs</h4>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">Research Consulting</span>
+                  </div>
+                  <p class="text-primary-600 dark:text-primary-500 mb-4 font-medium">Systems Research</p>
+                  <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    Contributed to systems research at the legendary Bell Labs.
+                    Work focused on foundational computing systems and research methodologies.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Systems Research</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Computing Fundamentals</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- IBM -->
-          <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-            <div class="flex items-start gap-6">
-              <div class="text-4xl">🏢</div>
-              <div class="flex-1">
-                <div class="flex items-center gap-4 mb-2">
-                  <h3 class="text-2xl font-bold text-gray-900 dark:text-white">IBM</h3>
-                  <span class="text-sm text-gray-500 dark:text-gray-400">Early Career</span>
+            <!-- Reader's Digest -->
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+              <div class="flex items-start gap-6">
+                <div class="text-4xl">📚</div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-4 mb-2">
+                    <h4 class="text-2xl font-bold text-gray-900 dark:text-white">Reader's Digest</h4>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">Enterprise Consulting</span>
+                  </div>
+                  <p class="text-primary-600 dark:text-primary-500 mb-4 font-medium">Technical Infrastructure</p>
+                  <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    Technical infrastructure consulting for enterprise publishing systems.
+                    Focused on scalable content management and distribution systems.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Publishing Systems</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Content Management</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Infrastructure</span>
+                  </div>
                 </div>
-                <p class="text-primary-600 dark:text-primary-500 mb-4 font-medium">AIX Compiler Developer & QA Systems Team Lead</p>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">
-                  Designed and developed automated testing procedures for AIX compilers.
-                  Led QA systems team for mission-critical compiler infrastructure. Deep work
-                  on low-level systems that shaped approach to debugging and architecture.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Compiler Design</span>
-                  <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">QA Automation</span>
-                  <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Team Leadership</span>
+              </div>
+            </div>
+
+            <!-- AMS -->
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+              <div class="flex items-start gap-6">
+                <div class="text-4xl">🔧</div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-4 mb-2">
+                    <h4 class="text-2xl font-bold text-gray-900 dark:text-white">AMS (Advanced Management Solutions)</h4>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">Modernization Consulting</span>
+                  </div>
+                  <p class="text-primary-600 dark:text-primary-500 mb-4 font-medium">Application Modernization</p>
+                  <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    Led application modernization initiatives for legacy enterprise systems.
+                    Architected migration strategies and modernization roadmaps.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Legacy Modernization</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Migration Strategy</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Enterprise Architecture</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PC World Magazine -->
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+              <div class="flex items-start gap-6">
+                <div class="text-4xl">💻</div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-4 mb-2">
+                    <h4 class="text-2xl font-bold text-gray-900 dark:text-white">PC World Magazine</h4>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">Technical Consulting</span>
+                  </div>
+                  <p class="text-primary-600 dark:text-primary-500 mb-4 font-medium">Technical Architecture</p>
+                  <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    Technical architecture consulting for digital publishing infrastructure.
+                    Built systems for content delivery, user engagement, and platform scalability.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Digital Publishing</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Content Delivery</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Platform Scalability</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Lydstrom -->
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+              <div class="flex items-start gap-6">
+                <div class="text-4xl">🌍</div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-4 mb-2">
+                    <h4 class="text-2xl font-bold text-gray-900 dark:text-white">Lydstrom</h4>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">International Consulting</span>
+                  </div>
+                  <p class="text-primary-600 dark:text-primary-500 mb-4 font-medium">Systems Architecture</p>
+                  <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    International consulting engagement for enterprise systems architecture.
+                    Designed scalable solutions for global operations and data management.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Enterprise Systems</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Global Operations</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Data Architecture</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- USAID -->
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+              <div class="flex items-start gap-6">
+                <div class="text-4xl">🌐</div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-4 mb-2">
+                    <h4 class="text-2xl font-bold text-gray-900 dark:text-white">USAID</h4>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">Government Consulting</span>
+                  </div>
+                  <p class="text-primary-600 dark:text-primary-500 mb-4 font-medium">International Development Systems</p>
+                  <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    Systems architecture for international development programs.
+                    Built infrastructure for global aid coordination and program management.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Government Systems</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">International Development</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Program Management</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- OCIS Government -->
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+              <div class="flex items-start gap-6">
+                <div class="text-4xl">🗄️</div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-4 mb-2">
+                    <h4 class="text-2xl font-bold text-gray-900 dark:text-white">OCIS Government Systems</h4>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">Legacy Systems</span>
+                  </div>
+                  <p class="text-primary-600 dark:text-primary-500 mb-4 font-medium">COBOL & Mainframe Architecture</p>
+                  <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    Government systems work using COBOL and hierarchical databases on mainframes.
+                    An interesting technological loop connecting modern distributed systems back to computing fundamentals—
+                    from bleeding-edge cloud infrastructure to the foundational technologies that shaped the field.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">COBOL</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Mainframes</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Hierarchical Databases</span>
+                    <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full dark:bg-primary-900 dark:text-primary-300">Legacy Modernization</span>
+                  </div>
                 </div>
               </div>
             </div>
