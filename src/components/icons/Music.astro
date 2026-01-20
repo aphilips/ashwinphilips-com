@@ -1,0 +1,26 @@
+---
+const { class: className = "w-12 h-12" } = Astro.props;
+---
+<svg class={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Music">
+  <defs>
+    <linearGradient id="music-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="var(--gradient-start, #667eea)" />
+      <stop offset="100%" stop-color="var(--gradient-end, #764ba2)" />
+    </linearGradient>
+  </defs>
+  <!-- Waveform -->
+  <path d="M2 12 Q4 6, 6 12 T10 12 Q12 18, 14 12 T18 12 Q20 6, 22 12"
+        stroke="url(#music-gradient)"
+        stroke-width="2"
+        fill="none"/>
+  <path d="M2 10 Q4 4, 6 10 T10 10 Q12 16, 14 10 T18 10 Q20 4, 22 10"
+        stroke="url(#music-gradient)"
+        stroke-width="2"
+        fill="none"
+        opacity="0.5"/>
+  <path d="M2 14 Q4 8, 6 14 T10 14 Q12 20, 14 14 T18 14 Q20 8, 22 14"
+        stroke="url(#music-gradient)"
+        stroke-width="2"
+        fill="none"
+        opacity="0.5"/>
+</svg>

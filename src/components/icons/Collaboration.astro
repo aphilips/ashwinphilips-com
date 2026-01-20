@@ -1,0 +1,20 @@
+---
+const { class: className = "w-12 h-12" } = Astro.props;
+---
+<svg class={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Collaboration">
+  <defs>
+    <linearGradient id="collaboration-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="var(--gradient-start, #667eea)" />
+      <stop offset="100%" stop-color="var(--gradient-end, #764ba2)" />
+    </linearGradient>
+  </defs>
+  <!-- Two hands connecting -->
+  <path d="M4 12 L8 12 L10 8 L12 12 L14 16 L16 12 L20 12"
+        stroke="url(#collaboration-gradient)"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+  <circle cx="4" cy="12" r="2" stroke="url(#collaboration-gradient)" stroke-width="2" fill="none"/>
+  <circle cx="20" cy="12" r="2" stroke="url(#collaboration-gradient)" stroke-width="2" fill="none"/>
+  <circle cx="12" cy="12" r="2" fill="url(#collaboration-gradient)"/>
+</svg>

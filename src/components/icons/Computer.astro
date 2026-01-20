@@ -1,0 +1,18 @@
+---
+const { class: className = "w-12 h-12" } = Astro.props;
+---
+<svg class={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Computer">
+  <defs>
+    <linearGradient id="computer-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="var(--gradient-start, #667eea)" />
+      <stop offset="100%" stop-color="var(--gradient-end, #764ba2)" />
+    </linearGradient>
+  </defs>
+  <!-- Monitor/screen -->
+  <rect x="3" y="4" width="18" height="12" rx="1" stroke="url(#computer-gradient)" stroke-width="2" fill="none"/>
+  <line x1="8" y1="20" x2="16" y2="20" stroke="url(#computer-gradient)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M12 16 L12 20" stroke="url(#computer-gradient)" stroke-width="2"/>
+  <!-- Screen content -->
+  <line x1="6" y1="8" x2="10" y2="8" stroke="url(#computer-gradient)" stroke-width="1.5" opacity="0.5"/>
+  <line x1="6" y1="11" x2="14" y2="11" stroke="url(#computer-gradient)" stroke-width="1.5" opacity="0.5"/>
+</svg>

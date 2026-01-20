@@ -1,0 +1,23 @@
+---
+const { class: className = "w-12 h-12" } = Astro.props;
+---
+<svg class={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Emergent Solutions">
+  <defs>
+    <linearGradient id="emergent-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="var(--gradient-start, #667eea)" />
+      <stop offset="100%" stop-color="var(--gradient-end, #764ba2)" />
+    </linearGradient>
+  </defs>
+  <!-- Rocket/emergence shape -->
+  <path d="M12 2 L16 10 L20 12 L16 14 L12 22 L8 14 L4 12 L8 10 Z"
+        stroke="url(#emergent-gradient)"
+        stroke-width="2"
+        fill="none"/>
+  <path d="M12 6 L14 10 L16 12 L14 14 L12 18 L10 14 L8 12 L10 10 Z"
+        stroke="url(#emergent-gradient)"
+        stroke-width="2"
+        fill="none"/>
+  <!-- Energy trails -->
+  <path d="M8 10 L6 8 L4 6" stroke="url(#emergent-gradient)" stroke-width="2" opacity="0.5"/>
+  <path d="M16 10 L18 8 L20 6" stroke="url(#emergent-gradient)" stroke-width="2" opacity="0.5"/>
+</svg>

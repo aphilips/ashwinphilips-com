@@ -1,0 +1,23 @@
+---
+const { class: className = "w-12 h-12" } = Astro.props;
+---
+<svg class={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Operations">
+  <defs>
+    <linearGradient id="operations-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="var(--gradient-start, #667eea)" />
+      <stop offset="100%" stop-color="var(--gradient-end, #764ba2)" />
+    </linearGradient>
+  </defs>
+  <!-- Gear mechanism -->
+  <circle cx="12" cy="12" r="6" stroke="url(#operations-gradient)" stroke-width="2" fill="none"/>
+  <circle cx="12" cy="12" r="3" stroke="url(#operations-gradient)" stroke-width="2" fill="none"/>
+  <!-- Gear teeth -->
+  <rect x="11" y="4" width="2" height="2" fill="url(#operations-gradient)"/>
+  <rect x="11" y="18" width="2" height="2" fill="url(#operations-gradient)"/>
+  <rect x="4" y="11" width="2" height="2" fill="url(#operations-gradient)"/>
+  <rect x="18" y="11" width="2" height="2" fill="url(#operations-gradient)"/>
+  <rect x="6" y="6" width="2" height="2" fill="url(#operations-gradient)" transform="rotate(-45 7 7)"/>
+  <rect x="16" y="6" width="2" height="2" fill="url(#operations-gradient)" transform="rotate(45 17 7)"/>
+  <rect x="6" y="16" width="2" height="2" fill="url(#operations-gradient)" transform="rotate(45 7 17)"/>
+  <rect x="16" y="16" width="2" height="2" fill="url(#operations-gradient)" transform="rotate(-45 17 17)"/>
+</svg>
