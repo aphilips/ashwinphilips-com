@@ -17,7 +17,7 @@ import Collaboration from '../components/icons/Collaboration.astro';
   <!-- Hero -->
   <section class="relative overflow-hidden bg-gray-900">
     <div class="absolute inset-0">
-      <img src="/images/research-bg.jpg" alt="" class="w-full h-full object-cover opacity-40" />
+      <img src="/images/research-bg.jpg" alt="" class="w-full h-full object-cover opacity-40 parallax-slow ken-burns-b" data-parallax-speed="0.3" />
       <div class="absolute inset-0 bg-gradient-to-b from-purple-900/90 via-gray-900/85 to-gray-900"></div>
     </div>
     <div class="relative container pt-32 pb-20 z-10">
@@ -37,7 +37,7 @@ import Collaboration from '../components/icons/Collaboration.astro';
 
       <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         <!-- Computational Phenomenology -->
-        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 fade-in-on-scroll card-parallax">
           <Consciousness class="w-12 h-12 text-primary-600 dark:text-primary-400 mb-4" />
           <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Computational Phenomenology</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
@@ -62,7 +62,7 @@ import Collaboration from '../components/icons/Collaboration.astro';
         </div>
 
         <!-- Computational Cosmology -->
-        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 fade-in-on-scroll card-parallax">
           <Physics class="w-12 h-12 text-primary-600 dark:text-primary-400 mb-4" />
           <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Computational Cosmology & Geometric Physics</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
@@ -87,7 +87,7 @@ import Collaboration from '../components/icons/Collaboration.astro';
         </div>
 
         <!-- Distributed Intelligence -->
-        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 fade-in-on-scroll card-parallax">
           <DistributedSystems class="w-12 h-12 text-primary-600 dark:text-primary-400 mb-4" />
           <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Distributed Intelligence</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
@@ -111,7 +111,7 @@ import Collaboration from '../components/icons/Collaboration.astro';
         </div>
 
         <!-- Mathematical Foundations -->
-        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 fade-in-on-scroll card-parallax">
           <MathFoundations class="w-12 h-12 text-primary-600 dark:text-primary-400 mb-4" />
           <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Mathematical Foundations</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
@@ -213,7 +213,7 @@ import Collaboration from '../components/icons/Collaboration.astro';
       <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Education</h2>
 
       <div class="max-w-3xl mx-auto space-y-6">
-        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 fade-in-on-scroll card-parallax">
           <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Johns Hopkins University</h3>
           <p class="text-primary-600 dark:text-primary-500 mb-2 font-medium">Data Science</p>
           <p class="text-gray-500 dark:text-gray-400">
@@ -222,7 +222,7 @@ import Collaboration from '../components/icons/Collaboration.astro';
           </p>
         </div>
 
-        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 fade-in-on-scroll card-parallax">
           <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Rensselaer Polytechnic Institute</h3>
           <p class="text-primary-600 dark:text-primary-500 mb-2 font-medium">Computer Science</p>
           <p class="text-gray-500 dark:text-gray-400">
@@ -250,3 +250,7 @@ import Collaboration from '../components/icons/Collaboration.astro';
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  import '../scripts/parallax.ts';
+</script>

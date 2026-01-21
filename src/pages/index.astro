@@ -20,7 +20,7 @@ import HeroExperimental from '../components/HeroExperimental.astro';
 
       <div class="grid md:grid-cols-3 gap-8">
         <!-- Systems Architecture -->
-        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 transition-all">
+        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 transition-all fade-in-on-scroll card-parallax" data-fade-delay="0">
           <div class="flex items-center justify-center w-12 h-12 mb-4 rounded-lg bg-primary-100 dark:bg-primary-900">
             <svg class="w-6 h-6 text-primary-600 dark:text-primary-300" fill="currentColor" viewBox="0 0 20 20">
               <path d="M13 7H7v6h6V7z"></path>
@@ -40,7 +40,7 @@ import HeroExperimental from '../components/HeroExperimental.astro';
         </div>
 
         <!-- AI Research -->
-        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 transition-all">
+        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 transition-all fade-in-on-scroll card-parallax" data-fade-delay="100">
           <div class="flex items-center justify-center w-12 h-12 mb-4 rounded-lg bg-primary-100 dark:bg-primary-900">
             <svg class="w-6 h-6 text-primary-600 dark:text-primary-300" fill="currentColor" viewBox="0 0 20 20">
               <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
@@ -60,7 +60,7 @@ import HeroExperimental from '../components/HeroExperimental.astro';
         </div>
 
         <!-- Music Production -->
-        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 transition-all">
+        <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 transition-all fade-in-on-scroll card-parallax" data-fade-delay="200">
           <div class="flex items-center justify-center w-12 h-12 mb-4 rounded-lg bg-primary-100 dark:bg-primary-900">
             <svg class="w-6 h-6 text-primary-600 dark:text-primary-300" fill="currentColor" viewBox="0 0 20 20">
               <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"></path>
@@ -113,7 +113,7 @@ import HeroExperimental from '../components/HeroExperimental.astro';
 
       <div class="grid md:grid-cols-3 gap-8">
         <!-- Fulqrum -->
-        <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:border-primary-500 dark:hover:border-primary-500 transition-all">
+        <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:border-primary-500 dark:hover:border-primary-500 transition-all fade-in-on-scroll card-parallax" data-fade-delay="0">
           <div class="p-6">
             <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300 uppercase">Multi-Agent Platform</span>
             <h3 class="mt-4 mb-2 text-xl font-bold text-gray-900 dark:text-white">Fulqrum</h3>
@@ -130,7 +130,7 @@ import HeroExperimental from '../components/HeroExperimental.astro';
         </div>
 
         <!-- NoqNoq -->
-        <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:border-primary-500 dark:hover:border-primary-500 transition-all">
+        <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:border-primary-500 dark:hover:border-primary-500 transition-all fade-in-on-scroll card-parallax" data-fade-delay="100">
           <div class="p-6">
             <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300 uppercase">Distributed Systems</span>
             <h3 class="mt-4 mb-2 text-xl font-bold text-gray-900 dark:text-white">NoqNoq</h3>
@@ -147,7 +147,7 @@ import HeroExperimental from '../components/HeroExperimental.astro';
         </div>
 
         <!-- ARC Prize -->
-        <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:border-primary-500 dark:hover:border-primary-500 transition-all">
+        <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:border-primary-500 dark:hover:border-primary-500 transition-all fade-in-on-scroll card-parallax" data-fade-delay="200">
           <div class="p-6">
             <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300 uppercase">AI Research</span>
             <h3 class="mt-4 mb-2 text-xl font-bold text-gray-900 dark:text-white">ARC Prize</h3>
@@ -188,3 +188,7 @@ import HeroExperimental from '../components/HeroExperimental.astro';
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  import '../scripts/parallax.ts';
+</script>

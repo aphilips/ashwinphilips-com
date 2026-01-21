@@ -10,15 +10,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- Hero Section with Photo -->
   <section class="relative overflow-hidden bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800">
     <div class="absolute inset-0 opacity-30">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(102,126,234,0.15),transparent_50%)]"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(118,75,162,0.1),transparent_50%)]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(102,126,234,0.15),transparent_50%)] ken-burns-e" data-parallax-speed="0.2"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(118,75,162,0.1),transparent_50%)] ken-burns-f" data-parallax-speed="0.4"></div>
     </div>
 
     <div class="relative container pt-32 pb-24 z-10">
       <div class="max-w-6xl mx-auto">
         <div class="grid md:grid-cols-[300px_1fr] gap-12 items-start">
           <!-- Photo Container -->
-          <div class="relative group">
+          <div class="relative group fade-in-on-scroll" data-fade-direction="left" data-fade-delay="0">
             <div class="aspect-square rounded-2xl overflow-hidden border-2 border-white/10 bg-gradient-to-br from-gray-800 to-gray-900 relative">
               <!-- Photo Placeholder - To be replaced with actual professional photo -->
               <div class="absolute inset-0 flex items-center justify-center p-8">
@@ -39,7 +39,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
 
           <!-- Hero Text -->
-          <div class="space-y-6">
+          <div class="space-y-6 fade-in-on-scroll" data-fade-direction="right" data-fade-delay="200">
             <div>
               <h1 class="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent leading-tight">
                 Ashwin Kochiyil Philips
@@ -69,10 +69,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <div class="space-y-12">
           <!-- The Engineer -->
-          <div class="group">
+          <div class="group fade-in-on-scroll" data-fade-delay="0">
             <div class="flex items-start gap-6">
               <div class="flex-shrink-0">
-                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center text-white font-bold text-xl shadow-lg parallax-slow">
                   01
                 </div>
               </div>
@@ -90,10 +90,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
 
           <!-- The Researcher -->
-          <div class="group">
+          <div class="group fade-in-on-scroll" data-fade-delay="100">
             <div class="flex items-start gap-6">
               <div class="flex-shrink-0">
-                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white font-bold text-xl shadow-lg parallax-slow">
                   02
                 </div>
               </div>
@@ -111,10 +111,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
 
           <!-- The Artist -->
-          <div class="group">
+          <div class="group fade-in-on-scroll" data-fade-delay="200">
             <div class="flex items-start gap-6">
               <div class="flex-shrink-0">
-                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white font-bold text-xl shadow-lg parallax-slow">
                   03
                 </div>
               </div>
@@ -132,10 +132,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
 
           <!-- The Philosopher -->
-          <div class="group">
+          <div class="group fade-in-on-scroll" data-fade-delay="300">
             <div class="flex items-start gap-6">
               <div class="flex-shrink-0">
-                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold text-xl shadow-lg parallax-slow">
                   04
                 </div>
               </div>
@@ -225,7 +225,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
 
         <div class="grid md:grid-cols-2 gap-6 text-left">
-          <div class="p-8 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-gray-800 dark:to-gray-800 rounded-2xl border border-blue-100 dark:border-gray-700">
+          <div class="p-8 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-gray-800 dark:to-gray-800 rounded-2xl border border-blue-100 dark:border-gray-700 fade-in-on-scroll card-parallax" data-fade-delay="0">
             <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">
               Distributed AI Infrastructure
             </h3>
@@ -234,7 +234,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </p>
           </div>
 
-          <div class="p-8 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-800 dark:to-gray-800 rounded-2xl border border-purple-100 dark:border-gray-700">
+          <div class="p-8 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-800 dark:to-gray-800 rounded-2xl border border-purple-100 dark:border-gray-700 fade-in-on-scroll card-parallax" data-fade-delay="100">
             <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">
               Computational Phenomenology Research
             </h3>
@@ -244,7 +244,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </p>
           </div>
 
-          <div class="p-8 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-gray-800 dark:to-gray-800 rounded-2xl border border-green-100 dark:border-gray-700">
+          <div class="p-8 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-gray-800 dark:to-gray-800 rounded-2xl border border-green-100 dark:border-gray-700 fade-in-on-scroll card-parallax" data-fade-delay="200">
             <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">
               Multi-Agent Orchestration
             </h3>
@@ -253,7 +253,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </p>
           </div>
 
-          <div class="p-8 bg-gradient-to-br from-orange-50 to-red-50 dark:from-gray-800 dark:to-gray-800 rounded-2xl border border-orange-100 dark:border-gray-700">
+          <div class="p-8 bg-gradient-to-br from-orange-50 to-red-50 dark:from-gray-800 dark:to-gray-800 rounded-2xl border border-orange-100 dark:border-gray-700 fade-in-on-scroll card-parallax" data-fade-delay="300">
             <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">
               Sonic Exploration of Cognitive States
             </h3>
@@ -310,3 +310,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     -moz-osx-font-smoothing: grayscale;
   }
 </style>
+
+<script>
+  import '../scripts/parallax.ts';
+</script>

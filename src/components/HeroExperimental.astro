@@ -130,6 +130,16 @@
     height: 100%;
     object-fit: cover;
     opacity: 0.4;
+    animation: kenBurnsZoomPanE 35s ease-out infinite alternate;
+    will-change: transform;
+  }
+
+  /* Disable Ken Burns on reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-video {
+      animation: none;
+      will-change: auto;
+    }
   }
 
   .hero-video-overlay {
