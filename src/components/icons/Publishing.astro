@@ -1,0 +1,17 @@
+---
+const { class: className = "w-12 h-12" } = Astro.props;
+---
+<svg class={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Publishing">
+  <defs>
+    <linearGradient id="publishing-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="var(--gradient-start, #667eea)" />
+      <stop offset="100%" stop-color="var(--gradient-end, #764ba2)" />
+    </linearGradient>
+  </defs>
+  <!-- Book/pages -->
+  <rect x="6" y="4" width="12" height="16" rx="1" stroke="url(#publishing-gradient)" stroke-width="2" fill="none"/>
+  <line x1="9" y1="8" x2="15" y2="8" stroke="url(#publishing-gradient)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="9" y1="12" x2="15" y2="12" stroke="url(#publishing-gradient)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="9" y1="16" x2="12" y2="16" stroke="url(#publishing-gradient)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="12" y1="4" x2="12" y2="20" stroke="url(#publishing-gradient)" stroke-width="1" opacity="0.3"/>
+</svg>

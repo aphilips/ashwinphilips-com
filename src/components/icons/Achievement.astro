@@ -1,0 +1,19 @@
+---
+const { class: className = "w-12 h-12" } = Astro.props;
+---
+<svg class={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Achievement">
+  <defs>
+    <linearGradient id="achievement-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="var(--gradient-start, #667eea)" />
+      <stop offset="100%" stop-color="var(--gradient-end, #764ba2)" />
+    </linearGradient>
+  </defs>
+  <!-- Trophy/achievement shape -->
+  <circle cx="12" cy="10" r="6" stroke="url(#achievement-gradient)" stroke-width="2" fill="none"/>
+  <path d="M12 16 L12 20 M9 20 L15 20" stroke="url(#achievement-gradient)" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="12" cy="10" r="3" fill="url(#achievement-gradient)"/>
+  <!-- Rays -->
+  <path d="M12 3 L12 5" stroke="url(#achievement-gradient)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M18 6 L17 7" stroke="url(#achievement-gradient)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M6 6 L7 7" stroke="url(#achievement-gradient)" stroke-width="2" stroke-linecap="round"/>
+</svg>

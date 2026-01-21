@@ -112,7 +112,7 @@
   .hero-bg-layers {
     position: absolute;
     inset: 0;
-    z-index: var(--z-bg);
+    z-index: 1;
   }
 
   .hero-layer {
@@ -141,6 +141,7 @@
       rgba(0, 0, 0, 0.6) 50%,
       rgba(0, 0, 0, 0.9) 100%
     );
+    z-index: 1;
   }
 
   .hero-layer-gradient {
@@ -182,6 +183,7 @@
     opacity: 0.3;
     pointer-events: none;
     animation: ambientPulse 8s ease-in-out infinite;
+    z-index: 2;
   }
 
   .hero-glow-1 {
@@ -216,7 +218,7 @@
   /* Content */
   .hero-content {
     position: relative;
-    z-index: var(--z-content);
+    z-index: 10;
     width: 100%;
     padding: var(--space-2xl) 0;
   }
@@ -398,7 +400,7 @@
     bottom: var(--space-xl);
     left: 50%;
     transform: translateX(-50%);
-    z-index: var(--z-content);
+    z-index: 10;
     opacity: 0;
     animation: scrollIndicatorFade 1s ease-in forwards 2s;
   }
@@ -460,21 +462,186 @@
 </style>
 
 <script>
-  // Typewriter effect
-  const typewriterText = "Exploring consciousness through code, systems, and sound";
-  const typewriterElement = document.getElementById('hero-typewriter');
-  let charIndex = 0;
+  // Sophisticated Typewriter Effect
+  class ConsciousTypewriter {
+    private phrases = [
+      "Building systems that learn, adapt, and emerge.",
+      "Exploring consciousness through distributed intelligence.",
+      "Where code meets cognition, structure becomes sentience.",
+      "From mainframes to edge computing—patterns persist.",
+      "Geometric frameworks for algorithmic cosmology."
+    ];
 
-  function typeWriter() {
-    if (charIndex < typewriterText.length && typewriterElement) {
-      typewriterElement.textContent += typewriterText.charAt(charIndex);
-      charIndex++;
-      setTimeout(typeWriter, 50);
+    private element: HTMLElement | null;
+    private currentPhraseIndex = 0;
+    private currentText = "";
+    private isMakingMistake = false;
+
+    // Keyboard adjacency map for realistic typos
+    private adjacentKeys: Record<string, string[]> = {
+      'a': ['s', 'q', 'w', 'z'],
+      'b': ['v', 'g', 'h', 'n'],
+      'c': ['x', 'd', 'f', 'v'],
+      'd': ['s', 'e', 'r', 'f', 'c', 'x'],
+      'e': ['w', 'r', 'd', 's'],
+      'f': ['d', 'r', 't', 'g', 'v', 'c'],
+      'g': ['f', 't', 'y', 'h', 'b', 'v'],
+      'h': ['g', 'y', 'u', 'j', 'n', 'b'],
+      'i': ['u', 'o', 'k', 'j'],
+      'j': ['h', 'u', 'i', 'k', 'n', 'm'],
+      'k': ['j', 'i', 'o', 'l', 'm'],
+      'l': ['k', 'o', 'p'],
+      'm': ['n', 'j', 'k'],
+      'n': ['b', 'h', 'j', 'm'],
+      'o': ['i', 'p', 'l', 'k'],
+      'p': ['o', 'l'],
+      'q': ['w', 'a'],
+      'r': ['e', 't', 'f', 'd'],
+      's': ['a', 'w', 'e', 'd', 'x', 'z'],
+      't': ['r', 'y', 'g', 'f'],
+      'u': ['y', 'i', 'j', 'h'],
+      'v': ['c', 'f', 'g', 'b'],
+      'w': ['q', 'e', 's', 'a'],
+      'x': ['z', 's', 'd', 'c'],
+      'y': ['t', 'u', 'h', 'g'],
+      'z': ['a', 's', 'x']
+    };
+
+    constructor(elementId: string) {
+      this.element = document.getElementById(elementId);
+    }
+
+    private getDelay(char: string, position: number, phrase: string): number {
+      const baseDelay = 50;
+      const variance = (Math.random() * 30) - 15;
+
+      // Punctuation pauses
+      if (char === ',') return 400 + variance;
+      if (char === '.') return 1000 + variance;
+      if (char === '—' || char === '-') return 300 + variance;
+      if (char === ' ') return 200 + variance;
+
+      // Calculate word complexity (words >8 chars = slower)
+      const words = phrase.slice(0, position).split(/\s+/);
+      const currentWord = words[words.length - 1] || '';
+      const complexity = currentWord.length > 8 ? 30 : 0;
+
+      // Random natural variation
+      const naturalVariation = Math.random() < 0.2 ? 20 : 0;
+
+      return Math.max(20, baseDelay + variance + complexity + naturalVariation);
+    }
+
+    private shouldMakeMistake(position: number, phrase: string): boolean {
+      // 3% base typo rate
+      if (Math.random() > 0.97) return true;
+
+      // Higher mistake rate on longer words
+      const words = phrase.slice(0, position).split(/\s+/);
+      const currentWord = words[words.length - 1] || '';
+      if (currentWord.length > 10 && Math.random() > 0.95) return true;
+
+      return false;
+    }
+
+    private getWrongChar(correctChar: string): string {
+      const lowerChar = correctChar.toLowerCase();
+      const adjacent = this.adjacentKeys[lowerChar];
+
+      if (adjacent && adjacent.length > 0) {
+        const wrong = adjacent[Math.floor(Math.random() * adjacent.length)];
+        // Preserve case
+        return correctChar === correctChar.toUpperCase() ? wrong.toUpperCase() : wrong;
+      }
+
+      // Fallback to a random nearby letter
+      const fallbacks = ['x', 'v', 'b', 'n'];
+      return fallbacks[Math.floor(Math.random() * fallbacks.length)];
+    }
+
+    private async typePhrase(): Promise<void> {
+      const phrase = this.phrases[this.currentPhraseIndex];
+      let position = 0;
+
+      // Type out the phrase
+      while (position < phrase.length) {
+        if (!this.element) return;
+
+        const char = phrase[position];
+
+        // Check for mistakes
+        if (!this.isMakingMistake && this.shouldMakeMistake(position, phrase)) {
+          // Make a typo
+          const wrongChar = this.getWrongChar(char);
+          this.currentText += wrongChar;
+          this.element.textContent = this.currentText;
+          this.isMakingMistake = true;
+
+          // Pause to "realize" mistake
+          await this.sleep(200 + Math.random() * 200);
+
+          // Backspace
+          this.currentText = this.currentText.slice(0, -1);
+          this.element.textContent = this.currentText;
+          await this.sleep(100);
+
+          this.isMakingMistake = false;
+        }
+
+        // Type correct character
+        this.currentText += char;
+        this.element.textContent = this.currentText;
+
+        const delay = this.getDelay(char, position, phrase);
+        await this.sleep(delay);
+
+        position++;
+      }
+
+      // Pause at end before erasing
+      await this.sleep(2000 + Math.random() * 1000);
+
+      // Erase phrase
+      await this.erasePhrase();
+    }
+
+    private async erasePhrase(): Promise<void> {
+      while (this.currentText.length > 0) {
+        if (!this.element) return;
+
+        this.currentText = this.currentText.slice(0, -1);
+        this.element.textContent = this.currentText;
+
+        // Faster erasing with slight variation
+        const eraseDelay = 30 + Math.random() * 20;
+        await this.sleep(eraseDelay);
+      }
+
+      // Brief pause before next phrase
+      await this.sleep(500);
+    }
+
+    private sleep(ms: number): Promise<void> {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    public async start(startDelay = 1000): Promise<void> {
+      // Initial delay for word animations
+      await this.sleep(startDelay);
+
+      // Infinite loop through phrases
+      while (true) {
+        await this.typePhrase();
+
+        // Move to next phrase
+        this.currentPhraseIndex = (this.currentPhraseIndex + 1) % this.phrases.length;
+      }
     }
   }
 
-  // Start typewriter after initial word animations
-  setTimeout(typeWriter, 1000);
+  // Initialize typewriter
+  const typewriter = new ConsciousTypewriter('hero-typewriter');
+  typewriter.start();
 
   // Parallax scrolling
   const parallaxLayers = document.querySelectorAll<HTMLElement>('.hero-layer');

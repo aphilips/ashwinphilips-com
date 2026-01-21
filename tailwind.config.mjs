@@ -23,9 +23,14 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Space Grotesk', 'sans-serif'],
-        mono: ['Fira Code', 'monospace'],
+        // Sophisticated 4-font system (purposeful rule-breaking)
+        display: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'], // Geometric precision
+        body: ['Crimson Pro', 'Georgia', 'serif'], // Humanist warmth
+        mono: ['JetBrains Mono', 'Fira Code', 'Consolas', 'monospace'], // Technical clarity
+        accent: ['Cormorant Garamond', 'Georgia', 'serif'], // Artistic flourish
+
+        // Tailwind defaults (body takes precedence)
+        sans: ['Crimson Pro', 'Georgia', 'serif'], // Default to body font
       },
       animation: {
         'float': 'float 3s ease-in-out infinite',

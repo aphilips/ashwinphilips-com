@@ -1,0 +1,18 @@
+---
+const { class: className = "w-12 h-12" } = Astro.props;
+---
+<svg class={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Media">
+  <defs>
+    <linearGradient id="media-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="var(--gradient-start, #667eea)" />
+      <stop offset="100%" stop-color="var(--gradient-end, #764ba2)" />
+    </linearGradient>
+  </defs>
+  <!-- Disc/record -->
+  <circle cx="12" cy="12" r="9" stroke="url(#media-gradient)" stroke-width="2" fill="none"/>
+  <circle cx="12" cy="12" r="5" stroke="url(#media-gradient)" stroke-width="2" fill="none"/>
+  <circle cx="12" cy="12" r="2" fill="url(#media-gradient)"/>
+  <!-- Grooves -->
+  <circle cx="12" cy="12" r="7" stroke="url(#media-gradient)" stroke-width="0.5" fill="none" opacity="0.5"/>
+  <circle cx="12" cy="12" r="6" stroke="url(#media-gradient)" stroke-width="0.5" fill="none" opacity="0.5"/>
+</svg>
