@@ -1078,3 +1078,103 @@ nav:has(.active) {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
+
+/* ===================================================================
+   ASTRO 6.x VIEW TRANSITIONS
+   ================================================================ */
+
+/* Custom transition animations */
+@layer base {
+  /* Fade + slide transition for page content */
+  ::view-transition-old(root) {
+    animation: fade-out 0.3s cubic-bezier(0.4, 0, 1, 1);
+  }
+
+  ::view-transition-new(root) {
+    animation: fade-in-slide 0.4s cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  @keyframes fade-out {
+    to {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+  }
+
+  @keyframes fade-in-slide {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Smooth transition for images */
+  ::view-transition-old(hero-image),
+  ::view-transition-new(hero-image) {
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Card transitions - scale effect */
+  ::view-transition-old(card) {
+    animation: card-out 0.3s cubic-bezier(0.4, 0, 1, 1);
+  }
+
+  ::view-transition-new(card) {
+    animation: card-in 0.4s cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  @keyframes card-out {
+    to {
+      opacity: 0;
+      transform: scale(0.95) translateY(-10px);
+    }
+  }
+
+  @keyframes card-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95) translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  /* Navigation transitions - slide from side */
+  ::view-transition-old(navbar) {
+    animation: none;
+  }
+
+  ::view-transition-new(navbar) {
+    animation: slide-from-top 0.3s cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  @keyframes slide-from-top {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root),
+    ::view-transition-old(hero-image),
+    ::view-transition-new(hero-image),
+    ::view-transition-old(card),
+    ::view-transition-new(card),
+    ::view-transition-old(navbar),
+    ::view-transition-new(navbar) {
+      animation: none !important;
+    }
+  }
+}
