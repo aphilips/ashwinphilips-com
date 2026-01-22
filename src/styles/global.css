@@ -23,9 +23,23 @@
 /* Canela fallback: Using Cormorant Garamond - Artistic serif */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* ===================================================================
+   MODERN CSS LAYER SYSTEM (Cascade Management)
+   ================================================================ */
+
+@layer reset, base, components, utilities, overrides;
+
+@layer reset {
+  @tailwind base;
+}
+
+@layer components {
+  @tailwind components;
+}
+
+@layer utilities {
+  @tailwind utilities;
+}
 
 /* Base styles */
 * {
@@ -796,4 +810,271 @@ a[href*="bandcamp"] svg:hover {
   .depth-deep:hover {
     transform: translateZ(0);
   }
+}
+
+/* ===================================================================
+   MODERN CSS FEATURES (2026)
+   ================================================================ */
+
+/* Container Queries - Responsive components based on parent size */
+.container-responsive {
+  container-type: inline-size;
+  container-name: card;
+}
+
+@container card (min-width: 400px) {
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .card-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+@container card (min-width: 600px) {
+  .card-title {
+    font-size: 2rem;
+  }
+
+  .card-content {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* :has() Selector - Parent state based on children */
+
+/* Card with icon gets special styling */
+.card:has(svg) {
+  padding-top: 2rem;
+}
+
+/* Section with images gets different layout */
+section:has(img) {
+  & {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Form validation states */
+.form-group:has(input:invalid) {
+  & label {
+    color: rgb(239, 68, 68);
+  }
+
+  & input {
+    border-color: rgb(239, 68, 68);
+  }
+}
+
+.form-group:has(input:valid) {
+  & label {
+    color: rgb(34, 197, 94);
+  }
+
+  & input {
+    border-color: rgb(34, 197, 94);
+  }
+}
+
+/* Navigation with active child */
+nav:has(.active) {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Grid that adjusts based on content */
+.auto-grid:has(> :nth-child(4)) {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.auto-grid:has(> :nth-child(7)) {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* CSS Nesting - Simplified selectors */
+@layer components {
+  .button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+
+    &.primary {
+      background: linear-gradient(to right, #0284c7, #9333ea);
+      color: white;
+
+      &:hover {
+        background: linear-gradient(to right, #0ea5e9, #a855f7);
+      }
+    }
+
+    &.secondary {
+      border: 2px solid #0ea5e9;
+      color: #38bdf8;
+
+      &:hover {
+        background: #0ea5e9;
+        color: white;
+      }
+    }
+
+    &[disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+
+  .nav-item {
+    position: relative;
+    padding: 0.5rem 1rem;
+
+    & a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        color: #0ea5e9;
+      }
+    }
+
+    &.active {
+      & a {
+        color: #0ea5e9;
+        font-weight: 600;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #0ea5e9;
+      }
+    }
+  }
+
+  .feature-card {
+    padding: 2rem;
+    border-radius: 1rem;
+    background: white;
+    transition: all 0.3s;
+
+    & .icon {
+      margin-bottom: 1rem;
+      color: #0ea5e9;
+    }
+
+    & h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    & p {
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+      & .icon {
+        transform: scale(1.1);
+        color: #a855f7;
+      }
+    }
+  }
+}
+
+/* @layer for cascade control */
+@layer overrides {
+  /* High-priority overrides that beat utilities */
+  .force-visible {
+    display: block !important;
+    opacity: 1 !important;
+  }
+
+  .force-hidden {
+    display: none !important;
+  }
+
+  /* Debug utilities */
+  .debug-outline * {
+    outline: 1px solid red;
+  }
+
+  .debug-grid {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
+
+/* Modern color functions (relative colors) */
+@layer base {
+  :root {
+    /* Base colors */
+    --color-primary: #0ea5e9;
+    --color-accent: #a855f7;
+
+    /* Derived colors using relative syntax */
+    --color-primary-light: oklch(from var(--color-primary) calc(l + 0.2) c h);
+    --color-primary-dark: oklch(from var(--color-primary) calc(l - 0.2) c h);
+
+    --color-accent-light: oklch(from var(--color-accent) calc(l + 0.2) c h);
+    --color-accent-dark: oklch(from var(--color-accent) calc(l - 0.2) c h);
+  }
+}
+
+/* Container Query Units */
+.responsive-text {
+  /* Font size scales with container width */
+  font-size: clamp(1rem, 5cqi, 3rem);
+}
+
+.responsive-spacing {
+  /* Padding scales with container */
+  padding: clamp(1rem, 5cqi, 3rem);
+  gap: clamp(0.5rem, 3cqi, 2rem);
+}
+
+/* Advanced :has() - Complex logic */
+.article:has(h2):has(img):has(blockquote) {
+  /* Rich article with multiple content types */
+  & {
+    padding: 3rem;
+    background: linear-gradient(135deg, #f0f9ff 0%, #faf5ff 100%);
+  }
+}
+
+/* Quantity queries with :has() */
+.gallery:has(> :nth-child(n + 10)) {
+  /* Many items - use dense grid */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.gallery:has(> :nth-child(-n + 3)) {
+  /* Few items - use spacious grid */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 }
