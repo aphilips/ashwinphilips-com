@@ -37,21 +37,21 @@ import CollabIcon from '../components/icons/CollaborativeWork.astro';
       <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
         <!-- Spotify -->
         <a href="https://open.spotify.com/artist/[YOUR_ID]" target="_blank" rel="noopener" class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 transition-all text-center fade-in-on-scroll card-parallax" data-fade-delay="0">
-          <div class="text-5xl mb-4">🎵</div>
+          <MusicIcon class="w-12 h-12 mx-auto mb-4 text-primary-600 dark:text-primary-400" />
           <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Spotify</h3>
           <p class="text-gray-500 dark:text-gray-400">Stream on Spotify</p>
         </a>
 
         <!-- SoundCloud -->
         <a href="https://soundcloud.com/[YOUR_ID]" target="_blank" rel="noopener" class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 transition-all text-center">
-          <div class="text-5xl mb-4">🎧</div>
+          <AudioIcon class="w-12 h-12 mx-auto mb-4 text-primary-600 dark:text-primary-400" />
           <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">SoundCloud</h3>
           <p class="text-gray-500 dark:text-gray-400">Listen on SoundCloud</p>
         </a>
 
         <!-- Bandcamp -->
         <a href="https://[YOUR_ID].bandcamp.com" target="_blank" rel="noopener" class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 transition-all text-center">
-          <div class="text-5xl mb-4">💿</div>
+          <MediaIcon class="w-12 h-12 mx-auto mb-4 text-primary-600 dark:text-primary-400" />
           <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Bandcamp</h3>
           <p class="text-gray-500 dark:text-gray-400">Support on Bandcamp</p>
         </a>
@@ -67,7 +67,7 @@ import CollabIcon from '../components/icons/CollaborativeWork.astro';
       <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         <!-- Sonic Exploration -->
         <div class="p-8 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-          <div class="text-4xl mb-4">🌌</div>
+          <SonicIcon class="w-10 h-10 mb-4 text-primary-600 dark:text-primary-400" />
           <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Sonic Exploration</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
             Creating immersive soundscapes that explore the boundaries between ambient,
@@ -92,7 +92,7 @@ import CollabIcon from '../components/icons/CollaborativeWork.astro';
 
         <!-- Technical Approach -->
         <div class="p-8 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-          <div class="text-4xl mb-4">🎹</div>
+          <TechnicalIcon class="w-10 h-10 mb-4 text-primary-600 dark:text-primary-400" />
           <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Technical Approach</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
             Combining analog and digital synthesis techniques with algorithmic
@@ -117,7 +117,7 @@ import CollabIcon from '../components/icons/CollaborativeWork.astro';
 
         <!-- Cognitive States & Sound -->
         <div class="p-8 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-          <div class="text-4xl mb-4">🧘</div>
+          <MeditationIcon class="w-10 h-10 mb-4 text-primary-600 dark:text-primary-400" />
           <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Cognitive States & Sound</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
             Exploring how sound and music can alter awareness states and facilitate
@@ -142,7 +142,7 @@ import CollabIcon from '../components/icons/CollaborativeWork.astro';
 
         <!-- Collaborative Work -->
         <div class="p-8 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-          <div class="text-4xl mb-4">🎼</div>
+          <CollabIcon class="w-10 h-10 mb-4 text-primary-600 dark:text-primary-400" />
           <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Collaborative Projects</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
             Working with visual artists, filmmakers, and other musicians to create
@@ -212,7 +212,7 @@ import CollabIcon from '../components/icons/CollaborativeWork.astro';
         <!-- Audio Interfaces -->
         <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
           <div class="flex items-center gap-3 mb-6">
-            <div class="text-4xl">🎚️</div>
+            <TechnicalIcon class="w-12 h-12 text-primary-600 dark:text-primary-400" />
             <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Audio Interfaces</h3>
           </div>
           <ul class="space-y-3 text-gray-600 dark:text-gray-300">
@@ -232,7 +232,7 @@ import CollabIcon from '../components/icons/CollaborativeWork.astro';
         <!-- Control Surfaces -->
         <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
           <div class="flex items-center gap-3 mb-6">
-            <div class="text-4xl">🎛️</div>
+            <TechnicalIcon class="w-12 h-12 text-primary-600 dark:text-primary-400" />
             <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Control Surfaces</h3>
           </div>
           <ul class="space-y-3 text-gray-600 dark:text-gray-300">
@@ -302,7 +302,7 @@ import CollabIcon from '../components/icons/CollaborativeWork.astro';
         <!-- Software & Workflow -->
         <div class="p-8 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
           <div class="flex items-center gap-3 mb-6">
-            <div class="text-4xl">💻</div>
+            <TechnicalIcon class="w-12 h-12 text-primary-600 dark:text-primary-400" />
             <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Software & Workflow</h3>
           </div>
           <ul class="space-y-3 text-gray-600 dark:text-gray-300">
@@ -341,21 +341,21 @@ import CollabIcon from '../components/icons/CollaborativeWork.astro';
           <h3 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Hybrid Analog/Digital Signal Flow</h3>
           <div class="grid md:grid-cols-3 gap-6">
             <div class="text-center">
-              <div class="text-3xl mb-3">🎛️</div>
+              <div class="text-3xl mb-3 text-primary-600 dark:text-primary-400">▶</div>
               <h4 class="font-bold text-gray-900 dark:text-white mb-2">Analog Input</h4>
               <p class="text-sm text-gray-600 dark:text-gray-400">
                 Synthesizers → Apollo Preamps → UAD DSP
               </p>
             </div>
             <div class="text-center">
-              <div class="text-3xl mb-3">⚡</div>
+              <div class="text-3xl mb-3 text-primary-600 dark:text-primary-400">⚡</div>
               <h4 class="font-bold text-gray-900 dark:text-white mb-2">Digital Processing</h4>
               <p class="text-sm text-gray-600 dark:text-gray-400">
                 DAW → Plugins → Multiple control surfaces in parallel
               </p>
             </div>
             <div class="text-center">
-              <div class="text-3xl mb-3">🔊</div>
+              <div class="text-3xl mb-3 text-primary-600 dark:text-primary-400">◈</div>
               <h4 class="font-bold text-gray-900 dark:text-white mb-2">CV Integration</h4>
               <p class="text-sm text-gray-600 dark:text-gray-400">
                 Digital clock → Mother-32 → Modular → Back to Apollo
