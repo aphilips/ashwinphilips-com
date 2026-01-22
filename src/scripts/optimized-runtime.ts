@@ -1,0 +1,123 @@
+/**
+ * Optimized Runtime - Lightweight performance features
+ * Loads only what's needed, when it's needed
+ */
+
+// Lazy load scroll depth effects only if elements with depth classes exist
+function initScrollDepth() {
+  const depthElements = document.querySelectorAll('[class*="depth-"]');
+  if (depthElements.length === 0) return;
+
+  let rafId: number | null = null;
+  const elements: Array<{el: HTMLElement, base: number}> = [];
+
+  depthElements.forEach((el) => {
+    const base = el.classList.contains('depth-primary') ? 1.2 :
+                 el.classList.contains('depth-medium') ? 0.8 : 0.5;
+    elements.push({ el: el as HTMLElement, base });
+  });
+
+  function update() {
+    const vh = window.innerHeight;
+    elements.forEach(({ el, base }) => {
+      const rect = el.getBoundingClientRect();
+      const center = rect.top + rect.height / 2;
+      const dist = Math.abs(center - vh / 2) / vh;
+      const intensity = dist * base;
+      const layers = Math.ceil(base * 3);
+      const shadows = [];
+
+      for (let i = 0; i < layers; i++) {
+        const y = (i + 1) * 2 * (1 + intensity);
+        const b = (i + 1) * 4 * (1 + intensity);
+        const a = 0.08 * (1 + intensity * 0.5);
+        shadows.push(`0 ${y}px ${Math.min(b, 48)}px rgba(0,0,0,${a})`);
+      }
+
+      el.style.boxShadow = shadows.join(',');
+      el.style.transform = `scale(${Math.max(0.95, 1 - intensity * 0.05)}) translateZ(0)`;
+      el.style.opacity = `${Math.max(0.8, 1 - dist * 0.1)}`;
+    });
+    rafId = null;
+  }
+
+  function onScroll() {
+    if (rafId === null) rafId = requestAnimationFrame(update);
+  }
+
+  // Reduced motion check
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    window.addEventListener('scroll', onScroll, { passive: true });
+    update();
+  }
+}
+
+// Lazy load images only when needed
+function initLazyImages() {
+  const images = document.querySelectorAll('img[data-src]');
+  if (images.length === 0) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const img = entry.target as HTMLImageElement;
+          const src = img.dataset.src;
+          if (src) {
+            img.src = src;
+            img.removeAttribute('data-src');
+            observer.unobserve(img);
+          }
+        }
+      });
+    },
+    { rootMargin: '50px', threshold: 0.01 }
+  );
+
+  images.forEach((img) => observer.observe(img));
+}
+
+// Performance monitoring only in dev
+function initPerfMonitor() {
+  if (!import.meta.env.DEV) return;
+
+  const metrics: Record<string, number> = {};
+
+  try {
+    const nav = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+    if (nav) metrics.ttfb = nav.responseStart - nav.requestStart;
+  } catch {}
+
+  try {
+    new PerformanceObserver((list) => {
+      for (const entry of list.getEntries()) {
+        if (entry.name === 'first-contentful-paint') metrics.fcp = entry.startTime;
+      }
+    }).observe({ entryTypes: ['paint'] });
+  } catch {}
+
+  window.addEventListener('beforeunload', () => {
+    if (Object.keys(metrics).length > 0) {
+      console.group('🎯 Performance');
+      Object.entries(metrics).forEach(([k, v]) => console.log(`${k}:`, v.toFixed(2), 'ms'));
+      console.groupEnd();
+    }
+  });
+}
+
+// Initialize only what's needed
+function init() {
+  initScrollDepth();
+  initLazyImages();
+  initPerfMonitor();
+}
+
+// Run on DOM ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+
+// Re-init on Astro page transitions
+document.addEventListener('astro:page-load', init);

@@ -128,9 +128,7 @@ const socialImage = new URL(image, Astro.site);
     <meta property="twitter:image" content={socialImage} />
 
     <!-- Performance Optimizations -->
-    <!-- Preconnect to external origins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Only preconnect to actually used resources -->
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 
     <!-- Resource hints for better performance -->
@@ -174,8 +172,17 @@ const socialImage = new URL(image, Astro.site);
       }
     </script>
 
-    <!-- Flowbite JS -->
-    <script is:inline src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <!-- Lightweight vanilla JS for mobile menu (replaces Flowbite) -->
+    <script is:inline>
+      // Mobile menu toggle
+      document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu-2');
+        if (btn && menu) {
+          btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        }
+      });
+    </script>
   </head>
   <body>
     <Navbar />
@@ -208,21 +215,18 @@ const socialImage = new URL(image, Astro.site);
       // Re-initialize on Astro view transitions
       document.addEventListener('astro:page-load', function() {
         initStickyNavbar();
-        // Reinitialize Flowbite components after page transition
-        if (window.initFlowbite) {
-          window.initFlowbite();
+        // Re-init mobile menu after transition
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu-2');
+        if (btn && menu) {
+          btn.addEventListener('click', () => menu.classList.toggle('hidden'));
         }
       });
     </script>
 
-    <!-- Scroll-driven depth effects -->
+    <!-- Optimized runtime: scroll-depth, lazy loading, perf monitoring -->
     <script>
-      import '../scripts/scroll-depth.ts';
-    </script>
-
-    <!-- Performance monitoring and lazy loading -->
-    <script>
-      import '../scripts/performance-monitor.ts';
+      import '../scripts/optimized-runtime.ts';
     </script>
 
     <!-- Main content -->
