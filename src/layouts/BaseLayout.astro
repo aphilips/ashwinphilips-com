@@ -127,9 +127,19 @@ const socialImage = new URL(image, Astro.site);
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={socialImage} />
 
-    <!-- Preload critical assets -->
+    <!-- Performance Optimizations -->
+    <!-- Preconnect to external origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+
+    <!-- Resource hints for better performance -->
+    <link rel="prefetch" href="/images/og-image.jpg" />
+
+    <!-- Performance meta tags -->
+    <meta name="theme-color" content="#0ea5e9" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1e293b" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
 
     <!-- Structured data -->
     <script type="application/ld+json">
@@ -208,6 +218,11 @@ const socialImage = new URL(image, Astro.site);
     <!-- Scroll-driven depth effects -->
     <script>
       import '../scripts/scroll-depth.ts';
+    </script>
+
+    <!-- Performance monitoring and lazy loading -->
+    <script>
+      import '../scripts/performance-monitor.ts';
     </script>
 
     <!-- Main content -->
