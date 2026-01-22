@@ -430,3 +430,113 @@ code, pre, .mono, .technical {
   --accent: #a855f7; /* purple-500 */
   --accent-dark: #9333ea; /* purple-600 */
 }
+
+/* ===================================================================
+   SOPHISTICATED SVG ICON ANIMATIONS
+   ================================================================ */
+
+/* Base icon styles - all SVG icons in components/icons/ */
+svg[class*="w-"] {
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  will-change: transform;
+}
+
+/* Icon Entrance Animation - fade in with subtle scale */
+@keyframes iconEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Icon Idle Animation - subtle pulse (optional, for key icons) */
+@keyframes iconPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+/* Icon Hover Animation - scale with subtle glow */
+svg[class*="w-"]:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 4px 12px rgba(14, 165, 233, 0.4));
+}
+
+/* Icon entrance on scroll - applies to all icons */
+.fade-in-on-scroll svg[class*="w-"] {
+  animation: iconEnter 0.6s ease-out forwards;
+}
+
+/* Staggered icon entrance delays */
+.fade-in-on-scroll:nth-child(1) svg { animation-delay: 0ms; }
+.fade-in-on-scroll:nth-child(2) svg { animation-delay: 100ms; }
+.fade-in-on-scroll:nth-child(3) svg { animation-delay: 200ms; }
+.fade-in-on-scroll:nth-child(4) svg { animation-delay: 300ms; }
+.fade-in-on-scroll:nth-child(5) svg { animation-delay: 400ms; }
+
+/* Optional: Idle pulse for hero icons (apply class manually) */
+.icon-pulse svg {
+  animation: iconPulse 3s ease-in-out infinite;
+}
+
+/* Icon Groups - Different hover styles for different contexts */
+
+/* Navigation/Header icons - subtle rotation */
+nav svg[class*="w-"]:hover,
+header svg[class*="w-"]:hover {
+  transform: scale(1.08) rotate(5deg);
+}
+
+/* Music/Audio icons - bounce effect */
+.music-icon:hover svg,
+a[href*="spotify"] svg:hover,
+a[href*="soundcloud"] svg:hover,
+a[href*="bandcamp"] svg:hover {
+  transform: scale(1.12) translateY(-4px);
+  filter: drop-shadow(0 6px 16px rgba(14, 165, 233, 0.5));
+}
+
+/* Technical/Hardware icons - mechanical slide */
+.technical-icon:hover svg {
+  transform: scale(1.08) translateX(2px);
+}
+
+/* Research/Science icons - expand effect */
+.research-icon:hover svg {
+  transform: scale(1.15);
+  filter: drop-shadow(0 8px 20px rgba(168, 85, 247, 0.4));
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  svg[class*="w-"] {
+    transition: none !important;
+    animation: none !important;
+    will-change: auto;
+  }
+
+  svg[class*="w-"]:hover {
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .icon-pulse svg {
+    animation: none !important;
+  }
+}
+
+/* Performance: Remove will-change after animation completes */
+@media (hover: hover) and (pointer: fine) {
+  svg[class*="w-"]:not(:hover) {
+    will-change: auto;
+  }
+}
