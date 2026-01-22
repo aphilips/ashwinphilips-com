@@ -540,3 +540,260 @@ a[href*="bandcamp"] svg:hover {
     will-change: auto;
   }
 }
+
+/* ===================================================================
+   ADVANCED DEPTH & LAYERING SYSTEM
+   ================================================================ */
+
+/* Depth Level Utilities - Multi-layer shadows for realistic depth */
+
+/* Shallow Depth - Subtle elevation (cards, buttons) */
+.depth-shallow {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    0 2px 4px rgba(0, 0, 0, 0.05),
+    0 4px 8px rgba(0, 0, 0, 0.05);
+  transform: translateZ(0);
+}
+
+.depth-shallow:hover {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.08),
+    0 4px 8px rgba(0, 0, 0, 0.08),
+    0 8px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px) translateZ(0);
+}
+
+/* Medium Depth - Noticeable elevation (feature cards, modals) */
+.depth-medium {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.08),
+    0 4px 8px rgba(0, 0, 0, 0.08),
+    0 8px 16px rgba(0, 0, 0, 0.08),
+    0 16px 32px rgba(0, 0, 0, 0.08);
+  transform: translateZ(0);
+}
+
+.depth-medium:hover {
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.12),
+    0 8px 16px rgba(0, 0, 0, 0.12),
+    0 16px 32px rgba(0, 0, 0, 0.12),
+    0 32px 64px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px) translateZ(0);
+}
+
+/* Deep Depth - Dramatic elevation (hero sections, overlays) */
+.depth-deep {
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.12),
+    0 8px 16px rgba(0, 0, 0, 0.12),
+    0 16px 32px rgba(0, 0, 0, 0.12),
+    0 32px 64px rgba(0, 0, 0, 0.12),
+    0 64px 128px rgba(0, 0, 0, 0.12);
+  transform: translateZ(0);
+}
+
+.depth-deep:hover {
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.16),
+    0 16px 32px rgba(0, 0, 0, 0.16),
+    0 32px 64px rgba(0, 0, 0, 0.16),
+    0 64px 128px rgba(0, 0, 0, 0.16),
+    0 128px 256px rgba(0, 0, 0, 0.16);
+  transform: translateY(-8px) translateZ(0);
+}
+
+/* Colored Depth Shadows - Using theme colors for impact */
+.depth-primary {
+  box-shadow:
+    0 4px 12px rgba(14, 165, 233, 0.15),
+    0 8px 24px rgba(14, 165, 233, 0.12),
+    0 16px 48px rgba(14, 165, 233, 0.08);
+}
+
+.depth-primary:hover {
+  box-shadow:
+    0 8px 24px rgba(14, 165, 233, 0.25),
+    0 16px 48px rgba(14, 165, 233, 0.20),
+    0 32px 96px rgba(14, 165, 233, 0.15);
+  transform: translateY(-6px);
+}
+
+.depth-accent {
+  box-shadow:
+    0 4px 12px rgba(168, 85, 247, 0.15),
+    0 8px 24px rgba(168, 85, 247, 0.12),
+    0 16px 48px rgba(168, 85, 247, 0.08);
+}
+
+.depth-accent:hover {
+  box-shadow:
+    0 8px 24px rgba(168, 85, 247, 0.25),
+    0 16px 48px rgba(168, 85, 247, 0.20),
+    0 32px 96px rgba(168, 85, 247, 0.15);
+  transform: translateY(-6px);
+}
+
+/* 3D Perspective Containers */
+.perspective-container {
+  perspective: 1000px;
+  perspective-origin: center center;
+}
+
+.perspective-far {
+  perspective: 2000px;
+}
+
+.perspective-close {
+  perspective: 500px;
+}
+
+/* 3D Transform Cards */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+  will-change: transform;
+}
+
+.card-3d:hover {
+  transform: rotateY(5deg) rotateX(-2deg) scale(1.02);
+}
+
+/* Floating Effect - Subtle vertical animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.float-fast {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Enhanced Glass Morphism */
+.glass-depth {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-depth:hover {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px) saturate(200%);
+  -webkit-backdrop-filter: blur(16px) saturate(200%);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Layered Background Effect */
+.layered-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.layered-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+  transform: translateZ(-1px);
+  z-index: -1;
+}
+
+.layered-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(14, 165, 233, 0.05), transparent 50%);
+  transform: translateZ(-2px);
+  z-index: -2;
+}
+
+/* Inner Shadow for depth inversion */
+.depth-inset {
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.1),
+    inset 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Depth stacking context utilities */
+.layer-1 { z-index: 10; transform: translateZ(10px); }
+.layer-2 { z-index: 20; transform: translateZ(20px); }
+.layer-3 { z-index: 30; transform: translateZ(30px); }
+.layer-4 { z-index: 40; transform: translateZ(40px); }
+.layer-5 { z-index: 50; transform: translateZ(50px); }
+
+/* Neumorphism (soft depth) */
+.neumorphic-light {
+  background: linear-gradient(145deg, #f3f4f6, #ffffff);
+  box-shadow:
+    8px 8px 16px rgba(0, 0, 0, 0.1),
+    -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+.neumorphic-dark {
+  background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+  box-shadow:
+    8px 8px 16px rgba(0, 0, 0, 0.4),
+    -8px -8px 16px rgba(255, 255, 255, 0.05);
+}
+
+/* Performance optimizations for depth effects */
+.depth-shallow,
+.depth-medium,
+.depth-deep,
+.depth-primary,
+.depth-accent,
+.card-3d {
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0.0, 0.2, 1),
+              transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  will-change: box-shadow, transform;
+}
+
+/* Remove will-change when not interacting */
+@media (hover: hover) and (pointer: fine) {
+  .depth-shallow:not(:hover),
+  .depth-medium:not(:hover),
+  .depth-deep:not(:hover),
+  .depth-primary:not(:hover),
+  .depth-accent:not(:hover),
+  .card-3d:not(:hover) {
+    will-change: auto;
+  }
+}
+
+/* Reduced motion - disable 3D and floating */
+@media (prefers-reduced-motion: reduce) {
+  .card-3d:hover {
+    transform: scale(1.02);
+  }
+
+  .float,
+  .float-slow,
+  .float-fast {
+    animation: none;
+  }
+
+  .depth-shallow:hover,
+  .depth-medium:hover,
+  .depth-deep:hover {
+    transform: translateZ(0);
+  }
+}
