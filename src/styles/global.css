@@ -1178,3 +1178,192 @@ nav:has(.active) {
     }
   }
 }
+
+/* ===================================================================
+   PERFORMANCE POLISH
+   ================================================================ */
+
+/* CSS Containment for better rendering performance */
+@layer base {
+  /* Section containment - isolate layout/paint */
+  section {
+    contain: layout style;
+  }
+
+  /* Card containment - optimize repaints */
+  .card,
+  [class*="card-"] {
+    contain: layout style paint;
+  }
+
+  /* Navigation containment */
+  nav {
+    contain: layout style;
+  }
+
+  /* Image containers */
+  figure,
+  picture {
+    contain: layout;
+  }
+}
+
+/* Content-visibility for off-screen elements */
+.lazy-content {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* Optimize font loading */
+@layer base {
+  /* Use font-display for faster text rendering */
+  @font-face {
+    font-display: swap;
+  }
+
+  /* Reduce layout shift with size-adjust */
+  body {
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* GPU Acceleration for animations */
+@layer components {
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  /* Remove will-change after animation */
+  .gpu-accelerated:not(:hover):not(:focus):not(:active) {
+    will-change: auto;
+  }
+}
+
+/* Lazy loading images */
+img[loading="lazy"] {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 1px;
+}
+
+/* Intersection Observer optimization classes */
+.fade-in-lazy {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-lazy.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optimize scrolling performance */
+@layer base {
+  /* Smooth scrolling with contain */
+  html {
+    scroll-behavior: smooth;
+    contain: layout style;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  /* Optimize scroll containers */
+  .scroll-container {
+    overflow: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-gutter: stable;
+  }
+}
+
+/* Performance monitoring hints */
+@layer utilities {
+  /* Force compositing layer */
+  .layer-force {
+    transform: translateZ(0);
+    isolation: isolate;
+  }
+
+  /* Optimize paint areas */
+  .paint-optimize {
+    contain: paint;
+  }
+
+  /* Optimize layout */
+  .layout-optimize {
+    contain: layout;
+  }
+
+  /* Full containment */
+  .contain-strict {
+    contain: strict;
+  }
+}
+
+/* Reduce repaints during animations */
+@layer components {
+  [class*="animate-"],
+  [class*="transition-"],
+  .animated {
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+}
+
+/* Optimize critical rendering path */
+@layer base {
+  /* Above-the-fold content */
+  .above-fold {
+    contain: layout style;
+    content-visibility: visible;
+  }
+
+  /* Below-the-fold content */
+  .below-fold {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 1000px;
+  }
+}
+
+/* Performance budget classes */
+.perf-critical {
+  /* Elements critical for FCP/LCP */
+  content-visibility: visible;
+  contain: none;
+}
+
+.perf-deferred {
+  /* Elements that can be deferred */
+  content-visibility: auto;
+  contain: layout style paint;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* Optimize background images */
+.bg-image-optimized {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+}
+
+.bg-image-optimized:not(:hover) {
+  will-change: auto;
+}
+
+/* 60fps animation targets */
+@layer utilities {
+  .fps-60 {
+    /* Only animate transform and opacity for 60fps */
+    transition-property: transform, opacity;
+    transform: translateZ(0);
+  }
+}
