@@ -1,6 +1,8 @@
 /**
  * Optimized Runtime - Lightweight performance features
- * Loads only what's needed, when it's needed
+ * - Scroll-driven depth effects (only if depth classes present)
+ * - Performance monitoring (dev mode only)
+ * Note: Image lazy loading handled by Astro's <Image> component
  */
 
 // Lazy load scroll depth effects only if elements with depth classes exist
@@ -52,31 +54,6 @@ function initScrollDepth() {
   }
 }
 
-// Lazy load images only when needed
-function initLazyImages() {
-  const images = document.querySelectorAll('img[data-src]');
-  if (images.length === 0) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const img = entry.target as HTMLImageElement;
-          const src = img.dataset.src;
-          if (src) {
-            img.src = src;
-            img.removeAttribute('data-src');
-            observer.unobserve(img);
-          }
-        }
-      });
-    },
-    { rootMargin: '50px', threshold: 0.01 }
-  );
-
-  images.forEach((img) => observer.observe(img));
-}
-
 // Performance monitoring only in dev
 function initPerfMonitor() {
   if (!import.meta.env.DEV) return;
@@ -108,7 +85,6 @@ function initPerfMonitor() {
 // Initialize only what's needed
 function init() {
   initScrollDepth();
-  initLazyImages();
   initPerfMonitor();
 }
 
