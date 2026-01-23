@@ -1,12 +1,12 @@
 /*
- * Sophisticated Font System - Four Paradigms
+ * System Font Stack - Zero Loading Overhead
  *
- * Display: Inter → Geometric precision (systems thinking)
- * Body: Crimson Pro → Humanist warmth (consciousness research)
- * Mono: JetBrains Mono → Technical clarity (code/data)
- * Accent: Cormorant Garamond → Artistic flourish (music/creativity)
+ * Display: System UI sans-serif (SF Pro, Segoe UI, Roboto)
+ * Body: System serif (Charter, Georgia, Times)
+ * Mono: System monospace (SF Mono, Menlo, Consolas)
+ * Accent: System serif italic
  *
- * Fonts loaded via <link> in BaseLayout.astro for non-blocking render
+ * Uses native fonts for instant rendering and optimal performance
  */
 
 /* ===================================================================
@@ -38,8 +38,8 @@ html {
 
 body {
   @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-white antialiased;
-  /* Body: Humanist serif for warmth and readability */
-  font-family: 'Crimson Pro', Georgia, serif;
+  /* Body: System serif for warmth and readability */
+  font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, Georgia, serif;
   font-size: 18px;
   line-height: 1.7;
   font-weight: 400;
@@ -147,11 +147,11 @@ section {
   color: white;
 }
 
-/* Typography - Sophisticated Font System */
+/* Typography - System Font Stack */
 
-/* Display: Geometric sans for headings (systems precision) */
+/* Display: System UI sans for headings (systems precision) */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   @apply font-bold leading-tight;
   letter-spacing: -0.02em; /* Tighter tracking for display */
 }
@@ -171,41 +171,41 @@ h3 {
   font-weight: 700;
 }
 
-/* Accent: Artistic serif for quotes, pullouts, special emphasis */
+/* Accent: System serif italic for quotes, pullouts, special emphasis */
 .accent-text, blockquote {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: Charter, 'Bitstream Charter', Georgia, 'Times New Roman', serif;
   font-weight: 600;
   font-style: italic;
   letter-spacing: 0.02em;
 }
 
-/* Mono: Technical monospace for code, data, technical content */
+/* Mono: System monospace for code, data, technical content */
 code, pre, .mono, .technical {
-  font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  font-family: 'SF Mono', SFMono-Regular, ui-monospace, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
   font-weight: 400;
   letter-spacing: -0.01em;
 }
 
 /* Font class utilities for intentional mixing */
 .font-display {
-  font-family: 'Inter', -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-weight: 800;
   letter-spacing: -0.02em;
 }
 
 .font-body {
-  font-family: 'Crimson Pro', Georgia, serif;
+  font-family: Charter, 'Bitstream Charter', Georgia, serif;
   font-weight: 400;
   letter-spacing: 0.01em;
 }
 
 .font-mono {
-  font-family: 'JetBrains Mono', Consolas, monospace;
+  font-family: 'SF Mono', ui-monospace, Menlo, Consolas, monospace;
   font-weight: 500;
 }
 
 .font-accent {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: Charter, Georgia, 'Times New Roman', serif;
   font-weight: 600;
   font-style: italic;
 }

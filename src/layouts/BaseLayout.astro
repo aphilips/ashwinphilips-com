@@ -127,21 +127,7 @@ const socialImage = new URL(image, Astro.site);
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={socialImage} />
 
-    <!-- Performance Optimizations -->
-    <!-- Google Fonts - preconnect for early connection -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <!-- Fonts: load async to not block render, font-display:swap for system fallback -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Crimson+Pro:wght@400&family=JetBrains+Mono:wght@400&family=Cormorant+Garamond:ital,wght@1,600&display=swap"
-      rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Crimson+Pro:wght@400&family=JetBrains+Mono:wght@400&family=Cormorant+Garamond:ital,wght@1,600&display=swap" rel="stylesheet" />
-    </noscript>
+    <!-- Performance: Using system fonts for zero font loading overhead -->
 
     <!-- Performance meta tags -->
     <meta name="theme-color" content="#0ea5e9" media="(prefers-color-scheme: light)" />
