@@ -286,6 +286,11 @@ const socialImage = new URL(image, Astro.site);
 
         <div class="mt-12 pt-8 border-t border-white/10 text-center text-gray-400">
           <p>&copy; {new Date().getFullYear()} Ashwin K. Philips. All rights reserved.</p>
+          <p class="text-xs text-gray-500 mt-2">
+            <span class="font-mono">v{import.meta.env.PUBLIC_GIT_COMMIT_SHA?.substring(0, 7) || import.meta.env.CF_PAGES_COMMIT_SHA?.substring(0, 7) || 'dev'}</span>
+            {import.meta.env.PUBLIC_BUILD_TIME && <span class="mx-2">•</span>}
+            {import.meta.env.PUBLIC_BUILD_TIME && <span>{new Date(import.meta.env.PUBLIC_BUILD_TIME).toISOString().split('T')[0]}</span>}
+          </p>
         </div>
       </div>
     </footer>

@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build",
+    "build": "PUBLIC_GIT_COMMIT_SHA=$(git rev-parse HEAD) PUBLIC_BUILD_TIME=$(date -u +%Y-%m-%dT%H:%M:%SZ) astro check && PUBLIC_GIT_COMMIT_SHA=$(git rev-parse HEAD) PUBLIC_BUILD_TIME=$(date -u +%Y-%m-%dT%H:%M:%SZ) astro build",
     "preview": "astro preview",
     "astro": "astro",
     "deploy": "pnpm run build && wrangler deploy",
