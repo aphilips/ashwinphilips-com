@@ -7,6 +7,7 @@ import Target from '../components/icons/Target.astro';
 import AIResearch from '../components/icons/AIResearch.astro';
 import Operations from '../components/icons/Operations.astro';
 import Consciousness from '../components/icons/Consciousness.astro';
+import projectsBg from '../assets/images/projects-bg.jpg';
 ---
 
 <BaseLayout
@@ -18,7 +19,7 @@ import Consciousness from '../components/icons/Consciousness.astro';
   <section class="relative overflow-hidden bg-gray-900">
     <div class="absolute inset-0">
       <Image
-        src="/images/projects-bg.jpg"
+        src={projectsBg}
         alt=""
         width={1920}
         height={1080}

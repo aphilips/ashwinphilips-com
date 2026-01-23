@@ -8,6 +8,7 @@ import SonicIcon from '../components/icons/SonicExploration.astro';
 import TechnicalIcon from '../components/icons/TechnicalApproach.astro';
 import MeditationIcon from '../components/icons/Meditation.astro';
 import CollabIcon from '../components/icons/CollaborativeWork.astro';
+import musicBg from '../assets/images/music-bg.jpg';
 ---
 
 <BaseLayout
@@ -19,7 +20,7 @@ import CollabIcon from '../components/icons/CollaborativeWork.astro';
   <section class="relative overflow-hidden bg-gray-900">
     <div class="absolute inset-0">
       <Image
-        src="/images/music-bg.jpg"
+        src={musicBg}
         alt=""
         width={1920}
         height={1080}

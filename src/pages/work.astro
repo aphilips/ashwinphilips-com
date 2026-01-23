@@ -15,6 +15,7 @@ import Computer from '../components/icons/Computer.astro';
 import Global from '../components/icons/Global.astro';
 import Database from '../components/icons/Database.astro';
 import DistributedSystems from '../components/icons/DistributedSystems.astro';
+import workBg from '../assets/images/work-bg.jpg';
 ---
 
 <BaseLayout
@@ -26,7 +27,7 @@ import DistributedSystems from '../components/icons/DistributedSystems.astro';
   <section class="relative overflow-hidden bg-gray-900">
     <div class="absolute inset-0">
       <Image
-        src="/images/work-bg.jpg"
+        src={workBg}
         alt=""
         width={1920}
         height={1080}
