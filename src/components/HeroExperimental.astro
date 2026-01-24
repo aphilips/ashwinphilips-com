@@ -1,12 +1,12 @@
 ---
-// Experimental Hero with multi-layered parallax, video background, and micro-animations
+// Experimental Hero: Multi-dimensional glass layers with floating technical elements
 ---
 
 <section id="hero" class="hero-experimental">
-  <!-- Multi-layered background system -->
-  <div class="hero-bg-layers">
-    <!-- Layer 1: Video background (slowest) -->
-    <div class="hero-layer hero-layer-video" data-speed="0.3">
+  <!-- Deep background layer -->
+  <div class="hero-depth-container">
+    <!-- Layer 0: Video background (deepest) -->
+    <div class="depth-layer depth-layer-0">
       <video
         autoplay
         muted
@@ -17,85 +17,145 @@
         poster="/images/hero-bg.jpg"
       >
         <source src="/videos/hero-bg.mp4" type="video/mp4" />
-        <source src="/videos/hero-bg.webm" type="video/webm" />
       </video>
-      <div class="hero-video-overlay"></div>
+      <div class="video-color-overlay"></div>
     </div>
 
-    <!-- Layer 2: Animated gradient overlay (medium speed) -->
-    <div class="hero-layer hero-layer-gradient" data-speed="0.5">
-      <div class="hero-gradient-animated"></div>
+    <!-- Layer 1: Floating equations and symbols -->
+    <div class="depth-layer depth-layer-1">
+      <div class="floating-element equation eq-1">∇ × E = -∂B/∂t</div>
+      <div class="floating-element equation eq-2">f(x) → emergence</div>
+      <div class="floating-element equation eq-3">∫∫∫ ψ dV = 1</div>
+      <div class="floating-element symbol sym-1">◈</div>
+      <div class="floating-element symbol sym-2">⬡</div>
+      <div class="floating-element symbol sym-3">△</div>
+      <div class="floating-element code-snippet code-1">async fn emerge() {}</div>
+      <div class="floating-element code-snippet code-2">.then(|x| x.evolve())</div>
     </div>
 
-    <!-- Layer 3: Particle field (fastest) -->
-    <div class="hero-layer hero-layer-particles" data-speed="0.7">
-      <canvas id="hero-particles" class="hero-particles-canvas"></canvas>
+    <!-- Layer 2: Glass panels at angles -->
+    <div class="depth-layer depth-layer-2">
+      <div class="glass-panel panel-1"></div>
+      <div class="glass-panel panel-2"></div>
+      <div class="glass-panel panel-3"></div>
     </div>
 
-    <!-- Ambient glow effects -->
-    <div class="hero-ambient-glow hero-glow-1"></div>
-    <div class="hero-ambient-glow hero-glow-2"></div>
-  </div>
+    <!-- Layer 3: Node graph connections -->
+    <div class="depth-layer depth-layer-3">
+      <svg class="node-graph" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:rgba(14,165,233,0.4);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgba(168,85,247,0.4);stop-opacity:1" />
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        <g class="node-connections" filter="url(#glow)">
+          <line class="node-line line-1" x1="100" y1="200" x2="300" y2="150" stroke="url(#lineGradient)" stroke-width="1"/>
+          <line class="node-line line-2" x1="300" y1="150" x2="500" y2="300" stroke="url(#lineGradient)" stroke-width="1"/>
+          <line class="node-line line-3" x1="500" y1="300" x2="700" y2="200" stroke="url(#lineGradient)" stroke-width="1"/>
+          <line class="node-line line-4" x1="700" y1="200" x2="900" y2="350" stroke="url(#lineGradient)" stroke-width="1"/>
+          <line class="node-line line-5" x1="200" y1="400" x2="400" y2="350" stroke="url(#lineGradient)" stroke-width="1"/>
+          <line class="node-line line-6" x1="400" y1="350" x2="600" y2="450" stroke="url(#lineGradient)" stroke-width="1"/>
+          <line class="node-line line-7" x1="600" y1="450" x2="800" y2="400" stroke="url(#lineGradient)" stroke-width="1"/>
+        </g>
+        <g class="node-points">
+          <circle class="node-point np-1" cx="100" cy="200" r="4" fill="#0ea5e9"/>
+          <circle class="node-point np-2" cx="300" cy="150" r="5" fill="#a855f7"/>
+          <circle class="node-point np-3" cx="500" cy="300" r="6" fill="#0ea5e9"/>
+          <circle class="node-point np-4" cx="700" cy="200" r="4" fill="#a855f7"/>
+          <circle class="node-point np-5" cx="900" cy="350" r="5" fill="#0ea5e9"/>
+          <circle class="node-point np-6" cx="200" cy="400" r="4" fill="#a855f7"/>
+          <circle class="node-point np-7" cx="400" cy="350" r="5" fill="#0ea5e9"/>
+          <circle class="node-point np-8" cx="600" cy="450" r="4" fill="#a855f7"/>
+          <circle class="node-point np-9" cx="800" cy="400" r="6" fill="#0ea5e9"/>
+        </g>
+      </svg>
+    </div>
 
-  <!-- Content -->
-  <div class="hero-content">
-    <div class="container">
-      <div class="hero-text-wrapper">
-        <!-- Animated title with word-by-word reveal -->
-        <h1 class="hero-title">
-          <span class="hero-title-line">
-            <span class="hero-word" data-delay="0">Systems</span>
-            <span class="hero-word-separator">·</span>
-            <span class="hero-word" data-delay="100">Intelligence</span>
-            <span class="hero-word-separator">·</span>
-            <span class="hero-word" data-delay="200">Emergence</span>
-          </span>
-        </h1>
+    <!-- Layer 4: Ambient color washes -->
+    <div class="depth-layer depth-layer-4">
+      <div class="color-wash wash-cyan"></div>
+      <div class="color-wash wash-purple"></div>
+      <div class="color-wash wash-blue"></div>
+    </div>
 
-        <!-- Subtitle with typewriter effect -->
-        <p class="hero-subtitle">
-          <span id="hero-typewriter"></span>
-          <span class="hero-cursor">|</span>
-        </p>
-
-        <!-- Floating cards with expertise areas -->
-        <div class="hero-expertise-cards">
-          <div class="expertise-card" data-float-delay="0">
-            <div class="expertise-icon">🧠</div>
-            <span>AI Research</span>
-          </div>
-          <div class="expertise-card" data-float-delay="200">
-            <div class="expertise-icon">⚡</div>
-            <span>Distributed Systems</span>
-          </div>
-          <div class="expertise-card" data-float-delay="400">
-            <div class="expertise-icon">🎵</div>
-            <span>Music Production</span>
-          </div>
-          <div class="expertise-card" data-float-delay="600">
-            <div class="expertise-icon">🔮</div>
-            <span>Consciousness</span>
-          </div>
+    <!-- Layer 5: Foreground glass cards -->
+    <div class="depth-layer depth-layer-5">
+      <div class="glass-card card-left">
+        <div class="card-content">
+          <span class="card-label">SYSTEMS</span>
+          <div class="card-metric">1M+</div>
+          <span class="card-unit">req/sec</span>
         </div>
-
-        <!-- CTA with gradient border animation -->
-        <div class="hero-cta">
-          <a href="#explore" class="hero-cta-primary">
-            <span class="hero-cta-text">Explore My Work</span>
-            <span class="hero-cta-border"></span>
-          </a>
-          <a href="/contact" class="hero-cta-secondary">
-            <span>Get in Touch</span>
-          </a>
+      </div>
+      <div class="glass-card card-right">
+        <div class="card-content">
+          <span class="card-label">REASONING</span>
+          <div class="card-metric">93%</div>
+          <span class="card-unit">ARC accuracy</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Scroll indicator with animation -->
-  <div class="hero-scroll-indicator">
-    <div class="scroll-indicator-line"></div>
-    <div class="scroll-indicator-dot"></div>
+  <!-- Main content (topmost) -->
+  <div class="hero-content">
+    <div class="container">
+      <div class="hero-text-wrapper">
+        <!-- Title with 3D depth -->
+        <h1 class="hero-title">
+          <span class="title-word word-1">Systems</span>
+          <span class="title-separator">·</span>
+          <span class="title-word word-2">Intelligence</span>
+          <span class="title-separator">·</span>
+          <span class="title-word word-3">Emergence</span>
+        </h1>
+
+        <!-- Typewriter subtitle -->
+        <p class="hero-subtitle">
+          <span id="hero-typewriter" class="typewriter-text"></span>
+          <span class="cursor">|</span>
+        </p>
+
+        <!-- Glass pill badges -->
+        <div class="hero-badges">
+          <div class="badge badge-1">
+            <span class="badge-icon">⚡</span>
+            <span class="badge-text">Distributed Systems</span>
+          </div>
+          <div class="badge badge-2">
+            <span class="badge-icon">🧠</span>
+            <span class="badge-text">AI Research</span>
+          </div>
+          <div class="badge badge-3">
+            <span class="badge-icon">🎵</span>
+            <span class="badge-text">Music</span>
+          </div>
+        </div>
+
+        <!-- CTA buttons -->
+        <div class="hero-cta">
+          <a href="#explore" class="cta-primary">
+            <span>Explore My Work</span>
+            <div class="cta-glow"></div>
+          </a>
+          <a href="/contact" class="cta-secondary">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <div class="scroll-dot"></div>
   </div>
 </section>
 
@@ -106,23 +166,29 @@
     display: flex;
     align-items: center;
     overflow: hidden;
-    isolation: isolate;
+    background: #030712;
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
   }
 
-  /* Multi-layered background system */
-  .hero-bg-layers {
+  /* ========================================
+     DEPTH CONTAINER & LAYERS
+     ======================================== */
+  .hero-depth-container {
     position: absolute;
     inset: 0;
-    z-index: 1;
+    transform-style: preserve-3d;
   }
 
-  .hero-layer {
+  .depth-layer {
     position: absolute;
     inset: 0;
-    will-change: transform;
+    transform-style: preserve-3d;
   }
 
-  .hero-layer-video {
+  /* Layer 0: Video - deepest */
+  .depth-layer-0 {
+    transform: translateZ(-200px) scale(1.4);
     z-index: 1;
   }
 
@@ -130,351 +196,702 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.4;
-    animation: kenBurnsZoomPanE 35s ease-out infinite alternate;
-    will-change: transform;
+    opacity: 0.5;
+    filter: blur(2px) saturate(1.2);
   }
 
-  /* Disable Ken Burns on reduced motion preference */
-  @media (prefers-reduced-motion: reduce) {
-    .hero-video {
-      animation: none;
-      will-change: auto;
-    }
-  }
-
-  .hero-video-overlay {
+  .video-color-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
       135deg,
-      rgba(0, 0, 0, 0.8) 0%,
-      rgba(0, 0, 0, 0.6) 50%,
-      rgba(0, 0, 0, 0.9) 100%
+      rgba(3, 7, 18, 0.9) 0%,
+      rgba(14, 165, 233, 0.1) 30%,
+      rgba(168, 85, 247, 0.1) 70%,
+      rgba(3, 7, 18, 0.95) 100%
     );
-    z-index: 1;
   }
 
-  .hero-layer-gradient {
+  /* Layer 1: Floating equations */
+  .depth-layer-1 {
+    transform: translateZ(-100px) scale(1.2);
     z-index: 2;
     pointer-events: none;
   }
 
-  .hero-gradient-animated {
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-ambient);
-    animation: gradientRotate var(--duration-glacial) linear infinite;
+  .floating-element {
+    position: absolute;
+    font-family: 'SF Mono', ui-monospace, monospace;
+    color: rgba(255, 255, 255, 0.15);
+    animation: floatDrift 20s ease-in-out infinite;
+    will-change: transform, opacity;
   }
 
-  @keyframes gradientRotate {
-    0% {
-      transform: rotate(0deg) scale(1.2);
+  .equation {
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
+    letter-spacing: 0.05em;
+  }
+
+  .eq-1 {
+    top: 15%;
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 25s;
+  }
+
+  .eq-2 {
+    top: 60%;
+    right: 15%;
+    animation-delay: -5s;
+    animation-duration: 22s;
+  }
+
+  .eq-3 {
+    bottom: 20%;
+    left: 20%;
+    animation-delay: -10s;
+    animation-duration: 28s;
+  }
+
+  .symbol {
+    font-size: clamp(2rem, 5vw, 4rem);
+    opacity: 0.1;
+  }
+
+  .sym-1 {
+    top: 30%;
+    right: 25%;
+    animation-delay: -3s;
+    animation-duration: 30s;
+  }
+
+  .sym-2 {
+    bottom: 35%;
+    left: 30%;
+    animation-delay: -8s;
+    animation-duration: 26s;
+  }
+
+  .sym-3 {
+    top: 70%;
+    right: 40%;
+    animation-delay: -12s;
+    animation-duration: 24s;
+  }
+
+  .code-snippet {
+    font-size: clamp(0.7rem, 1.5vw, 1rem);
+    color: rgba(14, 165, 233, 0.2);
+  }
+
+  .code-1 {
+    top: 25%;
+    right: 10%;
+    animation-delay: -2s;
+  }
+
+  .code-2 {
+    bottom: 40%;
+    left: 8%;
+    animation-delay: -7s;
+  }
+
+  @keyframes floatDrift {
+    0%, 100% {
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 0.1;
     }
-    100% {
-      transform: rotate(360deg) scale(1.2);
+    25% {
+      transform: translate(20px, -30px) rotate(2deg);
+      opacity: 0.2;
+    }
+    50% {
+      transform: translate(-10px, 20px) rotate(-1deg);
+      opacity: 0.15;
+    }
+    75% {
+      transform: translate(30px, 10px) rotate(1deg);
+      opacity: 0.25;
     }
   }
 
-  .hero-layer-particles {
+  /* Layer 2: Glass panels at angles */
+  .depth-layer-2 {
+    transform: translateZ(-50px) scale(1.1);
     z-index: 3;
     pointer-events: none;
   }
 
-  .hero-particles-canvas {
+  .glass-panel {
+    position: absolute;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.01) 100%
+    );
+    backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+  }
+
+  .panel-1 {
+    width: 400px;
+    height: 300px;
+    top: 10%;
+    left: -5%;
+    transform: rotateY(15deg) rotateX(-5deg);
+    animation: panelFloat1 15s ease-in-out infinite;
+  }
+
+  .panel-2 {
+    width: 350px;
+    height: 250px;
+    bottom: 15%;
+    right: -3%;
+    transform: rotateY(-20deg) rotateX(8deg);
+    animation: panelFloat2 18s ease-in-out infinite;
+  }
+
+  .panel-3 {
+    width: 280px;
+    height: 200px;
+    top: 50%;
+    left: 60%;
+    transform: rotateY(10deg) rotateX(-3deg) translateY(-50%);
+    animation: panelFloat3 20s ease-in-out infinite;
+    opacity: 0.5;
+  }
+
+  @keyframes panelFloat1 {
+    0%, 100% { transform: rotateY(15deg) rotateX(-5deg) translateY(0); }
+    50% { transform: rotateY(18deg) rotateX(-8deg) translateY(-20px); }
+  }
+
+  @keyframes panelFloat2 {
+    0%, 100% { transform: rotateY(-20deg) rotateX(8deg) translateY(0); }
+    50% { transform: rotateY(-15deg) rotateX(5deg) translateY(15px); }
+  }
+
+  @keyframes panelFloat3 {
+    0%, 100% { transform: rotateY(10deg) rotateX(-3deg) translateY(-50%); }
+    50% { transform: rotateY(5deg) rotateX(2deg) translateY(calc(-50% - 10px)); }
+  }
+
+  /* Layer 3: Node graph */
+  .depth-layer-3 {
+    transform: translateZ(-30px) scale(1.05);
+    z-index: 4;
+    pointer-events: none;
+  }
+
+  .node-graph {
     width: 100%;
     height: 100%;
+    opacity: 0.6;
   }
 
-  /* Ambient glow effects */
-  .hero-ambient-glow {
+  .node-line {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: drawLine 3s ease-out forwards;
+  }
+
+  .line-1 { animation-delay: 0.5s; }
+  .line-2 { animation-delay: 0.7s; }
+  .line-3 { animation-delay: 0.9s; }
+  .line-4 { animation-delay: 1.1s; }
+  .line-5 { animation-delay: 1.3s; }
+  .line-6 { animation-delay: 1.5s; }
+  .line-7 { animation-delay: 1.7s; }
+
+  @keyframes drawLine {
+    to { stroke-dashoffset: 0; }
+  }
+
+  .node-point {
+    opacity: 0;
+    animation: nodeAppear 0.5s ease-out forwards;
+  }
+
+  .np-1 { animation-delay: 0.3s; }
+  .np-2 { animation-delay: 0.5s; }
+  .np-3 { animation-delay: 0.7s; }
+  .np-4 { animation-delay: 0.9s; }
+  .np-5 { animation-delay: 1.1s; }
+  .np-6 { animation-delay: 1.3s; }
+  .np-7 { animation-delay: 1.5s; }
+  .np-8 { animation-delay: 1.7s; }
+  .np-9 { animation-delay: 1.9s; }
+
+  @keyframes nodeAppear {
+    0% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1.5); }
+    100% { opacity: 0.8; transform: scale(1); }
+  }
+
+  /* Pulsing animation for nodes */
+  .node-point {
+    animation: nodeAppear 0.5s ease-out forwards, nodePulse 3s ease-in-out infinite 2s;
+  }
+
+  @keyframes nodePulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  /* Layer 4: Color washes */
+  .depth-layer-4 {
+    transform: translateZ(-20px);
+    z-index: 5;
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+
+  .color-wash {
     position: absolute;
     border-radius: 50%;
-    filter: blur(150px);
-    opacity: 0.3;
-    pointer-events: none;
-    animation: ambientPulse 8s ease-in-out infinite;
-    z-index: 2;
+    filter: blur(100px);
+    opacity: 0;
+    animation: colorPulse 8s ease-in-out infinite;
   }
 
-  .hero-glow-1 {
-    top: 10%;
-    left: 20%;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, #667eea 0%, transparent 70%);
+  .wash-cyan {
+    width: 600px;
+    height: 600px;
+    top: 20%;
+    left: 10%;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.3) 0%, transparent 70%);
     animation-delay: 0s;
   }
 
-  .hero-glow-2 {
-    bottom: 20%;
-    right: 15%;
+  .wash-purple {
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, #764ba2 0%, transparent 70%);
-    animation-delay: 4s;
+    bottom: 10%;
+    right: 20%;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.3) 0%, transparent 70%);
+    animation-delay: -3s;
   }
 
-  @keyframes ambientPulse {
+  .wash-blue {
+    width: 400px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+    animation-delay: -5s;
+  }
+
+  @keyframes colorPulse {
     0%, 100% {
-      opacity: 0.2;
-      transform: scale(1);
+      opacity: 0;
+      transform: scale(0.8);
     }
     50% {
-      opacity: 0.4;
-      transform: scale(1.1);
+      opacity: 0.6;
+      transform: scale(1.2);
     }
   }
 
-  /* Content */
+  /* Layer 5: Foreground glass cards */
+  .depth-layer-5 {
+    transform: translateZ(50px) scale(0.95);
+    z-index: 6;
+    pointer-events: none;
+  }
+
+  .glass-card {
+    position: absolute;
+    padding: 24px 32px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    animation: cardReveal 1s ease-out forwards;
+  }
+
+  .card-left {
+    top: 25%;
+    left: 5%;
+    transform: rotateY(8deg) rotateX(-3deg);
+    animation-delay: 1.5s;
+  }
+
+  .card-right {
+    bottom: 25%;
+    right: 5%;
+    transform: rotateY(-8deg) rotateX(3deg);
+    animation-delay: 1.8s;
+  }
+
+  @keyframes cardReveal {
+    0% {
+      opacity: 0;
+      transform: rotateY(8deg) rotateX(-3deg) translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: rotateY(8deg) rotateX(-3deg) translateY(0);
+    }
+  }
+
+  .card-content {
+    text-align: center;
+  }
+
+  .card-label {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 8px;
+  }
+
+  .card-metric {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #0ea5e9, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+
+  .card-unit {
+    display: block;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 4px;
+  }
+
+  /* ========================================
+     MAIN CONTENT
+     ======================================== */
   .hero-content {
     position: relative;
     z-index: 10;
     width: 100%;
-    padding: var(--space-2xl) 0;
+    padding: 120px 0 80px;
   }
 
   .hero-text-wrapper {
-    max-width: 1200px;
+    text-align: center;
+    max-width: 900px;
     margin: 0 auto;
   }
 
-  /* Title with word-by-word reveal */
+  /* Title */
   .hero-title {
-    font-size: clamp(2.5rem, 8vw, 6rem);
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: var(--space-lg);
-    color: white;
-  }
-
-  .hero-title-line {
     display: flex;
     flex-wrap: wrap;
-    gap: clamp(0.5rem, 2vw, 1.5rem);
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    gap: clamp(0.5rem, 2vw, 1.5rem);
+    font-size: clamp(2.5rem, 8vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 24px;
   }
 
-  .hero-word {
+  .title-word {
     display: inline-block;
+    color: white;
     opacity: 0;
-    transform: translateY(30px);
-    animation: wordReveal var(--duration-slow) var(--ease-premium) forwards;
+    transform: translateY(40px) rotateX(-15deg);
+    animation: titleReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    text-shadow:
+      0 4px 30px rgba(0, 0, 0, 0.5),
+      0 0 60px rgba(14, 165, 233, 0.3);
   }
 
-  .hero-word[data-delay="0"] { animation-delay: 100ms; }
-  .hero-word[data-delay="100"] { animation-delay: 300ms; }
-  .hero-word[data-delay="200"] { animation-delay: 500ms; }
+  .word-1 { animation-delay: 0.1s; }
+  .word-2 { animation-delay: 0.25s; }
+  .word-3 { animation-delay: 0.4s; }
 
-  @keyframes wordReveal {
+  @keyframes titleReveal {
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) rotateX(0);
     }
   }
 
-  .hero-word-separator {
-    opacity: 0.3;
+  .title-separator {
+    color: rgba(255, 255, 255, 0.2);
     font-weight: 300;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards 0.6s;
   }
 
-  /* Subtitle with typewriter */
+  @keyframes fadeIn {
+    to { opacity: 0.3; }
+  }
+
+  /* Subtitle */
   .hero-subtitle {
-    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
-    color: rgba(255, 255, 255, 0.8);
-    text-align: center;
-    margin-bottom: var(--space-xl);
-    min-height: 2em;
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    color: rgba(255, 255, 255, 0.7);
+    min-height: 2.5em;
+    margin-bottom: 40px;
+    font-family: 'SF Mono', ui-monospace, monospace;
   }
 
-  .hero-cursor {
+  .typewriter-text {
+    background: linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.6));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cursor {
     display: inline-block;
-    animation: cursorBlink 1s step-end infinite;
+    color: #0ea5e9;
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
   }
 
-  @keyframes cursorBlink {
+  @keyframes blink {
     0%, 50% { opacity: 1; }
     51%, 100% { opacity: 0; }
   }
 
-  /* Expertise cards */
-  .hero-expertise-cards {
+  /* Badges */
+  .hero-badges {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-md);
     justify-content: center;
-    margin-bottom: var(--space-xl);
+    gap: 12px;
+    margin-bottom: 48px;
   }
 
-  .expertise-card {
+  .badge {
     display: flex;
     align-items: center;
-    gap: var(--space-sm);
-    padding: var(--space-sm) var(--space-md);
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 12px;
-    backdrop-filter: blur(var(--glass-blur));
+    gap: 8px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
     opacity: 0;
     transform: translateY(20px);
-    animation: cardFloat var(--duration-slow) var(--ease-premium) forwards;
+    animation: badgeReveal 0.6s ease forwards;
+    transition: all 0.3s ease;
   }
 
-  .expertise-card[data-float-delay="0"] { animation-delay: 700ms; }
-  .expertise-card[data-float-delay="200"] { animation-delay: 850ms; }
-  .expertise-card[data-float-delay="400"] { animation-delay: 1000ms; }
-  .expertise-card[data-float-delay="600"] { animation-delay: 1150ms; }
+  .badge:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
 
-  @keyframes cardFloat {
+  .badge-1 { animation-delay: 0.8s; }
+  .badge-2 { animation-delay: 0.95s; }
+  .badge-3 { animation-delay: 1.1s; }
+
+  @keyframes badgeReveal {
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
 
-  .expertise-card:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-    transition: all var(--duration-normal) var(--ease-smooth);
+  .badge-icon {
+    font-size: 1.1rem;
   }
 
-  .expertise-icon {
-    font-size: 1.5rem;
-  }
-
-  .expertise-card span {
-    color: white;
+  .badge-text {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
     font-weight: 500;
-    font-size: 0.9rem;
   }
 
-  /* CTA buttons */
+  /* CTA */
   .hero-cta {
     display: flex;
-    gap: var(--space-md);
     justify-content: center;
+    gap: 16px;
     flex-wrap: wrap;
   }
 
-  .hero-cta-primary,
-  .hero-cta-secondary {
-    position: relative;
-    padding: var(--space-md) var(--space-lg);
+  .cta-primary,
+  .cta-secondary {
+    padding: 14px 32px;
     border-radius: 12px;
     font-weight: 600;
+    font-size: 0.95rem;
     text-decoration: none;
-    transition: all var(--duration-normal) var(--ease-smooth);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
     overflow: hidden;
   }
 
-  .hero-cta-primary {
+  .cta-primary {
     background: white;
-    color: #000;
+    color: #030712;
+    box-shadow:
+      0 4px 20px rgba(255, 255, 255, 0.2),
+      0 0 40px rgba(14, 165, 233, 0.2);
   }
 
-  .hero-cta-primary .hero-cta-border {
+  .cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 8px 30px rgba(255, 255, 255, 0.3),
+      0 0 60px rgba(14, 165, 233, 0.3);
+  }
+
+  .cta-glow {
     position: absolute;
     inset: -2px;
-    background: var(--gradient-primary);
-    border-radius: 12px;
+    background: linear-gradient(135deg, #0ea5e9, #a855f7, #0ea5e9);
+    background-size: 200% 200%;
+    border-radius: 14px;
     z-index: -1;
     opacity: 0;
-    transition: opacity var(--duration-normal) var(--ease-smooth);
+    animation: glowRotate 3s linear infinite;
+    transition: opacity 0.3s ease;
   }
 
-  .hero-cta-primary:hover .hero-cta-border {
+  .cta-primary:hover .cta-glow {
     opacity: 1;
   }
 
-  .hero-cta-primary:hover {
-    color: white;
-    background: transparent;
+  @keyframes glowRotate {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
-  .hero-cta-secondary {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(var(--glass-blur));
+  .cta-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: white;
   }
 
-  .hero-cta-secondary:hover {
+  .cta-secondary:hover {
     background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
   }
 
   /* Scroll indicator */
-  .hero-scroll-indicator {
+  .scroll-indicator {
     position: absolute;
-    bottom: var(--space-xl);
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
     opacity: 0;
-    animation: scrollIndicatorFade 1s ease-in forwards 2s;
+    animation: fadeIn 1s ease forwards 2.5s;
   }
 
-  @keyframes scrollIndicatorFade {
-    to { opacity: 1; }
-  }
-
-  .scroll-indicator-line {
-    width: 2px;
+  .scroll-line {
+    width: 1px;
     height: 60px;
     background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.3));
     margin: 0 auto 8px;
   }
 
-  .scroll-indicator-dot {
-    width: 8px;
-    height: 8px;
+  .scroll-dot {
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: white;
     margin: 0 auto;
-    animation: scrollDotBounce 2s ease-in-out infinite;
+    animation: scrollBounce 2s ease-in-out infinite;
   }
 
-  @keyframes scrollDotBounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(20px); }
+  @keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(15px); opacity: 0.5; }
   }
 
-  /* Responsive adjustments */
+  /* ========================================
+     RESPONSIVE
+     ======================================== */
   @media (max-width: 768px) {
-    .hero-title-line {
+    .hero-title {
       flex-direction: column;
-      gap: var(--space-sm);
+      gap: 8px;
     }
 
-    .hero-word-separator {
+    .title-separator {
       display: none;
     }
 
-    .hero-expertise-cards {
-      max-width: 90%;
-      margin-left: auto;
-      margin-right: auto;
+    .glass-card {
+      display: none;
+    }
+
+    .glass-panel {
+      opacity: 0.3;
+    }
+
+    .depth-layer-1 {
+      opacity: 0.5;
+    }
+
+    .hero-badges {
+      gap: 8px;
+    }
+
+    .badge {
+      padding: 8px 16px;
     }
 
     .hero-cta {
       flex-direction: column;
-      max-width: 300px;
+      max-width: 280px;
       margin: 0 auto;
     }
 
-    .hero-cta-primary,
-    .hero-cta-secondary {
+    .cta-primary,
+    .cta-secondary {
       width: 100%;
       text-align: center;
+    }
+  }
+
+  /* ========================================
+     REDUCED MOTION
+     ======================================== */
+  @media (prefers-reduced-motion: reduce) {
+    .floating-element,
+    .glass-panel,
+    .color-wash,
+    .node-line,
+    .node-point {
+      animation: none !important;
+      opacity: 0.2;
+    }
+
+    .title-word,
+    .badge,
+    .glass-card {
+      animation: none !important;
+      opacity: 1;
+      transform: none;
+    }
+
+    .scroll-dot {
+      animation: none;
+    }
+
+    .hero-video {
+      filter: blur(2px);
     }
   }
 </style>
 
 <script>
-  // Sophisticated Typewriter Effect
-  class ConsciousTypewriter {
+  // Typewriter with personality
+  class Typewriter {
     private phrases = [
       "I make distributed systems argue with themselves until something useful emerges.",
       "93% on ARC. No transformers. Just shapes talking to shapes.",
@@ -483,257 +900,89 @@
       "If your AI doesn't occasionally confuse you, you're not pushing hard enough."
     ];
 
-    private element: HTMLElement | null;
-    private currentPhraseIndex = 0;
-    private currentText = "";
-    private isMakingMistake = false;
+    private el: HTMLElement | null;
+    private index = 0;
+    private text = "";
 
-    // Keyboard adjacency map for realistic typos
-    private adjacentKeys: Record<string, string[]> = {
-      'a': ['s', 'q', 'w', 'z'],
-      'b': ['v', 'g', 'h', 'n'],
-      'c': ['x', 'd', 'f', 'v'],
-      'd': ['s', 'e', 'r', 'f', 'c', 'x'],
-      'e': ['w', 'r', 'd', 's'],
-      'f': ['d', 'r', 't', 'g', 'v', 'c'],
-      'g': ['f', 't', 'y', 'h', 'b', 'v'],
-      'h': ['g', 'y', 'u', 'j', 'n', 'b'],
-      'i': ['u', 'o', 'k', 'j'],
-      'j': ['h', 'u', 'i', 'k', 'n', 'm'],
-      'k': ['j', 'i', 'o', 'l', 'm'],
-      'l': ['k', 'o', 'p'],
-      'm': ['n', 'j', 'k'],
-      'n': ['b', 'h', 'j', 'm'],
-      'o': ['i', 'p', 'l', 'k'],
-      'p': ['o', 'l'],
-      'q': ['w', 'a'],
-      'r': ['e', 't', 'f', 'd'],
-      's': ['a', 'w', 'e', 'd', 'x', 'z'],
-      't': ['r', 'y', 'g', 'f'],
-      'u': ['y', 'i', 'j', 'h'],
-      'v': ['c', 'f', 'g', 'b'],
-      'w': ['q', 'e', 's', 'a'],
-      'x': ['z', 's', 'd', 'c'],
-      'y': ['t', 'u', 'h', 'g'],
-      'z': ['a', 's', 'x']
-    };
-
-    constructor(elementId: string) {
-      this.element = document.getElementById(elementId);
+    constructor(id: string) {
+      this.el = document.getElementById(id);
     }
 
-    private getDelay(char: string, position: number, phrase: string): number {
-      const baseDelay = 50;
-      const variance = (Math.random() * 30) - 15;
-
-      // Punctuation pauses
-      if (char === ',') return 400 + variance;
-      if (char === '.') return 1000 + variance;
-      if (char === '—' || char === '-') return 300 + variance;
-      if (char === ' ') return 200 + variance;
-
-      // Calculate word complexity (words >8 chars = slower)
-      const words = phrase.slice(0, position).split(/\s+/);
-      const currentWord = words[words.length - 1] || '';
-      const complexity = currentWord.length > 8 ? 30 : 0;
-
-      // Random natural variation
-      const naturalVariation = Math.random() < 0.2 ? 20 : 0;
-
-      return Math.max(20, baseDelay + variance + complexity + naturalVariation);
+    private delay(ms: number): Promise<void> {
+      return new Promise(r => setTimeout(r, ms));
     }
 
-    private shouldMakeMistake(position: number, phrase: string): boolean {
-      // 3% base typo rate
-      if (Math.random() > 0.97) return true;
+    private async type(): Promise<void> {
+      const phrase = this.phrases[this.index];
 
-      // Higher mistake rate on longer words
-      const words = phrase.slice(0, position).split(/\s+/);
-      const currentWord = words[words.length - 1] || '';
-      if (currentWord.length > 10 && Math.random() > 0.95) return true;
+      for (let i = 0; i < phrase.length; i++) {
+        if (!this.el) return;
+        const char = phrase[i];
+        this.text += char;
+        this.el.textContent = this.text;
 
-      return false;
-    }
+        let wait = 45 + Math.random() * 30;
+        if (char === '.' || char === ',') wait = 300 + Math.random() * 200;
+        if (char === ' ') wait = 80 + Math.random() * 40;
 
-    private getWrongChar(correctChar: string): string {
-      const lowerChar = correctChar.toLowerCase();
-      const adjacent = this.adjacentKeys[lowerChar];
-
-      if (adjacent && adjacent.length > 0) {
-        const wrong = adjacent[Math.floor(Math.random() * adjacent.length)];
-        // Preserve case
-        return correctChar === correctChar.toUpperCase() ? wrong.toUpperCase() : wrong;
+        await this.delay(wait);
       }
 
-      // Fallback to a random nearby letter
-      const fallbacks = ['x', 'v', 'b', 'n'];
-      return fallbacks[Math.floor(Math.random() * fallbacks.length)];
-    }
+      await this.delay(2500);
 
-    private async typePhrase(): Promise<void> {
-      const phrase = this.phrases[this.currentPhraseIndex];
-      let position = 0;
-
-      // Type out the phrase
-      while (position < phrase.length) {
-        if (!this.element) return;
-
-        const char = phrase[position];
-
-        // Check for mistakes
-        if (!this.isMakingMistake && this.shouldMakeMistake(position, phrase)) {
-          // Make a typo
-          const wrongChar = this.getWrongChar(char);
-          this.currentText += wrongChar;
-          this.element.textContent = this.currentText;
-          this.isMakingMistake = true;
-
-          // Pause to "realize" mistake
-          await this.sleep(200 + Math.random() * 200);
-
-          // Backspace
-          this.currentText = this.currentText.slice(0, -1);
-          this.element.textContent = this.currentText;
-          await this.sleep(100);
-
-          this.isMakingMistake = false;
-        }
-
-        // Type correct character
-        this.currentText += char;
-        this.element.textContent = this.currentText;
-
-        const delay = this.getDelay(char, position, phrase);
-        await this.sleep(delay);
-
-        position++;
+      while (this.text.length > 0) {
+        if (!this.el) return;
+        this.text = this.text.slice(0, -1);
+        this.el.textContent = this.text;
+        await this.delay(25);
       }
 
-      // Pause at end before erasing
-      await this.sleep(2000 + Math.random() * 1000);
-
-      // Erase phrase
-      await this.erasePhrase();
+      await this.delay(400);
+      this.index = (this.index + 1) % this.phrases.length;
     }
 
-    private async erasePhrase(): Promise<void> {
-      while (this.currentText.length > 0) {
-        if (!this.element) return;
-
-        this.currentText = this.currentText.slice(0, -1);
-        this.element.textContent = this.currentText;
-
-        // Faster erasing with slight variation
-        const eraseDelay = 30 + Math.random() * 20;
-        await this.sleep(eraseDelay);
-      }
-
-      // Brief pause before next phrase
-      await this.sleep(500);
-    }
-
-    private sleep(ms: number): Promise<void> {
-      return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
-    public async start(startDelay = 1000): Promise<void> {
-      // Initial delay for word animations
-      await this.sleep(startDelay);
-
-      // Infinite loop through phrases
-      while (true) {
-        await this.typePhrase();
-
-        // Move to next phrase
-        this.currentPhraseIndex = (this.currentPhraseIndex + 1) % this.phrases.length;
-      }
+    async start(): Promise<void> {
+      await this.delay(1200);
+      while (true) await this.type();
     }
   }
 
-  // Initialize typewriter
-  const typewriter = new ConsciousTypewriter('hero-typewriter');
-  typewriter.start();
+  new Typewriter('hero-typewriter').start();
 
-  // Parallax scrolling
-  const parallaxLayers = document.querySelectorAll<HTMLElement>('.hero-layer');
+  // Mouse parallax for depth layers
+  let mouseX = 0, mouseY = 0;
+  let currentX = 0, currentY = 0;
 
-  function updateParallax() {
-    const scrollY = window.scrollY;
-
-    parallaxLayers.forEach((layer) => {
-      const speed = parseFloat(layer.getAttribute('data-speed') || '0');
-      const yPos = -(scrollY * speed);
-      layer.style.transform = `translate3d(0, ${yPos}px, 0)`;
-    });
-  }
-
-  // Throttled scroll handler for performance
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        updateParallax();
-        ticking = false;
-      });
-      ticking = true;
-    }
+  document.addEventListener('mousemove', (e) => {
+    mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+    mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
   });
 
-  // Particle system (simple version)
-  const canvas = document.getElementById('hero-particles') as HTMLCanvasElement;
-  if (canvas) {
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+  function animateParallax() {
+    currentX += (mouseX - currentX) * 0.05;
+    currentY += (mouseY - currentY) * 0.05;
 
-    const particles: Array<{x: number, y: number, vx: number, vy: number, size: number}> = [];
-    const particleCount = Math.min(50, Math.floor(canvas.width / 20));
+    const layer1 = document.querySelector('.depth-layer-1') as HTMLElement;
+    const layer2 = document.querySelector('.depth-layer-2') as HTMLElement;
+    const layer3 = document.querySelector('.depth-layer-3') as HTMLElement;
+    const layer5 = document.querySelector('.depth-layer-5') as HTMLElement;
 
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        size: Math.random() * 2 + 1
-      });
-    }
+    if (layer1) layer1.style.transform = `translateZ(-100px) scale(1.2) translate(${currentX * 30}px, ${currentY * 30}px)`;
+    if (layer2) layer2.style.transform = `translateZ(-50px) scale(1.1) translate(${currentX * 20}px, ${currentY * 20}px)`;
+    if (layer3) layer3.style.transform = `translateZ(-30px) scale(1.05) translate(${currentX * 15}px, ${currentY * 15}px)`;
+    if (layer5) layer5.style.transform = `translateZ(50px) scale(0.95) translate(${currentX * -10}px, ${currentY * -10}px)`;
 
-    function animateParticles() {
-      if (!ctx) return;
-
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      particles.forEach(p => {
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
-        ctx.fill();
-      });
-
-      requestAnimationFrame(animateParticles);
-    }
-
-    animateParticles();
-
-    // Resize handler
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
+    requestAnimationFrame(animateParallax);
   }
 
-  // Smooth scroll to explore section
-  document.querySelector('.hero-cta-primary')?.addEventListener('click', (e) => {
+  // Only enable mouse parallax on desktop
+  if (window.matchMedia('(min-width: 768px) and (hover: hover)').matches) {
+    animateParallax();
+  }
+
+  // Smooth scroll
+  document.querySelector('.cta-primary')?.addEventListener('click', (e) => {
     e.preventDefault();
-    document.querySelector('#explore')?.scrollIntoView({
-      behavior: 'smooth'
-    });
+    document.querySelector('#explore')?.scrollIntoView({ behavior: 'smooth' });
   });
 </script>
