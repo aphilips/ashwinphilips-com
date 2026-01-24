@@ -1,0 +1,928 @@
+---
+// Live Ecosystem Showcase - Real-time visualization of the organism
+---
+
+<div class="live-ecosystem" id="live-ecosystem">
+  <!-- Particle background -->
+  <div class="particle-field" id="particle-field"></div>
+
+  <div class="ecosystem-header">
+    <h3 class="ecosystem-title">Live Ecosystem</h3>
+    <div class="pulse-indicator">
+      <div class="pulse-dot" id="pulse-dot">
+        <span class="pulse-ring"></span>
+        <span class="pulse-ring delay-1"></span>
+        <span class="pulse-ring delay-2"></span>
+      </div>
+      <div class="pulse-info">
+        <span class="pulse-status" id="pulse-status">alive</span>
+        <span class="pulse-count"><span id="connection-count">47</span> active connections</span>
+      </div>
+    </div>
+    <span class="last-update">Updated: <span id="last-update">--:--:--</span></span>
+  </div>
+
+  <div class="ecosystem-grid">
+    <!-- Node Graph with 3D effect -->
+    <div class="ecosystem-section graph-section">
+      <h4 class="section-title">Network Topology</h4>
+      <div class="graph-container" id="graph-container">
+        <svg class="node-graph-live" viewBox="0 0 300 300" id="node-graph">
+          <defs>
+            <linearGradient id="connGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:0.6" />
+              <stop offset="100%" style="stop-color:#a855f7;stop-opacity:0.6" />
+            </linearGradient>
+            <linearGradient id="nodeGradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#38bdf8" />
+              <stop offset="100%" style="stop-color:#0284c7" />
+            </linearGradient>
+            <linearGradient id="nodeGradPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#c084fc" />
+              <stop offset="100%" style="stop-color:#7c3aed" />
+            </linearGradient>
+            <filter id="nodeGlow">
+              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+            <filter id="packetGlow">
+              <feGaussianBlur stdDeviation="3" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          <g class="connections" id="graph-connections"></g>
+          <g class="data-packets" id="data-packets"></g>
+          <g class="nodes" filter="url(#nodeGlow)" id="graph-nodes"></g>
+        </svg>
+        <!-- Connection activity indicators -->
+        <div class="graph-overlay">
+          <div class="activity-ring ring-1"></div>
+          <div class="activity-ring ring-2"></div>
+          <div class="activity-ring ring-3"></div>
+        </div>
+      </div>
+      <div class="emergence-counter">
+        <span class="emergence-label">Emergence events today:</span>
+        <span class="emergence-value" id="emergence-count">3</span>
+        <div class="emergence-sparkline" id="emergence-sparkline"></div>
+      </div>
+    </div>
+
+    <!-- Agent Debates with live typing effect -->
+    <div class="ecosystem-section debates-section">
+      <h4 class="section-title">Agent Debates (Fulqrum)</h4>
+      <div class="debates-list" id="debates-list"></div>
+      <div class="debate-activity">
+        <div class="typing-indicator" id="typing-indicator">
+          <span></span><span></span><span></span>
+          <span class="typing-text">Agents analyzing...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Metrics with live charts -->
+    <div class="ecosystem-section metrics-section">
+      <h4 class="section-title">System Metrics</h4>
+      <div class="metrics-grid" id="metrics-grid"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .live-ecosystem {
+    position: relative;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 32px;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  /* Particle background */
+  .particle-field {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0.4;
+  }
+
+  .particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #0ea5e9;
+    border-radius: 50%;
+    animation: particleFloat 8s linear infinite;
+  }
+
+  @keyframes particleFloat {
+    0% {
+      transform: translateY(100%) translateX(0) scale(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+      transform: translateY(80%) translateX(10px) scale(1);
+    }
+    90% {
+      opacity: 1;
+      transform: translateY(10%) translateX(-10px) scale(1);
+    }
+    100% {
+      transform: translateY(0) translateX(0) scale(0);
+      opacity: 0;
+    }
+  }
+
+  .ecosystem-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ecosystem-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+    background: linear-gradient(135deg, #0ea5e9, #a855f7, #ec4899);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .last-update {
+    margin-left: auto;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-family: 'SF Mono', ui-monospace, monospace;
+  }
+
+  .pulse-indicator {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .pulse-dot {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
+    transition: all 0.5s ease;
+  }
+
+  .pulse-dot.thinking {
+    background: #f59e0b;
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.6);
+  }
+  .pulse-dot.dreaming {
+    background: #8b5cf6;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+  }
+
+  .pulse-ring {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid currentColor;
+    opacity: 0;
+    animation: pulseRing 2s ease-out infinite;
+  }
+
+  .pulse-dot .pulse-ring { border-color: #10b981; }
+  .pulse-dot.thinking .pulse-ring { border-color: #f59e0b; }
+  .pulse-dot.dreaming .pulse-ring { border-color: #8b5cf6; }
+
+  .pulse-ring.delay-1 { animation-delay: 0.5s; }
+  .pulse-ring.delay-2 { animation-delay: 1s; }
+
+  @keyframes pulseRing {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(2.5); }
+  }
+
+  .pulse-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .pulse-status {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+    text-transform: capitalize;
+  }
+
+  .pulse-count {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .ecosystem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    gap: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 1024px) {
+    .ecosystem-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .metrics-section { grid-column: span 2; }
+  }
+
+  @media (max-width: 768px) {
+    .ecosystem-grid { grid-template-columns: 1fr; }
+    .metrics-section { grid-column: span 1; }
+  }
+
+  .ecosystem-section {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .ecosystem-section:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .section-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 0 16px;
+  }
+
+  .graph-container {
+    position: relative;
+  }
+
+  .graph-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .activity-ring {
+    position: absolute;
+    border: 1px solid rgba(14, 165, 233, 0.1);
+    border-radius: 50%;
+    animation: ringPulse 4s ease-out infinite;
+  }
+
+  .ring-1 { width: 60%; height: 60%; animation-delay: 0s; }
+  .ring-2 { width: 80%; height: 80%; animation-delay: 1s; }
+  .ring-3 { width: 100%; height: 100%; animation-delay: 2s; }
+
+  @keyframes ringPulse {
+    0% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 0.1; transform: scale(1); }
+    100% { opacity: 0.3; transform: scale(0.8); }
+  }
+
+  .node-graph-live {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .node-graph-live line {
+    stroke: url(#connGrad);
+    stroke-width: 1.5;
+    stroke-dasharray: 100;
+    animation: flowLine 3s linear infinite;
+  }
+
+  @keyframes flowLine {
+    from { stroke-dashoffset: 100; }
+    to { stroke-dashoffset: 0; }
+  }
+
+  .node-graph-live circle {
+    transition: all 0.5s ease;
+  }
+
+  .node-graph-live text {
+    font-size: 8px;
+    fill: rgba(255, 255, 255, 0.7);
+    text-anchor: middle;
+    font-family: 'SF Mono', ui-monospace, monospace;
+  }
+
+  /* Data packets animation */
+  .data-packet {
+    fill: #0ea5e9;
+    filter: url(#packetGlow);
+  }
+
+  .emergence-counter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .emergence-label {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .emergence-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #a855f7;
+    text-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+    animation: valueGlow 2s ease infinite;
+  }
+
+  @keyframes valueGlow {
+    0%, 100% { text-shadow: 0 0 20px rgba(168, 85, 247, 0.5); }
+    50% { text-shadow: 0 0 40px rgba(168, 85, 247, 0.8); }
+  }
+
+  .emergence-sparkline {
+    display: flex;
+    gap: 2px;
+    align-items: flex-end;
+    height: 24px;
+  }
+
+  .sparkline-bar {
+    width: 4px;
+    background: linear-gradient(to top, #0ea5e9, #a855f7);
+    border-radius: 2px;
+    animation: sparkGrow 0.5s ease forwards;
+  }
+
+  @keyframes sparkGrow {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+  }
+
+  .debates-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .debate-activity {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .typing-indicator {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .typing-indicator span:not(.typing-text) {
+    width: 6px;
+    height: 6px;
+    background: #0ea5e9;
+    border-radius: 50%;
+    animation: typingBounce 1.4s infinite ease-in-out;
+  }
+
+  .typing-indicator span:nth-child(1) { animation-delay: 0s; }
+  .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+  .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes typingBounce {
+    0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+    40% { transform: scale(1.2); opacity: 1; }
+  }
+
+  .typing-text {
+    margin-left: 8px;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-style: italic;
+  }
+
+  .debate-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: slideIn 0.5s ease forwards;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .debate-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(14, 165, 233, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .debate-card:hover::before {
+    opacity: 1;
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .debate-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(14, 165, 233, 0.3);
+    transform: translateX(4px);
+  }
+
+  .debate-source {
+    font-size: 0.65rem;
+    color: #0ea5e9;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+
+  .debate-headline {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: white;
+    margin: 0 0 12px;
+    line-height: 1.4;
+  }
+
+  .consensus-bar {
+    position: relative;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .consensus-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ef4444, #f59e0b, #10b981);
+    border-radius: 2px;
+    transition: width 0.5s ease;
+    position: relative;
+  }
+
+  .consensus-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3));
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(500%); }
+  }
+
+  .consensus-label {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 6px;
+    display: block;
+  }
+
+  .agent-avatars {
+    display: flex;
+    gap: -8px;
+    margin-top: 8px;
+  }
+
+  .agent-avatar {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    margin-left: -6px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .agent-avatar:first-child { margin-left: 0; }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  @media (max-width: 768px) {
+    .metrics-grid { grid-template-columns: 1fr; }
+  }
+
+  .metric-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 16px;
+    animation: fadeUp 0.5s ease forwards;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .metric-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #0ea5e9, #a855f7);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .metric-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .metric-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .metric-name {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .metric-trend {
+    font-size: 0.9rem;
+    font-weight: bold;
+    animation: trendPulse 2s infinite;
+  }
+
+  @keyframes trendPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  .metric-trend.up { color: #10b981; }
+  .metric-trend.down { color: #0ea5e9; }
+  .metric-trend.stable { color: #f59e0b; }
+
+  .metric-value {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .metric-description {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .mini-chart {
+    display: flex;
+    gap: 2px;
+    align-items: flex-end;
+    height: 24px;
+    margin-top: 8px;
+  }
+
+  .mini-bar {
+    flex: 1;
+    background: linear-gradient(to top, rgba(14, 165, 233, 0.3), rgba(168, 85, 247, 0.3));
+    border-radius: 1px;
+    transition: height 0.3s ease;
+  }
+
+  .debates-list::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .debates-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+  }
+
+  .debates-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+  }
+</style>
+
+<script>
+  // Live Ecosystem Data
+  const nodes = [
+    { id: 'noqnoq', name: 'NoqNoq', activity: 0.9, color: 'blue' },
+    { id: 'fulqrum', name: 'Fulqrum', activity: 0.7, color: 'purple' },
+    { id: 'qslice', name: 'qSLiCE', activity: 0.5, color: 'purple' },
+    { id: 'edat', name: 'EDAT', activity: 0.4, color: 'blue' },
+    { id: 'site', name: 'This Site', activity: 0.8, color: 'blue' }
+  ];
+
+  const connections = [
+    { from: 0, to: 1 }, { from: 0, to: 2 }, { from: 0, to: 3 },
+    { from: 0, to: 4 }, { from: 1, to: 2 }, { from: 2, to: 4 }
+  ];
+
+  const debates = [
+    {
+      headline: "AI Reasoning Shows Unexpected Emergence Patterns",
+      source: "MIT Technology Review",
+      consensus: 34,
+      agents: ['🔵', '🟣', '🔵']
+    },
+    {
+      headline: "Edge Computing Workloads Surge as AI Moves to Device",
+      source: "The Information",
+      consensus: 78,
+      agents: ['🟣', '🔵', '🟣', '🔵']
+    },
+    {
+      headline: "Distributed Systems Architecture Becoming Critical",
+      source: "ACM Queue",
+      consensus: 91,
+      agents: ['🔵', '🔵', '🟣']
+    }
+  ];
+
+  const metrics = [
+    { name: 'NoqNoq', value: '1.2M', trend: 'up', desc: 'messages today', history: [60, 70, 65, 80, 75, 90, 85] },
+    { name: 'Fulqrum', value: '847', trend: 'up', desc: 'debates analyzed', history: [40, 50, 45, 60, 70, 65, 80] },
+    { name: 'qSLiCE', value: '93%', trend: 'stable', desc: 'decomposition accuracy', history: [90, 92, 91, 93, 92, 93, 93] },
+    { name: 'Edge', value: '<50ms', trend: 'down', desc: 'p99 latency', history: [70, 65, 60, 55, 50, 45, 48] }
+  ];
+
+  let positions: Array<{x: number, y: number}> = [];
+  let dataPackets: Array<{from: number, to: number, progress: number}> = [];
+
+  function initEcosystem() {
+    const graphNodes = document.getElementById('graph-nodes');
+    const graphConns = document.getElementById('graph-connections');
+    const debatesList = document.getElementById('debates-list');
+    const metricsGrid = document.getElementById('metrics-grid');
+    const particleField = document.getElementById('particle-field');
+    const sparkline = document.getElementById('emergence-sparkline');
+
+    if (!graphNodes || !graphConns || !debatesList || !metricsGrid) return;
+
+    // Create particles
+    if (particleField) {
+      particleField.innerHTML = Array(20).fill(0).map((_, i) =>
+        `<div class="particle" style="
+          left: ${Math.random() * 100}%;
+          animation-delay: ${Math.random() * 8}s;
+          animation-duration: ${6 + Math.random() * 4}s;
+          background: ${Math.random() > 0.5 ? '#0ea5e9' : '#a855f7'};
+        "></div>`
+      ).join('');
+    }
+
+    // Create sparkline
+    if (sparkline) {
+      sparkline.innerHTML = Array(12).fill(0).map((_, i) =>
+        `<div class="sparkline-bar" style="
+          height: ${20 + Math.random() * 80}%;
+          animation-delay: ${i * 50}ms;
+        "></div>`
+      ).join('');
+    }
+
+    // Calculate node positions in a circle
+    positions = nodes.map((_, i) => {
+      const angle = (i / nodes.length) * Math.PI * 2 - Math.PI / 2;
+      return {
+        x: 150 + Math.cos(angle) * 100,
+        y: 150 + Math.sin(angle) * 100
+      };
+    });
+
+    // Draw connections
+    graphConns.innerHTML = connections.map(c =>
+      `<line x1="${positions[c.from].x}" y1="${positions[c.from].y}"
+             x2="${positions[c.to].x}" y2="${positions[c.to].y}" />`
+    ).join('');
+
+    // Draw nodes
+    graphNodes.innerHTML = nodes.map((node, i) => `
+      <g>
+        <circle cx="${positions[i].x}" cy="${positions[i].y}"
+                r="${8 + node.activity * 6}"
+                fill="url(#nodeGrad${node.color === 'blue' ? 'Blue' : 'Purple'})"
+                id="node-${node.id}"
+                class="node-circle" />
+        <text x="${positions[i].x}" y="${positions[i].y + 22}">${node.name}</text>
+      </g>
+    `).join('');
+
+    // Render debates
+    debatesList.innerHTML = debates.map((d, i) => `
+      <div class="debate-card" style="animation-delay: ${i * 150}ms">
+        <div class="debate-source">${d.source}</div>
+        <h4 class="debate-headline">${d.headline}</h4>
+        <div class="consensus-bar">
+          <div class="consensus-fill" style="width: ${d.consensus}%"></div>
+        </div>
+        <span class="consensus-label">${d.consensus}% agent consensus</span>
+        <div class="agent-avatars">
+          ${d.agents.map(a => `<span class="agent-avatar">${a}</span>`).join('')}
+        </div>
+      </div>
+    `).join('');
+
+    // Render metrics with mini charts
+    metricsGrid.innerHTML = metrics.map((m, i) => `
+      <div class="metric-card" style="animation-delay: ${i * 100}ms">
+        <div class="metric-header">
+          <span class="metric-name">${m.name}</span>
+          <span class="metric-trend ${m.trend}">${m.trend === 'up' ? '↑' : m.trend === 'down' ? '↓' : '→'}</span>
+        </div>
+        <div class="metric-value">${m.value}</div>
+        <div class="metric-description">${m.desc}</div>
+        <div class="mini-chart" id="chart-${m.name.toLowerCase()}">
+          ${m.history.map(h => `<div class="mini-bar" style="height: ${h}%"></div>`).join('')}
+        </div>
+      </div>
+    `).join('');
+
+    // Start live updates
+    startLiveUpdates();
+    startDataPackets();
+  }
+
+  function startDataPackets() {
+    const packetsGroup = document.getElementById('data-packets');
+    if (!packetsGroup) return;
+
+    // Send a data packet along a random connection
+    setInterval(() => {
+      const conn = connections[Math.floor(Math.random() * connections.length)];
+      const packet = { from: conn.from, to: conn.to, progress: 0 };
+      dataPackets.push(packet);
+
+      if (dataPackets.length > 5) dataPackets.shift();
+    }, 800);
+
+    // Animate packets
+    function animatePackets() {
+      if (!packetsGroup) return;
+
+      packetsGroup.innerHTML = dataPackets.map(p => {
+        const fromPos = positions[p.from];
+        const toPos = positions[p.to];
+        const x = fromPos.x + (toPos.x - fromPos.x) * p.progress;
+        const y = fromPos.y + (toPos.y - fromPos.y) * p.progress;
+        return `<circle cx="${x}" cy="${y}" r="3" class="data-packet" />`;
+      }).join('');
+
+      dataPackets = dataPackets.map(p => ({
+        ...p,
+        progress: p.progress + 0.03
+      })).filter(p => p.progress < 1);
+
+      requestAnimationFrame(animatePackets);
+    }
+
+    animatePackets();
+  }
+
+  function startLiveUpdates() {
+    const statuses = ['alive', 'thinking', 'dreaming'];
+    const typingTexts = [
+      'Agents analyzing...',
+      'Forming consensus...',
+      'Processing patterns...',
+      'Evaluating evidence...',
+      'Cross-referencing...'
+    ];
+
+    setInterval(() => {
+      // Update timestamp
+      const el = document.getElementById('last-update');
+      if (el) el.textContent = new Date().toLocaleTimeString();
+
+      // Update connection count
+      const connEl = document.getElementById('connection-count');
+      if (connEl) connEl.textContent = String(40 + Math.floor(Math.random() * 20));
+
+      // Occasionally change status
+      if (Math.random() > 0.85) {
+        const pulseDot = document.getElementById('pulse-dot');
+        const statusEl = document.getElementById('pulse-status');
+        const newStatus = statuses[Math.floor(Math.random() * 3)];
+        if (pulseDot && statusEl) {
+          pulseDot.className = 'pulse-dot ' + newStatus;
+          statusEl.textContent = newStatus;
+        }
+      }
+
+      // Update typing text
+      if (Math.random() > 0.7) {
+        const typingEl = document.querySelector('.typing-text');
+        if (typingEl) {
+          typingEl.textContent = typingTexts[Math.floor(Math.random() * typingTexts.length)];
+        }
+      }
+
+      // Update node activities
+      nodes.forEach(node => {
+        node.activity = Math.min(1, Math.max(0.2, node.activity + (Math.random() - 0.5) * 0.15));
+        const nodeEl = document.getElementById(`node-${node.id}`);
+        if (nodeEl) {
+          nodeEl.setAttribute('r', String(8 + node.activity * 6));
+        }
+      });
+
+      // Update emergence count occasionally
+      if (Math.random() > 0.92) {
+        const emergeEl = document.getElementById('emergence-count');
+        if (emergeEl) {
+          const current = parseInt(emergeEl.textContent || '3');
+          emergeEl.textContent = String(current + 1);
+        }
+      }
+
+      // Update mini charts
+      metrics.forEach(m => {
+        const chart = document.getElementById(`chart-${m.name.toLowerCase()}`);
+        if (chart) {
+          const bars = chart.querySelectorAll('.mini-bar');
+          bars.forEach((bar, i) => {
+            const htmlBar = bar as HTMLElement;
+            const newHeight = Math.max(20, Math.min(100, parseInt(htmlBar.style.height || '50') + (Math.random() - 0.5) * 10));
+            htmlBar.style.height = `${newHeight}%`;
+          });
+        }
+      });
+    }, 2000);
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initEcosystem);
+  } else {
+    initEcosystem();
+  }
+
+  // Re-init on Astro page transitions
+  document.addEventListener('astro:page-load', initEcosystem);
+</script>

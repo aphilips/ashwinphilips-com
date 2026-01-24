@@ -1,17 +1,13 @@
 import { defineConfig } from 'astro/config';
-import cloudflare from '@astrojs/cloudflare';
 import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://ashwinphilips.com',
   output: 'static',
-  // adapter: cloudflare({
-  //   platformProxy: {
-  //     enabled: true
-  //   }
-  // }),
-  integrations: [tailwind()],
+  integrations: [
+    tailwind()
+  ],
 
   // Prefetch configuration for instant navigation
   prefetch: {
