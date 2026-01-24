@@ -95,7 +95,8 @@
 
       <!-- Typewriter subtitle -->
       <p class="hero-subtitle">
-        <span id="hero-typewriter" class="typewriter-text"></span>
+        <span id="hero-typewriter-a" class="typewriter-text"></span>
+        <span id="hero-typewriter-b" class="typewriter-text"></span>
         <span class="cursor">|</span>
       </p>
 
@@ -228,20 +229,31 @@
   .ghost {
     position: absolute;
     opacity: 0;
-    filter: blur(1px);
+    filter: blur(0.5px);
     animation: ghostEmerge var(--ghost-duration, 12s) ease-in-out infinite;
     animation-delay: var(--ghost-delay, 0s);
+    transform-origin: center center;
+    --ghost-scale: 1;
+    --ghost-rotate: 0deg;
+    --ghost-stroke: 1.5;
   }
 
   .ghost-element {
-    stroke: rgba(255, 255, 255, 0.5);
-    stroke-width: 1;
-    fill: rgba(255, 255, 255, 0.02);
+    stroke: rgba(255, 255, 255, 0.8);
+    stroke-width: var(--ghost-stroke);
+    fill: rgba(255, 255, 255, 0.03);
+    stroke-dasharray: var(--dash-length, 1000);
+    stroke-dashoffset: var(--dash-offset, 0);
+    transition: stroke-dashoffset 2s ease-out;
   }
 
   .ghost-curve {
-    stroke-width: 1.5;
+    stroke-width: calc(var(--ghost-stroke) * 1.3);
     fill: none;
+  }
+
+  .ghost.drawing .ghost-element {
+    stroke-dashoffset: 0;
   }
 
   /* Rule of thirds positioning - abstract forms */
@@ -252,7 +264,7 @@
     top: 18%;
     left: 8%;
     transform: rotate(-15deg);
-    --ghost-duration: 18s;
+    --ghost-duration: 6s;
     --ghost-delay: 0s;
   }
 
@@ -263,8 +275,8 @@
     bottom: 25%;
     right: 12%;
     transform: rotate(8deg);
-    --ghost-duration: 22s;
-    --ghost-delay: -7s;
+    --ghost-duration: 7s;
+    --ghost-delay: -2s;
   }
 
   .ghost-3 {
@@ -273,8 +285,8 @@
     height: 120px;
     top: 55%;
     left: 5%;
-    --ghost-duration: 16s;
-    --ghost-delay: -3s;
+    --ghost-duration: 5s;
+    --ghost-delay: -1s;
   }
 
   .ghost-4 {
@@ -284,8 +296,8 @@
     top: 12%;
     right: 20%;
     transform: rotate(-5deg);
-    --ghost-duration: 20s;
-    --ghost-delay: -11s;
+    --ghost-duration: 8s;
+    --ghost-delay: -4s;
   }
 
   .ghost-5 {
@@ -295,8 +307,8 @@
     bottom: 15%;
     left: 55%;
     transform: rotate(12deg);
-    --ghost-duration: 24s;
-    --ghost-delay: -15s;
+    --ghost-duration: 6s;
+    --ghost-delay: -3s;
   }
 
   .ghost-6 {
@@ -305,25 +317,25 @@
     height: 100px;
     top: 40%;
     right: 8%;
-    --ghost-duration: 19s;
+    --ghost-duration: 7s;
     --ghost-delay: -5s;
   }
 
   @keyframes ghostEmerge {
     0%, 100% {
       opacity: 0;
-      transform: scale(0.97);
+      transform: scale(calc(0.95 * var(--ghost-scale))) rotate(var(--ghost-rotate));
     }
-    20%, 80% {
+    15%, 85% {
       opacity: 0;
     }
-    40%, 60% {
-      opacity: 0.04;
-      transform: scale(1);
+    35%, 65% {
+      opacity: 0.18;
+      transform: scale(var(--ghost-scale)) rotate(var(--ghost-rotate));
     }
     50% {
-      opacity: 0.055;
-      transform: scale(1.01);
+      opacity: 0.25;
+      transform: scale(calc(1.02 * var(--ghost-scale))) rotate(var(--ghost-rotate));
     }
   }
 
@@ -335,21 +347,22 @@
   @keyframes ghostEmerge2 {
     0%, 100% {
       opacity: 0;
-      transform: scale(0.96);
+      transform: scale(calc(0.94 * var(--ghost-scale))) rotate(var(--ghost-rotate));
     }
-    25%, 75% {
+    20%, 80% {
       opacity: 0;
     }
-    45%, 55% {
-      opacity: 0.035;
-      transform: scale(1);
+    40%, 60% {
+      opacity: 0.15;
+      transform: scale(var(--ghost-scale)) rotate(var(--ghost-rotate));
     }
     50% {
-      opacity: 0.045;
+      opacity: 0.22;
+      transform: scale(calc(1.01 * var(--ghost-scale))) rotate(var(--ghost-rotate));
     }
   }
 
-  /* Even subtler for vesica */
+  /* Slightly different timing for vesica */
   .ghost-6 {
     animation-name: ghostEmerge3;
   }
@@ -357,15 +370,18 @@
   @keyframes ghostEmerge3 {
     0%, 100% {
       opacity: 0;
+      transform: scale(calc(0.96 * var(--ghost-scale))) rotate(var(--ghost-rotate));
     }
-    30%, 70% {
+    25%, 75% {
       opacity: 0;
     }
     45%, 55% {
-      opacity: 0.03;
+      opacity: 0.15;
+      transform: scale(var(--ghost-scale)) rotate(var(--ghost-rotate));
     }
     50% {
-      opacity: 0.04;
+      opacity: 0.2;
+      transform: scale(calc(1.01 * var(--ghost-scale))) rotate(var(--ghost-rotate));
     }
   }
 
@@ -430,14 +446,32 @@
   .hero-subtitle {
     font-size: clamp(0.95rem, 2.2vw, 1.25rem);
     color: rgba(255, 255, 255, 0.7);
-    min-height: 2.5em;
+    height: 3.5em;
     margin: 0 auto 40px;
     max-width: 700px;
     font-family: ui-monospace, 'SF Mono', monospace;
+    position: relative;
+    perspective: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .typewriter-text {
     color: rgba(255, 255, 255, 0.85);
+    display: inline-block;
+    position: absolute;
+    transition: opacity 2.5s ease-out, transform 2.5s ease-out;
+  }
+
+  .typewriter-text.dissipate {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  .typewriter-text.typing {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .cursor {
@@ -624,66 +658,215 @@
 </style>
 
 <script>
-  // Typewriter effect
+  // Typewriter that breathes like thought
   class Typewriter {
-    private phrases = [
-      "I build systems that argue with themselves until something useful emerges.",
-      "93% on ARC. No transformers. Just shapes talking to shapes.",
-      "Debugging COBOL at 22. Debugging reality at 37.",
-      "The best architectures are the ones that surprise their architects."
+    private thoughts = [
+      { text: "I build systems that argue with themselves until something useful emerges.", pace: 1, linger: 1.2 },
+      { text: "93% on ARC. No transformers. Just shapes talking to shapes.", pace: 0.9, linger: 1.4 },
+      { text: "Debugging COBOL at 22. Debugging reality at 37.", pace: 1.1, linger: 1 },
+      { text: "The best architectures are the ones that surprise their architects.", pace: 0.85, linger: 1.3 },
+      { text: "Patterns emerge when you stop forcing them.", pace: 1.2, linger: 0.9 },
+      { text: "Every bug is a lesson in humility.", pace: 1, linger: 1.1 },
+      { text: "The code writes back if you listen.", pace: 0.95, linger: 1.5 },
+      { text: "Complexity hides in the spaces between simple things.", pace: 0.8, linger: 1.2 }
     ];
 
-    private el: HTMLElement | null;
+    private elA: HTMLElement | null;
+    private elB: HTMLElement | null;
+    private activeEl: HTMLElement | null;
     private index = 0;
-    private text = "";
 
-    constructor(id: string) {
-      this.el = document.getElementById(id);
+    constructor(idA: string, idB: string) {
+      this.elA = document.getElementById(idA);
+      this.elB = document.getElementById(idB);
+      this.activeEl = this.elA;
     }
 
     private delay(ms: number): Promise<void> {
       return new Promise(r => setTimeout(r, ms));
     }
 
+    private getInactiveEl(): HTMLElement | null {
+      return this.activeEl === this.elA ? this.elB : this.elA;
+    }
+
+    // Organic timing - like breathing
+    private getCharDelay(char: string, pace: number): number {
+      const base = 45 * pace;
+
+      // Punctuation = longer pause (thinking)
+      if (char === '.') return 350 * pace;
+      if (char === ',') return 180 * pace;
+      if (char === '—' || char === '-') return 220 * pace;
+
+      // Spaces = brief pause
+      if (char === ' ') return 70 * pace;
+
+      // Regular characters with slight variation
+      return base + Math.random() * 25;
+    }
+
+    // Occasional thinking pauses mid-sentence
+    private shouldPause(): boolean {
+      return Math.random() < 0.03; // 3% chance
+    }
+
     private async type(): Promise<void> {
-      const phrase = this.phrases[this.index];
+      if (!this.activeEl) return;
 
-      for (let i = 0; i < phrase.length; i++) {
-        if (!this.el) return;
-        this.text += phrase[i];
-        this.el.textContent = this.text;
+      const thought = this.thoughts[this.index];
+      let text = "";
 
-        let wait = 40 + Math.random() * 25;
-        if (phrase[i] === '.' || phrase[i] === ',') wait = 250;
-        if (phrase[i] === ' ') wait = 60;
+      // Prepare - start invisible
+      this.activeEl.classList.remove('dissipate', 'typing');
+      this.activeEl.textContent = "";
+      this.activeEl.style.opacity = '0';
+      void this.activeEl.offsetWidth;
 
-        await this.delay(wait);
+      // Fade in as we start typing
+      this.activeEl.classList.add('typing');
+
+      // Type with organic rhythm
+      for (let i = 0; i < thought.text.length; i++) {
+        if (!this.activeEl) return;
+
+        const char = thought.text[i];
+        text += char;
+        this.activeEl.textContent = text;
+
+        // Wait based on character and pace
+        await this.delay(this.getCharDelay(char, thought.pace));
+
+        // Occasional thinking pause (not at start or end)
+        if (i > 5 && i < thought.text.length - 5 && this.shouldPause()) {
+          await this.delay(400 + Math.random() * 300);
+        }
       }
 
-      await this.delay(2500);
+      // Linger - variable based on thought
+      const lingerTime = 2400 * thought.linger;
+      await this.delay(lingerTime);
 
-      while (this.text.length > 0) {
-        if (!this.el) return;
-        this.text = this.text.slice(0, -1);
-        this.el.textContent = this.text;
-        await this.delay(20);
-      }
+      // Begin fade out
+      this.activeEl.classList.remove('typing');
+      this.activeEl.classList.add('dissipate');
 
-      await this.delay(300);
-      this.index = (this.index + 1) % this.phrases.length;
+      // Wait a bit, then start next thought (overlap)
+      await this.delay(1200);
+
+      // Swap to other element
+      const fadingEl = this.activeEl;
+      this.activeEl = this.getInactiveEl();
+      this.index = (this.index + 1) % this.thoughts.length;
+
+      // Clean up after fade completes
+      setTimeout(() => {
+        if (fadingEl) {
+          fadingEl.textContent = "";
+          fadingEl.classList.remove('dissipate', 'typing');
+        }
+      }, 2500);
     }
 
     async start(): Promise<void> {
-      await this.delay(1000);
+      // Initial pause before first thought
+      await this.delay(1200);
       while (true) await this.type();
     }
   }
 
-  new Typewriter('hero-typewriter').start();
+  new Typewriter('hero-typewriter-a', 'hero-typewriter-b').start();
 
   // Smooth scroll
   document.querySelector('.cta-primary')?.addEventListener('click', (e) => {
     e.preventDefault();
     document.querySelector('#explore')?.scrollIntoView({ behavior: 'smooth' });
   });
+
+  // Ghost randomization - each emergence is unique
+  class GhostRandomizer {
+    private ghosts: NodeListOf<HTMLElement>;
+    private durations: number[] = [6, 7, 5, 8, 6, 7]; // seconds per ghost
+
+    constructor() {
+      this.ghosts = document.querySelectorAll('.ghost') as NodeListOf<HTMLElement>;
+      this.init();
+    }
+
+    private randomRange(min: number, max: number): number {
+      return min + Math.random() * (max - min);
+    }
+
+    private randomize(ghost: HTMLElement): void {
+      // Random scale: 0.7 to 1.4
+      const scale = this.randomRange(0.7, 1.4);
+
+      // Random rotation: -30 to +30 degrees from base
+      const rotate = this.randomRange(-30, 30);
+
+      // Random stroke width: 1 to 3
+      const stroke = this.randomRange(1, 3);
+
+      // Random position offset: -15% to +15%
+      const offsetX = this.randomRange(-15, 15);
+      const offsetY = this.randomRange(-15, 15);
+
+      ghost.style.setProperty('--ghost-scale', scale.toString());
+      ghost.style.setProperty('--ghost-rotate', `${rotate}deg`);
+      ghost.style.setProperty('--ghost-stroke', stroke.toString());
+      ghost.style.transform = `translate(${offsetX}%, ${offsetY}%)`;
+
+      // Drawing effect - set initial dashoffset
+      const elements = ghost.querySelectorAll('.ghost-element') as NodeListOf<SVGElement>;
+      elements.forEach(el => {
+        const length = this.getPathLength(el);
+        el.style.setProperty('--dash-length', length.toString());
+        el.style.setProperty('--dash-offset', length.toString());
+      });
+
+      // Trigger drawing animation
+      ghost.classList.remove('drawing');
+      void ghost.offsetWidth; // Force reflow
+      ghost.classList.add('drawing');
+    }
+
+    private getPathLength(el: SVGElement): number {
+      if (el instanceof SVGPathElement) {
+        return el.getTotalLength();
+      } else if (el instanceof SVGCircleElement) {
+        const r = parseFloat(el.getAttribute('r') || '0');
+        return 2 * Math.PI * r;
+      } else if (el instanceof SVGEllipseElement) {
+        const rx = parseFloat(el.getAttribute('rx') || '0');
+        const ry = parseFloat(el.getAttribute('ry') || '0');
+        // Approximation for ellipse circumference
+        return Math.PI * (3 * (rx + ry) - Math.sqrt((3 * rx + ry) * (rx + 3 * ry)));
+      } else if (el instanceof SVGRectElement) {
+        const w = parseFloat(el.getAttribute('width') || '0');
+        const h = parseFloat(el.getAttribute('height') || '0');
+        return 2 * (w + h);
+      }
+      return 500; // fallback
+    }
+
+    private init(): void {
+      // Randomize each ghost on its animation cycle
+      this.ghosts.forEach((ghost, index) => {
+        const duration = this.durations[index] * 1000;
+
+        // Initial randomization
+        this.randomize(ghost);
+
+        // Re-randomize at each cycle
+        setInterval(() => {
+          this.randomize(ghost);
+        }, duration);
+      });
+    }
+  }
+
+  // Start ghost randomization
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    new GhostRandomizer();
+  }
 </script>

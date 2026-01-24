@@ -727,7 +727,7 @@
 
     // Create particles
     if (particleField) {
-      particleField.innerHTML = Array(20).fill(0).map((_, i) =>
+      particleField.innerHTML = Array(20).fill(0).map(() =>
         `<div class="particle" style="
           left: ${Math.random() * 100}%;
           animation-delay: ${Math.random() * 8}s;
@@ -906,7 +906,7 @@
         const chart = document.getElementById(`chart-${m.name.toLowerCase()}`);
         if (chart) {
           const bars = chart.querySelectorAll('.mini-bar');
-          bars.forEach((bar, i) => {
+          bars.forEach((bar) => {
             const htmlBar = bar as HTMLElement;
             const newHeight = Math.max(20, Math.min(100, parseInt(htmlBar.style.height || '50') + (Math.random() - 0.5) * 10));
             htmlBar.style.height = `${newHeight}%`;
