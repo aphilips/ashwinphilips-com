@@ -25,6 +25,53 @@
     <!-- Gradient orbs - ambient light -->
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
+
+    <!-- Emergence ghosts - golden ratio forms that fade in/out -->
+    <div class="ghost-layer">
+      <!-- Ghost 1: Upper left third - abstract face-like proportions -->
+      <svg class="ghost ghost-1" viewBox="0 0 100 162" preserveAspectRatio="xMidYMid meet">
+        <!-- φ ratio: 100 x 162 (1:1.618) -->
+        <!-- Two circles at eye position (61.8% from top) with 1:φ spacing -->
+        <circle cx="31" cy="61.8" r="8" class="ghost-element"/>
+        <circle cx="69" cy="61.8" r="8" class="ghost-element"/>
+        <!-- Fibonacci spiral hint -->
+        <path d="M 30 100 Q 50 85 70 100" class="ghost-element ghost-curve" fill="none"/>
+      </svg>
+
+      <!-- Ghost 2: Lower right third - rotated/mirrored -->
+      <svg class="ghost ghost-2" viewBox="0 0 100 162" preserveAspectRatio="xMidYMid meet">
+        <circle cx="31" cy="61.8" r="5" class="ghost-element"/>
+        <circle cx="69" cy="61.8" r="5" class="ghost-element"/>
+        <ellipse cx="50" cy="100" rx="21" ry="13" class="ghost-element" fill="none"/>
+      </svg>
+
+      <!-- Ghost 3: Center - larger, more abstract -->
+      <svg class="ghost ghost-3" viewBox="0 0 162 100" preserveAspectRatio="xMidYMid meet">
+        <!-- Horizontal φ ratio -->
+        <circle cx="50" cy="38.2" r="6" class="ghost-element"/>
+        <circle cx="112" cy="38.2" r="6" class="ghost-element"/>
+        <!-- Golden spiral arc -->
+        <path d="M 30 70 Q 81 50 132 70" class="ghost-element ghost-curve" fill="none"/>
+      </svg>
+
+      <!-- Ghost 4: Fibonacci spiral -->
+      <svg class="ghost ghost-4" viewBox="0 0 144 89" preserveAspectRatio="xMidYMid meet">
+        <!-- 144:89 ≈ φ (fibonacci numbers) -->
+        <path d="M 89 89
+                 A 55 55 0 0 1 89 34
+                 A 34 34 0 0 1 55 34
+                 A 21 21 0 0 1 55 55
+                 A 13 13 0 0 1 68 55
+                 A 8 8 0 0 1 68 47"
+              class="ghost-element ghost-curve" fill="none"/>
+      </svg>
+
+      <!-- Ghost 5: Torus cross-section hint -->
+      <svg class="ghost ghost-5" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+        <ellipse cx="50" cy="50" rx="40" ry="25" class="ghost-element" fill="none"/>
+        <ellipse cx="50" cy="50" rx="15" ry="25" class="ghost-element" fill="none"/>
+      </svg>
+    </div>
   </div>
 
   <!-- Main content -->
@@ -161,6 +208,128 @@
     0%, 100% { transform: translate(0, 0) scale(1); }
     33% { transform: translate(30px, -20px) scale(1.05); }
     66% { transform: translate(-20px, 30px) scale(0.95); }
+  }
+
+  /* ========================================
+     EMERGENCE GHOSTS - Golden ratio forms
+     ======================================== */
+  .ghost-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .ghost {
+    position: absolute;
+    opacity: 0;
+    filter: blur(1px);
+    animation: ghostEmerge var(--ghost-duration, 12s) ease-in-out infinite;
+    animation-delay: var(--ghost-delay, 0s);
+  }
+
+  .ghost-element {
+    stroke: rgba(255, 255, 255, 0.5);
+    stroke-width: 1;
+    fill: rgba(255, 255, 255, 0.02);
+  }
+
+  .ghost-curve {
+    stroke-width: 1.5;
+    fill: none;
+  }
+
+  /* Rule of thirds positioning */
+  .ghost-1 {
+    width: 120px;
+    height: 194px; /* 120 × φ */
+    top: 15%;
+    left: 20%;
+    --ghost-duration: 15s;
+    --ghost-delay: 0s;
+  }
+
+  .ghost-2 {
+    width: 80px;
+    height: 130px;
+    bottom: 20%;
+    right: 25%;
+    transform: rotate(15deg);
+    --ghost-duration: 18s;
+    --ghost-delay: -6s;
+  }
+
+  .ghost-3 {
+    width: 160px;
+    height: 99px; /* φ ratio horizontal */
+    top: 60%;
+    left: 10%;
+    --ghost-duration: 20s;
+    --ghost-delay: -3s;
+  }
+
+  .ghost-4 {
+    width: 144px;
+    height: 89px; /* Fibonacci: 144/89 ≈ φ */
+    top: 25%;
+    right: 15%;
+    transform: rotate(-20deg);
+    --ghost-duration: 16s;
+    --ghost-delay: -9s;
+  }
+
+  .ghost-5 {
+    width: 100px;
+    height: 100px;
+    bottom: 30%;
+    left: 60%;
+    --ghost-duration: 22s;
+    --ghost-delay: -12s;
+  }
+
+  @keyframes ghostEmerge {
+    0%, 100% {
+      opacity: 0;
+      transform: scale(0.95) translateY(10px);
+    }
+    15%, 85% {
+      opacity: 0;
+    }
+    35%, 65% {
+      opacity: 0.06;
+      transform: scale(1) translateY(0);
+    }
+    50% {
+      opacity: 0.08;
+      transform: scale(1.02) translateY(-5px);
+    }
+  }
+
+  /* Slightly different animation for variety */
+  .ghost-2 {
+    animation-name: ghostEmerge2;
+  }
+
+  .ghost-4 {
+    animation-name: ghostEmerge2;
+  }
+
+  @keyframes ghostEmerge2 {
+    0%, 100% {
+      opacity: 0;
+      transform: rotate(15deg) scale(0.9);
+    }
+    20%, 80% {
+      opacity: 0;
+    }
+    40%, 60% {
+      opacity: 0.05;
+      transform: rotate(15deg) scale(1);
+    }
+    50% {
+      opacity: 0.07;
+      transform: rotate(18deg) scale(1.03);
+    }
   }
 
   /* ========================================
@@ -404,8 +573,16 @@
      ======================================== */
   @media (prefers-reduced-motion: reduce) {
     .orb { animation: none; }
+    .ghost { animation: none; opacity: 0; }
     .word, .badge { animation: none; opacity: 1; transform: none; }
     .scroll-wheel { animation: none; }
+  }
+
+  /* Hide ghosts on mobile for performance */
+  @media (max-width: 768px) {
+    .ghost-layer {
+      display: none;
+    }
   }
 </style>
 
