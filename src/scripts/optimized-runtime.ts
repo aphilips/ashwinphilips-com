@@ -82,9 +82,68 @@ function initPerfMonitor() {
   });
 }
 
+// Scroll progress indicator
+function initScrollProgress() {
+  const progressBar = document.getElementById('scroll-progress') as HTMLElement | null;
+  if (!progressBar) return;
+
+  let rafId: number | null = null;
+  const bar = progressBar; // Capture in closure for type narrowing
+
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = `${progress}%`;
+    rafId = null;
+  }
+
+  function onScroll() {
+    if (rafId === null) rafId = requestAnimationFrame(updateProgress);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  updateProgress();
+}
+
+// Back to top button
+function initBackToTop() {
+  const btn = document.getElementById('back-to-top') as HTMLElement | null;
+  if (!btn) return;
+
+  const button = btn; // Capture in closure for type narrowing
+  const showThreshold = 300;
+  let rafId: number | null = null;
+
+  function updateVisibility() {
+    const isVisible = window.scrollY > showThreshold;
+    if (isVisible) {
+      button.classList.remove('opacity-0', 'invisible');
+      button.classList.add('opacity-100', 'visible');
+    } else {
+      button.classList.remove('opacity-100', 'visible');
+      button.classList.add('opacity-0', 'invisible');
+    }
+    rafId = null;
+  }
+
+  function onScroll() {
+    if (rafId === null) rafId = requestAnimationFrame(updateVisibility);
+  }
+
+  button.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  updateVisibility();
+}
+
 // Initialize only what's needed
 function init() {
   initScrollDepth();
+  initScrollProgress();
+  initBackToTop();
   initPerfMonitor();
 }
 

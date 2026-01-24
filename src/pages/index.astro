@@ -29,10 +29,10 @@ import HeroExperimental from '../components/HeroExperimental.astro';
           </div>
           <h3 class="mb-2 text-xl font-bold text-gray-900 dark:text-white">Systems Architecture</h3>
           <p class="text-gray-500 dark:text-gray-400">
-            Production-scale distributed systems on Cloudflare Workers with Rust and event-driven architecture.
+            I build distributed systems that run at the edge. Currently obsessed with Rust and event-driven patterns on Cloudflare Workers.
           </p>
           <a href="/work" class="inline-flex items-center mt-4 text-primary-600 hover:text-primary-700 dark:text-primary-500 dark:hover:text-primary-400">
-            Learn more
+            See what I've built
             <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
             </svg>
@@ -49,10 +49,10 @@ import HeroExperimental from '../components/HeroExperimental.astro';
           </div>
           <h3 class="mb-2 text-xl font-bold text-gray-900 dark:text-white">AI Research</h3>
           <p class="text-gray-500 dark:text-gray-400">
-            Novel pattern recognition approaches achieving 93% accuracy on ARC Prize abstract reasoning tasks.
+            I approach reasoning problems geometrically—no transformers, just spatial intuition. Hit 93% on ARC Prize with this approach.
           </p>
           <a href="/research" class="inline-flex items-center mt-4 text-primary-600 hover:text-primary-700 dark:text-primary-500 dark:hover:text-primary-400">
-            Learn more
+            Read my research
             <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
             </svg>
@@ -68,10 +68,10 @@ import HeroExperimental from '../components/HeroExperimental.astro';
           </div>
           <h3 class="mb-2 text-xl font-bold text-gray-900 dark:text-white">Music Production</h3>
           <p class="text-gray-500 dark:text-gray-400">
-            Electronic and ambient composition exploring cognitive states through immersive sonic experiences.
+            Electronic and ambient soundscapes that started as procrastination and became a parallel obsession. Sound as code, code as sound.
           </p>
           <a href="/music" class="inline-flex items-center mt-4 text-primary-600 hover:text-primary-700 dark:text-primary-500 dark:hover:text-primary-400">
-            Learn more
+            Listen to my work
             <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
             </svg>
@@ -82,20 +82,26 @@ import HeroExperimental from '../components/HeroExperimental.astro';
   </section>
 
   <!-- Stats Section -->
-  <section class="bg-gray-50 dark:bg-gray-800">
+  <section id="stats-section" class="bg-gray-50 dark:bg-gray-800">
     <div class="container">
       <div class="grid md:grid-cols-3 gap-8 text-center">
-        <div>
-          <div class="text-4xl md:text-5xl font-bold text-primary-600 dark:text-primary-500 mb-2">3+</div>
-          <div class="text-gray-600 dark:text-gray-400">Major Platforms Built</div>
+        <div class="stat-item">
+          <div class="text-4xl md:text-5xl font-bold text-primary-600 dark:text-primary-500 mb-2">
+            <span class="stat-number" data-target="1" data-suffix="M+">0</span>
+          </div>
+          <div class="text-gray-600 dark:text-gray-400">ops/sec in production</div>
         </div>
-        <div>
-          <div class="text-4xl md:text-5xl font-bold text-primary-600 dark:text-primary-500 mb-2">93%</div>
-          <div class="text-gray-600 dark:text-gray-400">ARC Prize Accuracy</div>
+        <div class="stat-item">
+          <div class="text-4xl md:text-5xl font-bold text-primary-600 dark:text-primary-500 mb-2">
+            <span class="stat-number" data-target="93" data-suffix="%">0</span>
+          </div>
+          <div class="text-gray-600 dark:text-gray-400">ARC Prize accuracy (geometric approach)</div>
         </div>
-        <div>
-          <div class="text-4xl md:text-5xl font-bold text-primary-600 dark:text-primary-500 mb-2">10+</div>
-          <div class="text-gray-600 dark:text-gray-400">Years Experience</div>
+        <div class="stat-item">
+          <div class="text-4xl md:text-5xl font-bold text-primary-600 dark:text-primary-500 mb-2">
+            <span class="stat-number" data-target="15" data-suffix="+">0</span>
+          </div>
+          <div class="text-gray-600 dark:text-gray-400">years from COBOL to Cloudflare</div>
         </div>
       </div>
     </div>
@@ -108,7 +114,7 @@ import HeroExperimental from '../components/HeroExperimental.astro';
         Featured Work
       </h2>
       <p class="mb-12 text-center text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
-        Production-scale systems at the intersection of AI and infrastructure
+        Things I've built that I'm particularly proud of
       </p>
 
       <div class="grid md:grid-cols-3 gap-8">
@@ -118,10 +124,10 @@ import HeroExperimental from '../components/HeroExperimental.astro';
             <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300 uppercase">Multi-Agent Platform</span>
             <h3 class="mt-4 mb-2 text-xl font-bold text-gray-900 dark:text-white">Fulqrum</h3>
             <p class="mb-4 text-gray-500 dark:text-gray-400">
-              Autonomous AI orchestration platform enabling complex workflow coordination at production scale.
+              What happens when you let AI agents argue about news? This. Multi-agent debate that surfaces consensus and dissent.
             </p>
             <a href="/projects#fulqrum" class="inline-flex items-center text-primary-600 hover:text-primary-700 dark:text-primary-500 dark:hover:text-primary-400">
-              Learn more
+              See how it works
               <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
               </svg>
@@ -135,10 +141,10 @@ import HeroExperimental from '../components/HeroExperimental.astro';
             <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300 uppercase">Distributed Systems</span>
             <h3 class="mt-4 mb-2 text-xl font-bold text-gray-900 dark:text-white">NoqNoq</h3>
             <p class="mb-4 text-gray-500 dark:text-gray-400">
-              Nervous system for AI agents with pattern recognition, memory persistence, and cross-system intelligence.
+              The nervous system for everything I build. Yes, it talks to itself. Pattern memory that persists across agent sessions.
             </p>
             <a href="/projects#noqnoq" class="inline-flex items-center text-primary-600 hover:text-primary-700 dark:text-primary-500 dark:hover:text-primary-400">
-              Learn more
+              Explore the architecture
               <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
               </svg>
@@ -152,10 +158,10 @@ import HeroExperimental from '../components/HeroExperimental.astro';
             <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300 uppercase">AI Research</span>
             <h3 class="mt-4 mb-2 text-xl font-bold text-gray-900 dark:text-white">ARC Prize</h3>
             <p class="mb-4 text-gray-500 dark:text-gray-400">
-              93% accuracy on abstract reasoning through novel pattern recognition and adaptive generalization.
+              93% accuracy. No transformers. Just geometry and intuition. Proving that spatial reasoning beats brute-force scaling.
             </p>
             <a href="/research" class="inline-flex items-center text-primary-600 hover:text-primary-700 dark:text-primary-500 dark:hover:text-primary-400">
-              Learn more
+              Read the approach
               <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
               </svg>
@@ -191,4 +197,74 @@ import HeroExperimental from '../components/HeroExperimental.astro';
 
 <script>
   import('../scripts/parallax.ts');
+
+  // Stats counter animation with Intersection Observer
+  function initStatsAnimation() {
+    const statsSection = document.getElementById('stats-section');
+    const statNumbers = document.querySelectorAll('.stat-number');
+
+    if (!statsSection || statNumbers.length === 0) return;
+
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let hasAnimated = false;
+
+    function animateCounter(element: Element) {
+      const el = element as HTMLElement;
+      const target = parseInt(el.dataset.target || '0', 10);
+      const suffix = el.dataset.suffix || '';
+      const duration = 2000; // 2 seconds
+      const startTime = performance.now();
+
+      if (prefersReducedMotion) {
+        el.textContent = target + suffix;
+        return;
+      }
+
+      function updateCounter(currentTime: number) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Easing function (ease-out cubic)
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(easeOut * target);
+
+        el.textContent = current + suffix;
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
+        } else {
+          el.textContent = target + suffix;
+        }
+      }
+
+      requestAnimationFrame(updateCounter);
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            hasAnimated = true;
+            statNumbers.forEach((num) => animateCounter(num));
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(statsSection);
+  }
+
+  // Initialize on load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStatsAnimation);
+  } else {
+    initStatsAnimation();
+  }
+
+  // Re-init on Astro page transitions
+  document.addEventListener('astro:page-load', initStatsAnimation);
 </script>

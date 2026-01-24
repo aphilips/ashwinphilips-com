@@ -169,17 +169,24 @@ const socialImage = new URL(image, Astro.site);
 
     <!-- Lightweight vanilla JS for mobile menu (replaces Flowbite) -->
     <script is:inline>
-      // Mobile menu toggle
+      // Mobile menu toggle with animation support
       document.addEventListener('DOMContentLoaded', function() {
         const btn = document.getElementById('mobile-menu-button');
         const menu = document.getElementById('mobile-menu-2');
         if (btn && menu) {
-          btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+          btn.addEventListener('click', () => {
+            const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', (!isExpanded).toString());
+            menu.classList.toggle('hidden');
+          });
         }
       });
     </script>
   </head>
   <body>
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-primary-500 via-accent-500 to-primary-500 z-50 w-0 transition-none" style="will-change: width;"></div>
+
     <Navbar />
 
     <!-- Flowbite initialization scripts -->
@@ -214,7 +221,11 @@ const socialImage = new URL(image, Astro.site);
         const btn = document.getElementById('mobile-menu-button');
         const menu = document.getElementById('mobile-menu-2');
         if (btn && menu) {
-          btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+          btn.addEventListener('click', () => {
+            const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', (!isExpanded).toString());
+            menu.classList.toggle('hidden');
+          });
         }
       });
     </script>
@@ -289,6 +300,18 @@ const socialImage = new URL(image, Astro.site);
         </div>
       </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button
+      id="back-to-top"
+      type="button"
+      class="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-primary-600 text-white shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-primary-700 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-500 dark:hover:bg-primary-600 dark:focus:ring-primary-800"
+      aria-label="Back to top"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+      </svg>
+    </button>
 
   </body>
 </html>
