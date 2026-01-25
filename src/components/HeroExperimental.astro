@@ -406,10 +406,22 @@
 
   .title-line {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     gap: 0.3em;
+  }
+
+  /* Prevent awkward wrapping on medium screens */
+  @media (max-width: 900px) {
+    .title-line {
+      flex-direction: column;
+      gap: 0.2em;
+    }
+
+    .dot {
+      display: none;
+    }
   }
 
   .word {
@@ -461,7 +473,7 @@
     color: rgba(255, 255, 255, 0.85);
     display: inline-block;
     position: absolute;
-    transition: opacity 2.5s ease-out, transform 2.5s ease-out;
+    transition: opacity 3.5s ease-out, transform 3.5s ease-out;
   }
 
   .typewriter-text.dissipate {
@@ -747,25 +759,27 @@
       const lingerTime = 2400 * thought.linger;
       await this.delay(lingerTime);
 
-      // Begin fade out
-      this.activeEl.classList.remove('typing');
-      this.activeEl.classList.add('dissipate');
-
-      // Wait a bit, then start next thought (overlap)
-      await this.delay(1200);
-
-      // Swap to other element
+      // DON'T fade yet - swap to new element and start typing
       const fadingEl = this.activeEl;
       this.activeEl = this.getInactiveEl();
       this.index = (this.index + 1) % this.thoughts.length;
 
-      // Clean up after fade completes
+      // Start fading old text AFTER swap (it will fade while new types)
+      // But delay a bit so user sees new text starting to appear
+      setTimeout(() => {
+        if (fadingEl) {
+          fadingEl.classList.remove('typing');
+          fadingEl.classList.add('dissipate');
+        }
+      }, 1500);
+
+      // Clean up after fade completes (3.5s transition)
       setTimeout(() => {
         if (fadingEl) {
           fadingEl.textContent = "";
           fadingEl.classList.remove('dissipate', 'typing');
         }
-      }, 2500);
+      }, 3500);
     }
 
     async start(): Promise<void> {
