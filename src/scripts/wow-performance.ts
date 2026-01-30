@@ -8,6 +8,8 @@
  * - Smart resource prioritization
  */
 
+export {}; // Make this a module
+
 // Prefetch links on hover for instant navigation
 function initPrefetch() {
   const prefetchedUrls = new Set<string>();
@@ -124,7 +126,7 @@ function initOptimisticUI() {
 
 // Smart image loading with fade-in
 function initSmartImages() {
-  const images = document.querySelectorAll('img[loading="lazy"]');
+  const images = document.querySelectorAll<HTMLImageElement>('img[loading="lazy"]');
 
   images.forEach((img) => {
     if (img.complete) {
