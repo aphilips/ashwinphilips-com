@@ -1,236 +1,226 @@
 /**
- * Performance Monitoring and Optimization
+ * Performance Monitor - Track Core Web Vitals
  *
- * Tracks Core Web Vitals and provides performance insights.
- * Optional lightweight monitoring for production.
+ * Monitors:
+ * - LCP (Largest Contentful Paint)
+ * - FID (First Input Delay)
+ * - CLS (Cumulative Layout Shift)
+ * - TTFB (Time to First Byte)
+ * - FCP (First Contentful Paint)
  */
 
-interface PerformanceMetrics {
-  fcp?: number; // First Contentful Paint
-  lcp?: number; // Largest Contentful Paint
-  fid?: number; // First Input Delay
-  cls?: number; // Cumulative Layout Shift
-  ttfb?: number; // Time to First Byte
+export {};
+
+interface PerformanceMetric {
+  name: string;
+  value: number;
+  rating: 'good' | 'needs-improvement' | 'poor';
+  timestamp: number;
 }
 
-class PerformanceMonitor {
-  private metrics: PerformanceMetrics = {};
-  private observer: PerformanceObserver | null = null;
+const metrics: PerformanceMetric[] = [];
 
-  constructor() {
-    if (typeof window === 'undefined') return;
-    this.init();
+// Thresholds based on Web Vitals standards
+const THRESHOLDS = {
+  LCP: { good: 2500, poor: 4000 },
+  FID: { good: 100, poor: 300 },
+  CLS: { good: 0.1, poor: 0.25 },
+  TTFB: { good: 800, poor: 1800 },
+  FCP: { good: 1800, poor: 3000 }
+};
+
+function getRating(name: string, value: number): 'good' | 'needs-improvement' | 'poor' {
+  const threshold = THRESHOLDS[name as keyof typeof THRESHOLDS];
+  if (!threshold) return 'good';
+
+  if (value <= threshold.good) return 'good';
+  if (value <= threshold.poor) return 'needs-improvement';
+  return 'poor';
+}
+
+function recordMetric(name: string, value: number) {
+  const metric: PerformanceMetric = {
+    name,
+    value,
+    rating: getRating(name, value),
+    timestamp: Date.now()
+  };
+
+  metrics.push(metric);
+
+  // Log to console in dev mode
+  if (import.meta.env.DEV) {
+    const emoji = metric.rating === 'good' ? '✅' : metric.rating === 'needs-improvement' ? '⚠️' : '❌';
+    console.log(`${emoji} ${name}: ${value.toFixed(2)}ms (${metric.rating})`);
   }
 
-  private init(): void {
-    // Measure Time to First Byte
-    this.measureTTFB();
+  // Send to analytics endpoint (optional)
+  sendToAnalytics(metric);
+}
 
-    // Observe paint timing
-    this.observePaintTiming();
+function sendToAnalytics(metric: PerformanceMetric) {
+  // Only send in production
+  if (import.meta.env.DEV) return;
 
-    // Observe layout shifts
-    this.observeLayoutShift();
+  // Use sendBeacon for reliability (doesn't block page unload)
+  if ('sendBeacon' in navigator) {
+    const data = JSON.stringify({
+      type: 'web-vital',
+      metric: metric.name,
+      value: metric.value,
+      rating: metric.rating,
+      url: window.location.pathname,
+      timestamp: metric.timestamp,
+      userAgent: navigator.userAgent
+    });
 
-    // Observe largest contentful paint
-    this.observeLCP();
-
-    // Log metrics on page unload (optional)
-    if (import.meta.env.DEV) {
-      window.addEventListener('beforeunload', () => this.logMetrics());
-    }
+    navigator.sendBeacon('/api/analytics/vitals', data);
   }
+}
 
-  private measureTTFB(): void {
+// Monitor LCP (Largest Contentful Paint)
+function monitorLCP() {
+  try {
+    const observer = new PerformanceObserver((list) => {
+      const entries = list.getEntries();
+      const lastEntry = entries[entries.length - 1] as PerformanceEntry & { renderTime?: number; loadTime?: number };
+      const value = lastEntry.renderTime || lastEntry.loadTime || 0;
+
+      recordMetric('LCP', value);
+    });
+
+    observer.observe({ type: 'largest-contentful-paint', buffered: true });
+  } catch (e) {
+    console.warn('LCP monitoring not supported');
+  }
+}
+
+// Monitor FID (First Input Delay)
+function monitorFID() {
+  try {
+    const observer = new PerformanceObserver((list) => {
+      const entries = list.getEntries();
+      entries.forEach((entry: any) => {
+        recordMetric('FID', entry.processingStart - entry.startTime);
+      });
+    });
+
+    observer.observe({ type: 'first-input', buffered: true });
+  } catch (e) {
+    console.warn('FID monitoring not supported');
+  }
+}
+
+// Monitor CLS (Cumulative Layout Shift)
+function monitorCLS() {
+  try {
+    let clsValue = 0;
+
+    const observer = new PerformanceObserver((list) => {
+      const entries = list.getEntries();
+      entries.forEach((entry: any) => {
+        if (!entry.hadRecentInput) {
+          clsValue += entry.value;
+        }
+      });
+    });
+
+    observer.observe({ type: 'layout-shift', buffered: true });
+
+    // Report CLS on visibility change or page unload
+    const reportCLS = () => {
+      recordMetric('CLS', clsValue * 1000); // Convert to ms equivalent for consistency
+    };
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') {
+        reportCLS();
+      }
+    });
+
+    window.addEventListener('pagehide', reportCLS);
+  } catch (e) {
+    console.warn('CLS monitoring not supported');
+  }
+}
+
+// Monitor TTFB (Time to First Byte)
+function monitorTTFB() {
+  try {
     const navigationEntry = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
     if (navigationEntry) {
-      this.metrics.ttfb = navigationEntry.responseStart - navigationEntry.requestStart;
+      const ttfb = navigationEntry.responseStart - navigationEntry.requestStart;
+      recordMetric('TTFB', ttfb);
     }
-  }
-
-  private observePaintTiming(): void {
-    try {
-      const observer = new PerformanceObserver((list) => {
-        for (const entry of list.getEntries()) {
-          if (entry.name === 'first-contentful-paint') {
-            this.metrics.fcp = entry.startTime;
-          }
-        }
-      });
-
-      observer.observe({ entryTypes: ['paint'] });
-    } catch (e) {
-      // Browser doesn't support Performance Observer
-    }
-  }
-
-  private observeLayoutShift(): void {
-    try {
-      const observer = new PerformanceObserver((list) => {
-        let cls = 0;
-        for (const entry of list.getEntries()) {
-          if ((entry as any).hadRecentInput) continue;
-          cls += (entry as any).value;
-        }
-        this.metrics.cls = cls;
-      });
-
-      observer.observe({ entryTypes: ['layout-shift'] });
-    } catch (e) {
-      // Browser doesn't support Layout Shift
-    }
-  }
-
-  private observeLCP(): void {
-    try {
-      const observer = new PerformanceObserver((list) => {
-        const entries = list.getEntries();
-        const lastEntry = entries[entries.length - 1];
-        this.metrics.lcp = lastEntry.startTime;
-      });
-
-      observer.observe({ entryTypes: ['largest-contentful-paint'] });
-      this.observer = observer;
-    } catch (e) {
-      // Browser doesn't support LCP
-    }
-  }
-
-  private logMetrics(): void {
-    console.group('🎯 Performance Metrics');
-    console.log('TTFB:', this.metrics.ttfb?.toFixed(2), 'ms');
-    console.log('FCP:', this.metrics.fcp?.toFixed(2), 'ms');
-    console.log('LCP:', this.metrics.lcp?.toFixed(2), 'ms');
-    console.log('CLS:', this.metrics.cls?.toFixed(4));
-    console.groupEnd();
-
-    // Performance budget warnings
-    if (this.metrics.lcp && this.metrics.lcp > 2500) {
-      console.warn('⚠️ LCP is above 2.5s - consider optimizing largest content');
-    }
-
-    if (this.metrics.cls && this.metrics.cls > 0.1) {
-      console.warn('⚠️ CLS is above 0.1 - reduce layout shifts');
-    }
-
-    if (this.metrics.fcp && this.metrics.fcp > 1800) {
-      console.warn('⚠️ FCP is above 1.8s - optimize critical rendering path');
-    }
-  }
-
-  public getMetrics(): PerformanceMetrics {
-    return { ...this.metrics };
-  }
-
-  public destroy(): void {
-    if (this.observer) {
-      this.observer.disconnect();
-      this.observer = null;
-    }
+  } catch (e) {
+    console.warn('TTFB monitoring not supported');
   }
 }
 
-// Lazy Loading Images with Intersection Observer
-class LazyImageLoader {
-  private observer: IntersectionObserver | null = null;
-  private images: Set<HTMLImageElement> = new Set();
-
-  constructor() {
-    if (typeof window === 'undefined') return;
-    this.init();
-  }
-
-  private init(): void {
-    // Create Intersection Observer
-    this.observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const img = entry.target as HTMLImageElement;
-            this.loadImage(img);
-            this.observer?.unobserve(img);
-            this.images.delete(img);
-          }
-        });
-      },
-      {
-        rootMargin: '50px', // Start loading 50px before entering viewport
-        threshold: 0.01
-      }
-    );
-
-    // Observe all images with data-src
-    this.observeImages();
-  }
-
-  private observeImages(): void {
-    const images = document.querySelectorAll<HTMLImageElement>('img[data-src]');
-    images.forEach((img) => {
-      this.images.add(img);
-      this.observer?.observe(img);
+// Monitor FCP (First Contentful Paint)
+function monitorFCP() {
+  try {
+    const observer = new PerformanceObserver((list) => {
+      const entries = list.getEntries();
+      entries.forEach((entry) => {
+        if (entry.name === 'first-contentful-paint') {
+          recordMetric('FCP', entry.startTime);
+        }
+      });
     });
-  }
 
-  private loadImage(img: HTMLImageElement): void {
-    const src = img.dataset.src;
-    if (src) {
-      // Add fade-in class
-      img.classList.add('fade-in-lazy');
-
-      img.onload = () => {
-        img.classList.add('visible');
-        img.removeAttribute('data-src');
-      };
-
-      img.src = src;
-    }
-  }
-
-  public destroy(): void {
-    if (this.observer) {
-      this.observer.disconnect();
-      this.observer = null;
-    }
-    this.images.clear();
+    observer.observe({ type: 'paint', buffered: true });
+  } catch (e) {
+    console.warn('FCP monitoring not supported');
   }
 }
 
-// Initialize in development mode only
-let perfMonitor: PerformanceMonitor | null = null;
-let lazyLoader: LazyImageLoader | null = null;
+// Monitor custom navigation timing
+function monitorNavigation() {
+  if (!('navigation' in performance.getEntriesByType('navigation')[0])) return;
 
-function initPerformanceMonitoring() {
-  // Always enable lazy loading
-  lazyLoader = new LazyImageLoader();
+  const nav = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
 
-  // Only enable performance monitoring in dev
   if (import.meta.env.DEV) {
-    perfMonitor = new PerformanceMonitor();
+    console.group('📊 Navigation Timing');
+    console.log('DNS:', (nav.domainLookupEnd - nav.domainLookupStart).toFixed(2), 'ms');
+    console.log('TCP:', (nav.connectEnd - nav.connectStart).toFixed(2), 'ms');
+    console.log('Request:', (nav.responseStart - nav.requestStart).toFixed(2), 'ms');
+    console.log('Response:', (nav.responseEnd - nav.responseStart).toFixed(2), 'ms');
+    console.log('DOM Processing:', (nav.domInteractive - nav.responseEnd).toFixed(2), 'ms');
+    console.log('DOM Complete:', (nav.domComplete - nav.domInteractive).toFixed(2), 'ms');
+    console.groupEnd();
   }
 }
 
-// Initialize on DOM ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initPerformanceMonitoring);
-} else {
-  initPerformanceMonitoring();
+// Initialize all monitors
+function init() {
+  // Wait for page to be interactive
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+    return;
+  }
+
+  // Start monitoring
+  monitorLCP();
+  monitorFID();
+  monitorCLS();
+  monitorTTFB();
+  monitorFCP();
+  monitorNavigation();
+
+  // Export metrics for debugging
+  if (import.meta.env.DEV) {
+    (window as any).__webVitals = {
+      getMetrics: () => metrics,
+      getLatest: () => metrics[metrics.length - 1],
+      getByName: (name: string) => metrics.filter(m => m.name === name)
+    };
+  }
 }
 
-// Re-initialize on Astro page transitions
-document.addEventListener('astro:page-load', initPerformanceMonitoring);
+// Run
+init();
 
-// Cleanup on page unload
-document.addEventListener('astro:before-preparation', () => {
-  if (perfMonitor) {
-    perfMonitor.destroy();
-    perfMonitor = null;
-  }
-
-  if (lazyLoader) {
-    lazyLoader.destroy();
-    lazyLoader = null;
-  }
-});
-
-// Export for manual access if needed
-export { PerformanceMonitor, LazyImageLoader };
+// Re-init on Astro page transitions
+document.addEventListener('astro:page-load', init);
